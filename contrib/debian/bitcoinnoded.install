@@ -1,0 +1,2 @@
+usr/local/bin/bitcoinnoded usr/bin
+usr/local/bin/bitcoinnode-cli usr/bin

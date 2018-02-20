@@ -1,0 +1,3 @@
+debian/manpages/bitcoinnoded.1
+debian/manpages/bitcoinnode.conf.5
+debian/manpages/bitcoinnode-cli.1

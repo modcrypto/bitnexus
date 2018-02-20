@@ -1,0 +1,22 @@
+[Unit]
+Description=BitcoinNode's distributed currency daemon
+After=network.target
+
+[Service]
+User=bitcoinnodecore
+Group=bitcoinnodecore
+
+Type=forking
+PIDFile=/var/lib/bitcoinnoded/bitcoinnoded.pid
+ExecStart=/usr/bin/bitcoinnoded -daemon -pid=/var/lib/bitcoinnoded/bitcoinnoded.pid \
+-conf=/etc/bitcoinnodecore/bitcoinnode.conf -datadir=/var/lib/bitcoinnoded -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
