@@ -2,7 +2,7 @@ BitcoinNode Core
 ===============================
 
 
-https://btnodes.online
+http://btnodes.online
 
 
 What is BitcoinNode?
@@ -33,7 +33,7 @@ Bitcoin Nodes (BTN) is a version of Bitcoin launched in 2018, with an alternativ
 7. Dark Gravity Wave
 
 
-Additional information, wallets, specifications & roadmap: https://btnodes.online
+Additional information, wallets, specifications & roadmap: http://btnodes.online
 
 
 License
