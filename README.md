@@ -2,7 +2,7 @@ BitcoinNode Core
 ===============================
 
 
-https://btnodes.com
+https://btnodes.online
 
 
 What is BitcoinNode?
@@ -14,7 +14,7 @@ Bitcoin Nodes (BTN) is a version of Bitcoin launched in 2018, with an alternativ
 
 1. Cryptographically secured
 2. Built on top of Bitcoin and Dash
-3. Master Nodes get 90% reward for their work.
+3. Master Nodes get 80% reward for their work.
 
 ### Highlights:
 
@@ -24,16 +24,16 @@ Bitcoin Nodes (BTN) is a version of Bitcoin launched in 2018, with an alternativ
 
 ### Specifications:
 
-1. Master Nodes 90% Block Reward
+1. Master Nodes 80% Block Reward
 2. Block time: 150 sec.
-3. Block reward 26 BTN. Decreases 8,33% YoY
+3. Block reward 50 BTN. Decreases 8,33% YoY  
 4. Supply: 21,000,000
 5. Required 1001 BTN for Master Node
 6. 1.0% Premine
 7. Dark Gravity Wave
 
 
-Additional information, wallets, specifications & roadmap: https://btnodes.com
+Additional information, wallets, specifications & roadmap: https://btnodes.online
 
 
 License
