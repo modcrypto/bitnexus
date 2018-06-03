@@ -28,7 +28,7 @@ Bitcoin Nodes (BTN) is a version of Bitcoin launched in 2018, with an alternativ
 2. Block time: 150 sec.
 3. Block reward 50 BTN. Decreases 8,33% YoY  
 4. Supply: 21,000,000
-5. Required 1001 BTN for Master Node
+5. Required 10,000 BTN for Master Node
 6. 1.0% Premine
 7. Dark Gravity Wave
 
