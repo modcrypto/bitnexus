@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'coincontroldialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -58,6 +58,7 @@ public:
     QHBoxLayout *horizontalLayoutPanel;
     QPushButton *pushButtonSelectAll;
     QPushButton *pushButtonToggleLock;
+    QPushButton *pushButtonLock1000;
     QRadioButton *radioTreeMode;
     QRadioButton *radioListMode;
     QLabel *labelLocked;
@@ -132,7 +133,7 @@ public:
         labelCoinControlAmount->setObjectName(QStringLiteral("labelCoinControlAmount"));
         labelCoinControlAmount->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlAmount->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlAmount->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlAmount->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlAmount->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl2->setWidget(0, QFormLayout::FieldRole, labelCoinControlAmount);
@@ -169,7 +170,7 @@ public:
         labelCoinControlFee->setObjectName(QStringLiteral("labelCoinControlFee"));
         labelCoinControlFee->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlFee->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlFee->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlFee->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl3->setWidget(0, QFormLayout::FieldRole, labelCoinControlFee);
@@ -208,7 +209,7 @@ public:
         labelCoinControlAfterFee->setObjectName(QStringLiteral("labelCoinControlAfterFee"));
         labelCoinControlAfterFee->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlAfterFee->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlAfterFee->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlAfterFee->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlAfterFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl4->setWidget(0, QFormLayout::FieldRole, labelCoinControlAfterFee);
@@ -225,7 +226,7 @@ public:
         labelCoinControlChange->setEnabled(false);
         labelCoinControlChange->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlChange->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlChange->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlChange->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlChange->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl4->setWidget(1, QFormLayout::FieldRole, labelCoinControlChange);
@@ -264,6 +265,11 @@ public:
         pushButtonToggleLock->setAutoDefault(false);
 
         horizontalLayoutPanel->addWidget(pushButtonToggleLock);
+
+        pushButtonLock1000 = new QPushButton(frame);
+        pushButtonLock1000->setObjectName(QStringLiteral("pushButtonLock1000"));
+
+        horizontalLayoutPanel->addWidget(pushButtonLock1000);
 
         radioTreeMode = new QRadioButton(frame);
         radioTreeMode->setObjectName(QStringLiteral("radioTreeMode"));
@@ -341,6 +347,10 @@ public:
         labelCoinControlChangeText->setText(QApplication::translate("CoinControlDialog", "Change:", 0));
         pushButtonSelectAll->setText(QApplication::translate("CoinControlDialog", "(un)select all", 0));
         pushButtonToggleLock->setText(QApplication::translate("CoinControlDialog", "toggle lock state", 0));
+#ifndef QT_NO_TOOLTIP
+        pushButtonLock1000->setToolTip(QApplication::translate("CoinControlDialog", "To lock all masternode item ", 0));
+#endif // QT_NO_TOOLTIP
+        pushButtonLock1000->setText(QApplication::translate("CoinControlDialog", "lock Master Node items", 0));
         radioTreeMode->setText(QApplication::translate("CoinControlDialog", "Tree mode", 0));
         radioListMode->setText(QApplication::translate("CoinControlDialog", "List mode", 0));
         labelLocked->setText(QApplication::translate("CoinControlDialog", "(1 locked)", 0));

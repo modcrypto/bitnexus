@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -23,6 +23,8 @@
 #include "instantx.h"
 #include "darksendconfig.h"
 #include "masternode-sync.h"
+#include "version.h"
+#include "rpcserver.h"
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
@@ -31,7 +33,7 @@
 
 #define ICON_OFFSET 16
 #define DECORATION_SIZE 54
-#define NUM_ITEMS 5
+#define NUM_ITEMS 8
 #define NUM_ITEMS_ADV 7
 
 class TxViewDelegate : public QAbstractItemDelegate
@@ -39,7 +41,7 @@ class TxViewDelegate : public QAbstractItemDelegate
     Q_OBJECT
 public:
     TxViewDelegate(const PlatformStyle *platformStyle):
-        QAbstractItemDelegate(), unit(BitcoinUnits::BTN),
+        QAbstractItemDelegate(), unit(BitcoinUnits::BTNX),
         platformStyle(platformStyle)
     {
 
@@ -158,9 +160,18 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
+    
+    ui->MessageLabel->setVisible(!fLiteMode);
 
     // that's it for litemode
     if(fLiteMode) return;
+
+    ui->MessageLabel->setTextInteractionFlags(Qt::TextBrowserInteraction);
+    ui->MessageLabel->setOpenExternalLinks(true);
+
+    timerMsg = new QTimer(this);
+    connect(timerMsg, SIGNAL(timeout()), this, SLOT(updateInformation()));
+    timerMsg->start(10000);
 
     // Disable any PS UI for masternode or when autobackup is disabled or failed for whatever reason
     if(fMasterNode || nWalletBackups <= 0){
@@ -180,7 +191,7 @@ OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) 
 
         timer = new QTimer(this);
         connect(timer, SIGNAL(timeout()), this, SLOT(privateSendStatus()));
-        timer->start(1000);
+        timer->start(2000);
     }
 }
 
@@ -192,10 +203,44 @@ void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 
 OverviewPage::~OverviewPage()
 {
+    if(!fLiteMode) disconnect(timerMsg, SIGNAL(timeout()), this, SLOT(updateInformation()));
     if(!fLiteMode && !fMasterNode) disconnect(timer, SIGNAL(timeout()), this, SLOT(privateSendStatus()));
     delete ui;
 }
 
+void OverviewPage::updateInformation(){
+    int nBlocks = clientModel->getNumBlocks();
+    int64_t tfork = 1529107200 - GetAdjustedTime();
+    int tday  = tfork / (60*60*24);
+    int thour = (tfork / (60*60))%24;
+    int tmin  = (tfork / (60))%60;
+    int tsec  = tfork %60;
+    
+    QString algo = "neoscrypt";
+
+    QString txt = tr("<h2>BitNexus Information</h2>\n<ul>"); 
+    txt += tr("<li>Current Version: <span style='color:#a00'> %1</span> </li>").arg(QString::fromStdString(FormatFullVersion())); 
+    if( nBlocks < SOFTFORK1_STARTBLOCK+100){
+       txt += tr("<li>Soft Fork Start Blocks: <span style='color:#a00'> %1</span> </li>").arg(SOFTFORK1_STARTBLOCK);
+    }
+    if( tfork < 0){
+       algo = "X16S"; 
+       if(tfork>-1000){
+         txt += tr("<li>Algorithm had changed to X16S.</li>");  
+       }
+    }else{
+       txt += tr("<li>Algorithm will be changed to X16S in <span style='color:#b00'> %1 days %2h:%3m:%4s </span> </li>").arg(tday).arg(thour).arg(tmin).arg(tsec);        
+    }
+    txt += tr("<li>Current Blocks: <span style='color:#a00'> %1</span> </li>").arg(nBlocks); 
+    txt += tr("<li>Difficulty: <span style='color:#a00'> %1</span> POW Algorithm: <span style='color:#a00'> %2</span> </li>").arg(GetDifficulty()).arg(algo); 
+    txt += tr("<li>Connection : <span style='color:#a00'> %1</span> </li>").arg( clientModel->getNumConnections()); 
+    txt += tr("<li>Master Nodes <span style='color:#a00'> %1</span><br> </li>").arg( clientModel->getMasternodeCountString()); 
+    txt += tr("<li>Official Website: <a href='http://www.btnodes.online/'>http://www.btnodes.online/</a> </li>"); 
+    txt += tr("<li>Block Explorer: <a href='http://explorer.btnodes.online/'>http://explorer.btnodes.online/</a> </li>"); 
+    txt += tr("<li>Github: <a href='https://github.com/modcrypto/bitnexus/'>https://github.com/modcrypto/bitnexus</a> </li>"); 
+    txt += tr("</ul>");
+    ui->MessageLabel->setText(txt);    
+}
 void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& anonymizedBalance, const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance)
 {
     currentBalance = balance;
@@ -233,6 +278,7 @@ void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmed
         cachedTxLocks = nCompleteTXLocks;
         ui->listTransactions->update();
     }
+    
 }
 
 // show/hide watch-only labels
@@ -272,7 +318,7 @@ void OverviewPage::setWalletModel(WalletModel *model)
     this->walletModel = model;
     if(model && model->getOptionsModel())
     {
-        // update the display unit, to not use the default ("BTN")
+        // update the display unit, to not use the default ("BTNX")
         updateDisplayUnit();
         // Keep up to date with wallet
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance(), model->getAnonymizedBalance(),
@@ -322,6 +368,7 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelPrivateSendSyncStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
+    updateInformation();
 }
 
 void OverviewPage::updatePrivateSendProgress()
@@ -438,14 +485,14 @@ void OverviewPage::updateAdvancedPSUI(bool fShowAdvancedPSUI) {
 
     if (fLiteMode) return;
 
-    ui->framePrivateSend->setVisible(true);
+    ui->framePrivateSend->setVisible(fShowAdvancedPSUI);
     ui->labelCompletitionText->setVisible(fShowAdvancedPSUI);
     ui->privateSendProgress->setVisible(fShowAdvancedPSUI);
     ui->labelSubmittedDenomText->setVisible(fShowAdvancedPSUI);
     ui->labelSubmittedDenom->setVisible(fShowAdvancedPSUI);
     ui->privateSendAuto->setVisible(fShowAdvancedPSUI);
     ui->privateSendReset->setVisible(fShowAdvancedPSUI);
-    ui->privateSendInfo->setVisible(true);
+    ui->privateSendInfo->setVisible(fShowAdvancedPSUI);
     ui->labelPrivateSendLastMessage->setVisible(fShowAdvancedPSUI);
 }
 

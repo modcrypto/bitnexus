@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'uritests.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.1. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,20 +19,21 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_URITests_t {
     QByteArrayData data[3];
-    char stringdata[20];
+    char stringdata0[19];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_URITests_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_URITests_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_URITests_t qt_meta_stringdata_URITests = {
     {
-QT_MOC_LITERAL(0, 0, 8),
-QT_MOC_LITERAL(1, 9, 8),
-QT_MOC_LITERAL(2, 18, 0)
+QT_MOC_LITERAL(0, 0, 8), // "URITests"
+QT_MOC_LITERAL(1, 9, 8), // "uriTests"
+QT_MOC_LITERAL(2, 18, 0) // ""
+
     },
-    "URITests\0uriTests\0\0"
+    "URITests\0uriTests\0"
 };
 #undef QT_MOC_LITERAL
 
@@ -50,7 +51,7 @@ static const uint qt_meta_data_URITests[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   19,    2, 0x08,
+       1,    0,   19,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -62,6 +63,7 @@ void URITests::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         URITests *_t = static_cast<URITests *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->uriTests(); break;
         default: ;
@@ -72,7 +74,7 @@ void URITests::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
 
 const QMetaObject URITests::staticMetaObject = {
     { &QObject::staticMetaObject, qt_meta_stringdata_URITests.data,
-      qt_meta_data_URITests,  qt_static_metacall, 0, 0}
+      qt_meta_data_URITests,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -83,8 +85,8 @@ const QMetaObject *URITests::metaObject() const
 
 void *URITests::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_URITests.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_URITests.stringdata0))
         return static_cast<void*>(const_cast< URITests*>(this));
     return QObject::qt_metacast(_clname);
 }

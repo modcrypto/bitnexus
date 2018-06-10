@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'receivecoinsdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -65,8 +65,7 @@ public:
     {
         if (ReceiveCoinsDialog->objectName().isEmpty())
             ReceiveCoinsDialog->setObjectName(QStringLiteral("ReceiveCoinsDialog"));
-        ReceiveCoinsDialog->resize(776, 438);
-        ReceiveCoinsDialog->setStyleSheet(QStringLiteral(""));
+        ReceiveCoinsDialog->resize(776, 387);
         verticalLayout = new QVBoxLayout(ReceiveCoinsDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         frame2 = new QFrame(ReceiveCoinsDialog);
@@ -257,14 +256,14 @@ public:
         reuseAddress->setText(QApplication::translate("ReceiveCoinsDialog", "R&euse an existing receiving address (not recommended)", 0));
         label_4->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        label_3->setToolTip(QApplication::translate("ReceiveCoinsDialog", "An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the BitcoinNode network.", 0));
+        label_3->setToolTip(QApplication::translate("ReceiveCoinsDialog", "An optional message to attach to the payment request, which will be displayed when the request is opened. Note: The message will not be sent with the payment over the BitNexus network.", 0));
 #endif // QT_NO_TOOLTIP
         label_3->setText(QApplication::translate("ReceiveCoinsDialog", "&Message:", 0));
 #ifndef QT_NO_TOOLTIP
         reqLabel->setToolTip(QApplication::translate("ReceiveCoinsDialog", "An optional label to associate with the new receiving address.", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
-        reqMessage->setToolTip(QApplication::translate("ReceiveCoinsDialog", "An optional message to attach to the payment request, which will be displayed when the request is opened.<br>Note: The message will not be sent with the payment over the BitcoinNode network.", 0));
+        reqMessage->setToolTip(QApplication::translate("ReceiveCoinsDialog", "An optional message to attach to the payment request, which will be displayed when the request is opened.<br>Note: The message will not be sent with the payment over the BitNexus network.", 0));
 #endif // QT_NO_TOOLTIP
         label_5->setText(QApplication::translate("ReceiveCoinsDialog", "Use this form to request payments. All fields are <b>optional</b>.", 0));
 #ifndef QT_NO_TOOLTIP

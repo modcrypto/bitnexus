@@ -1,7 +1,7 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -85,8 +85,8 @@ public:
         consensus.BIP34Height = 227931; // FIX
         consensus.BIP34Hash = uint256S("0x000000000000024b89b42a942fe0d9fea3bb44ab7bd1b19115dd6a759c0808b8"); // FIX
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 60 * 60; // BitcoinNode: 1 hour, 24 blocks
-        consensus.nPowTargetSpacing = 2.5 * 60; // BitcoinNode: 150 seconds
+        consensus.nPowTargetTimespan = 60 * 60; // BitNexus: 1 hour, 24 blocks
+        consensus.nPowTargetSpacing = 2.5 * 60; // BitNexus: will change from 150 to 120 seconds
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
@@ -110,7 +110,9 @@ public:
         pchMessageStart[2] = 0xc3;
         pchMessageStart[3] = 0xd4;
 
-        vAlertPubKey = ParseHex("040d854d291f338caf9deb0ef8dbb3058310e82c05b8840e39633946372bc4702f4424daa234272d89a8047a257884263aa0c0a1a27be859e1a7ea69273b1e3753");
+       // vAlertPubKey = ParseHex("040d854d291f338caf9deb0ef8dbb3058310e82c05b8840e39633946372bc4702f4424daa234272d89a8047a257884263aa0c0a1a27be859e1a7ea69273b1e3753");
+        vAlertPubKey = ParseHex("04a88ea95c9148d71d87f995fa3593ce7e15de1db7cf78efbd01ed2d2cdc3a962fea05b030b4e6ffbfa981236d06efb4bf22eaa5baf68260e70c4446f2c22e0627");
+
         nDefaultPort = 6161;
         nMaxTipAge = 6 * 60 * 60; // ~144 blocks behind -> 2 x fork detection time, was 24 * 60 * 60 in bitcoin
         nPruneAfterHeight = 100000;
@@ -123,17 +125,20 @@ public:
 
 
         vSeeds.clear();
-        // BitcoinNode addresses start with 'B'
+        vSeeds.push_back(CDNSSeedData("btnodes.online", "seed1.btnodes.online"));
+        vSeeds.push_back(CDNSSeedData("btnodes.online", "seed2.btnodes.online"));
+        vSeeds.push_back(CDNSSeedData("btnodes.online", "seed3.btnodes.online"));
+        // BitNexus addresses start with 'B'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,25);
-        // BitcoinNode script addresses start with '5'
+        // BitNexus script addresses start with '5'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,10);
-        // BitcoinNode private keys start with '5' or 'G' (?)
+        // BitNexus private keys start with '5' or 'G' (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,198);
-        // BitcoinNode BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
+        // BitNexus BIP32 pubkeys start with 'xpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x88)(0xB2)(0x1E).convert_to_container<std::vector<unsigned char> >();
-        // BitcoinNode BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
+        // BitNexus BIP32 prvkeys start with 'xprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x88)(0xAD)(0xE4).convert_to_container<std::vector<unsigned char> >();
-        // BitcoinNode BIP44 coin type is '5'
+        // BitNexus BIP44 coin type is '5'
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x05).convert_to_container<std::vector<unsigned char> >();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_main, pnSeed6_main + ARRAYLEN(pnSeed6_main));
@@ -188,8 +193,8 @@ public:
         consensus.BIP34Height = 21111; // FIX
         consensus.BIP34Hash = uint256S("0x0000000023b3a96d3484e5abb3755c413e7d41500f8e2a5c3f0dd01299cd8ef8"); // FIX
         consensus.powLimit = uint256S("00000fffff000000000000000000000000000000000000000000000000000000");
-        consensus.nPowTargetTimespan = 60 * 60; // BitcoinNode: 1 hour, 24 blocks
-        consensus.nPowTargetSpacing = 2.5 * 60; // BitcoinNode: 150 seconds
+        consensus.nPowTargetTimespan = 60 * 60; // BitNexus: 1 hour, 24 blocks
+        consensus.nPowTargetSpacing = 2.5 * 60; // BitNexus: 150 seconds
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 1512; // 75% for testchains
@@ -220,20 +225,20 @@ public:
 
         vFixedSeeds.clear();
         vSeeds.clear();
-        //vSeeds.push_back(CDNSSeedData("bitcoinnode.network",  "testnet-dns.bitcoinnode.network"));
-        //vSeeds.push_back(CDNSSeedData("bitcoinnode.network",  "testnet2-dns.bitcoinnode.network"));
+        //vSeeds.push_back(CDNSSeedData("bitnexus.network",  "testnet-dns.bitnexus.network"));
+        //vSeeds.push_back(CDNSSeedData("bitnexus.network",  "testnet2-dns.bitnexus.network"));
 
-        // Testnet BitcoinNode addresses start with 'n'
+        // Testnet BitNexus addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
-        // Testnet BitcoinNode script addresses start with '9'
+        // Testnet BitNexus script addresses start with '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,20);
         // Testnet private keys start with '9' or 'c' (Bitcoin defaults) (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
-        // Testnet BitcoinNode BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Testnet BitNexus BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Testnet BitcoinNode BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Testnet BitNexus BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Testnet BitcoinNode BIP44 coin type is '1' (All coin's testnet default)
+        // Testnet BitNexus BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
 
         vFixedSeeds = std::vector<SeedSpec6>(pnSeed6_test, pnSeed6_test + ARRAYLEN(pnSeed6_test));
@@ -290,8 +295,8 @@ public:
         consensus.BIP34Height = -1; // BIP34 has not necessarily activated on regtest
         consensus.BIP34Hash = uint256();
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 60 * 60; // BitcoinNode: 1 hour, 24 blocks
-        consensus.nPowTargetSpacing = 2.5 * 60; // BitcoinNode: 150 seconds
+        consensus.nPowTargetTimespan = 60 * 60; // BitNexus: 1 hour, 24 blocks
+        consensus.nPowTargetSpacing = 2.5 * 60; // BitNexus: 150 seconds
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 108; // 75% for testchains
@@ -335,17 +340,17 @@ public:
             0,
             0
         };
-        // Regtest BitcoinNode addresses start with 'n'
+        // Regtest BitNexus addresses start with 'n'
         base58Prefixes[PUBKEY_ADDRESS] = std::vector<unsigned char>(1,112);
-        // Regtest BitcoinNode script addresses start with '9'
+        // Regtest BitNexus script addresses start with '9'
         base58Prefixes[SCRIPT_ADDRESS] = std::vector<unsigned char>(1,20);
         // Regtest private keys start with '9' or 'c' (Bitcoin defaults) (?)
         base58Prefixes[SECRET_KEY] =     std::vector<unsigned char>(1,240);
-        // Regtest BitcoinNode BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
+        // Regtest BitNexus BIP32 pubkeys start with 'tpub' (Bitcoin defaults)
         base58Prefixes[EXT_PUBLIC_KEY] = boost::assign::list_of(0x04)(0x35)(0x87)(0xCF).convert_to_container<std::vector<unsigned char> >();
-        // Regtest BitcoinNode BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
+        // Regtest BitNexus BIP32 prvkeys start with 'tprv' (Bitcoin defaults)
         base58Prefixes[EXT_SECRET_KEY] = boost::assign::list_of(0x04)(0x35)(0x83)(0x94).convert_to_container<std::vector<unsigned char> >();
-        // Regtest BitcoinNode BIP44 coin type is '1' (All coin's testnet default)
+        // Regtest BitNexus BIP44 coin type is '1' (All coin's testnet default)
         base58Prefixes[EXT_COIN_TYPE]  = boost::assign::list_of(0x80)(0x00)(0x00)(0x01).convert_to_container<std::vector<unsigned char> >();
    }
 };

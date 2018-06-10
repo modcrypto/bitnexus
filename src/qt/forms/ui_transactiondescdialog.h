@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'transactiondescdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,7 +33,6 @@ public:
         if (TransactionDescDialog->objectName().isEmpty())
             TransactionDescDialog->setObjectName(QStringLiteral("TransactionDescDialog"));
         TransactionDescDialog->resize(620, 250);
-        TransactionDescDialog->setStyleSheet(QStringLiteral(""));
         verticalLayout = new QVBoxLayout(TransactionDescDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         detailText = new QTextEdit(TransactionDescDialog);

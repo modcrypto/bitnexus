@@ -9,7 +9,7 @@
 #include "checkpoints.h"
 
 #include "uint256.h"
-#include "test/test_bitcoinnode.h"
+#include "test/test_bitnexus.h"
 #include "chainparams.h"
 
 #include <boost/test/unit_test.hpp>

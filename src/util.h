@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
-// Copyright (c) 2014-2017 The BitcoinNode Core developers
+// Copyright (c) 2014-2017 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,7 +12,7 @@
 #define BITCOIN_UTIL_H
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoinnode-config.h"
+#include "config/bitnexus-config.h"
 #endif
 
 #include "compat.h"
@@ -41,7 +41,7 @@
 #define DBG( x ) 
 #endif
 
-//BitcoinNode only features
+//BitNexus only features
 
 extern bool fMasterNode;
 extern bool fLiteMode;
@@ -248,7 +248,7 @@ std::string GetThreadName();
  */
 template <typename Callable> void TraceThread(const char* name,  Callable func)
 {
-    std::string s = strprintf("bitcoinnode-%s", name);
+    std::string s = strprintf("bitnexus-%s", name);
     RenameThread(s.c_str());
     try
     {

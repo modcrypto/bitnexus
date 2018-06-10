@@ -11,50 +11,52 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'coincontroldialog.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_CoinControlDialog_t {
-    QByteArrayData data[27];
-    char stringdata[416];
+    QByteArrayData data[28];
+    char stringdata0[437];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_CoinControlDialog_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_CoinControlDialog_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_CoinControlDialog_t qt_meta_stringdata_CoinControlDialog = {
     {
-QT_MOC_LITERAL(0, 0, 17),
-QT_MOC_LITERAL(1, 18, 8),
-QT_MOC_LITERAL(2, 27, 0),
-QT_MOC_LITERAL(3, 28, 10),
-QT_MOC_LITERAL(4, 39, 9),
-QT_MOC_LITERAL(5, 49, 11),
-QT_MOC_LITERAL(6, 61, 19),
-QT_MOC_LITERAL(7, 81, 8),
-QT_MOC_LITERAL(8, 90, 10),
-QT_MOC_LITERAL(9, 101, 17),
-QT_MOC_LITERAL(10, 119, 15),
-QT_MOC_LITERAL(11, 135, 12),
-QT_MOC_LITERAL(12, 148, 17),
-QT_MOC_LITERAL(13, 166, 14),
-QT_MOC_LITERAL(14, 181, 17),
-QT_MOC_LITERAL(15, 199, 18),
-QT_MOC_LITERAL(16, 218, 15),
-QT_MOC_LITERAL(17, 234, 13),
-QT_MOC_LITERAL(18, 248, 13),
-QT_MOC_LITERAL(19, 262, 15),
-QT_MOC_LITERAL(20, 278, 16),
-QT_MOC_LITERAL(21, 295, 20),
-QT_MOC_LITERAL(22, 316, 16),
-QT_MOC_LITERAL(23, 333, 16),
-QT_MOC_LITERAL(24, 350, 22),
-QT_MOC_LITERAL(25, 373, 23),
-QT_MOC_LITERAL(26, 397, 17)
+QT_MOC_LITERAL(0, 0, 17), // "CoinControlDialog"
+QT_MOC_LITERAL(1, 18, 8), // "showMenu"
+QT_MOC_LITERAL(2, 27, 0), // ""
+QT_MOC_LITERAL(3, 28, 10), // "copyAmount"
+QT_MOC_LITERAL(4, 39, 9), // "copyLabel"
+QT_MOC_LITERAL(5, 49, 11), // "copyAddress"
+QT_MOC_LITERAL(6, 61, 19), // "copyTransactionHash"
+QT_MOC_LITERAL(7, 81, 8), // "lockCoin"
+QT_MOC_LITERAL(8, 90, 10), // "unlockCoin"
+QT_MOC_LITERAL(9, 101, 17), // "clipboardQuantity"
+QT_MOC_LITERAL(10, 119, 15), // "clipboardAmount"
+QT_MOC_LITERAL(11, 135, 12), // "clipboardFee"
+QT_MOC_LITERAL(12, 148, 17), // "clipboardAfterFee"
+QT_MOC_LITERAL(13, 166, 14), // "clipboardBytes"
+QT_MOC_LITERAL(14, 181, 17), // "clipboardPriority"
+QT_MOC_LITERAL(15, 199, 18), // "clipboardLowOutput"
+QT_MOC_LITERAL(16, 218, 15), // "clipboardChange"
+QT_MOC_LITERAL(17, 234, 13), // "radioTreeMode"
+QT_MOC_LITERAL(18, 248, 13), // "radioListMode"
+QT_MOC_LITERAL(19, 262, 15), // "viewItemChanged"
+QT_MOC_LITERAL(20, 278, 16), // "QTreeWidgetItem*"
+QT_MOC_LITERAL(21, 295, 20), // "headerSectionClicked"
+QT_MOC_LITERAL(22, 316, 16), // "buttonBoxClicked"
+QT_MOC_LITERAL(23, 333, 16), // "QAbstractButton*"
+QT_MOC_LITERAL(24, 350, 22), // "buttonSelectAllClicked"
+QT_MOC_LITERAL(25, 373, 23), // "buttonToggleLockClicked"
+QT_MOC_LITERAL(26, 397, 17), // "updateLabelLocked"
+QT_MOC_LITERAL(27, 415, 21) // "buttonLock1000Clicked"
+
     },
     "CoinControlDialog\0showMenu\0\0copyAmount\0"
     "copyLabel\0copyAddress\0copyTransactionHash\0"
@@ -67,7 +69,7 @@ QT_MOC_LITERAL(26, 397, 17)
     "QTreeWidgetItem*\0headerSectionClicked\0"
     "buttonBoxClicked\0QAbstractButton*\0"
     "buttonSelectAllClicked\0buttonToggleLockClicked\0"
-    "updateLabelLocked\0"
+    "updateLabelLocked\0buttonLock1000Clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -77,7 +79,7 @@ static const uint qt_meta_data_CoinControlDialog[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      24,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -85,29 +87,30 @@ static const uint qt_meta_data_CoinControlDialog[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  129,    2, 0x08,
-       3,    0,  132,    2, 0x08,
-       4,    0,  133,    2, 0x08,
-       5,    0,  134,    2, 0x08,
-       6,    0,  135,    2, 0x08,
-       7,    0,  136,    2, 0x08,
-       8,    0,  137,    2, 0x08,
-       9,    0,  138,    2, 0x08,
-      10,    0,  139,    2, 0x08,
-      11,    0,  140,    2, 0x08,
-      12,    0,  141,    2, 0x08,
-      13,    0,  142,    2, 0x08,
-      14,    0,  143,    2, 0x08,
-      15,    0,  144,    2, 0x08,
-      16,    0,  145,    2, 0x08,
-      17,    1,  146,    2, 0x08,
-      18,    1,  149,    2, 0x08,
-      19,    2,  152,    2, 0x08,
-      21,    1,  157,    2, 0x08,
-      22,    1,  160,    2, 0x08,
-      24,    0,  163,    2, 0x08,
-      25,    0,  164,    2, 0x08,
-      26,    0,  165,    2, 0x08,
+       1,    1,  134,    2, 0x08 /* Private */,
+       3,    0,  137,    2, 0x08 /* Private */,
+       4,    0,  138,    2, 0x08 /* Private */,
+       5,    0,  139,    2, 0x08 /* Private */,
+       6,    0,  140,    2, 0x08 /* Private */,
+       7,    0,  141,    2, 0x08 /* Private */,
+       8,    0,  142,    2, 0x08 /* Private */,
+       9,    0,  143,    2, 0x08 /* Private */,
+      10,    0,  144,    2, 0x08 /* Private */,
+      11,    0,  145,    2, 0x08 /* Private */,
+      12,    0,  146,    2, 0x08 /* Private */,
+      13,    0,  147,    2, 0x08 /* Private */,
+      14,    0,  148,    2, 0x08 /* Private */,
+      15,    0,  149,    2, 0x08 /* Private */,
+      16,    0,  150,    2, 0x08 /* Private */,
+      17,    1,  151,    2, 0x08 /* Private */,
+      18,    1,  154,    2, 0x08 /* Private */,
+      19,    2,  157,    2, 0x08 /* Private */,
+      21,    1,  162,    2, 0x08 /* Private */,
+      22,    1,  165,    2, 0x08 /* Private */,
+      24,    0,  168,    2, 0x08 /* Private */,
+      25,    0,  169,    2, 0x08 /* Private */,
+      26,    0,  170,    2, 0x08 /* Private */,
+      27,    0,  171,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QPoint,    2,
@@ -133,6 +136,7 @@ static const uint qt_meta_data_CoinControlDialog[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -141,6 +145,7 @@ void CoinControlDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         CoinControlDialog *_t = static_cast<CoinControlDialog *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->showMenu((*reinterpret_cast< const QPoint(*)>(_a[1]))); break;
         case 1: _t->copyAmount(); break;
@@ -165,6 +170,7 @@ void CoinControlDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         case 20: _t->buttonSelectAllClicked(); break;
         case 21: _t->buttonToggleLockClicked(); break;
         case 22: _t->updateLabelLocked(); break;
+        case 23: _t->buttonLock1000Clicked(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -183,7 +189,7 @@ void CoinControlDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
 
 const QMetaObject CoinControlDialog::staticMetaObject = {
     { &QDialog::staticMetaObject, qt_meta_stringdata_CoinControlDialog.data,
-      qt_meta_data_CoinControlDialog,  qt_static_metacall, 0, 0}
+      qt_meta_data_CoinControlDialog,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -194,8 +200,8 @@ const QMetaObject *CoinControlDialog::metaObject() const
 
 void *CoinControlDialog::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_CoinControlDialog.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_CoinControlDialog.stringdata0))
         return static_cast<void*>(const_cast< CoinControlDialog*>(this));
     return QDialog::qt_metacast(_clname);
 }
@@ -206,13 +212,13 @@ int CoinControlDialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 24;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 24)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 24;
     }
     return _id;
 }

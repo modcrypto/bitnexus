@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -32,6 +32,7 @@
 #include "instantx.h"
 #include "keepass.h"
 #include "spork.h"
+#include "masternodeman.h"
 
 #include <assert.h>
 
@@ -2114,13 +2115,13 @@ void CWallet::AvailableCoins(vector<COutput>& vCoins, bool fOnlyConfirmed, const
                 if(nCoinType == ONLY_DENOMINATED) {
                     found = IsDenominatedAmount(pcoin->vout[i].nValue);
                 } else if(nCoinType == ONLY_NOT1000IFMN) {
-                    found = !(fMasterNode && pcoin->vout[i].nValue == 10000 * COIN);
+                    found = !(fMasterNode && mnodeman.IsValidCollateral(pcoin->vout[i].nValue));
                 } else if(nCoinType == ONLY_NONDENOMINATED_NOT1000IFMN) {
                     if (IsCollateralAmount(pcoin->vout[i].nValue)) continue; // do not use collateral amounts
                     found = !IsDenominatedAmount(pcoin->vout[i].nValue);
-                    if(found && fMasterNode) found = pcoin->vout[i].nValue != 10000 * COIN; // do not use Hot MN funds
+                    if(found && fMasterNode) found = !mnodeman.IsValidCollateral(pcoin->vout[i].nValue); // do not use Hot MN funds
                 } else if(nCoinType == ONLY_1000) {
-                    found = pcoin->vout[i].nValue == 10000 * COIN;
+                    found = mnodeman.IsValidCollateral(pcoin->vout[i].nValue);
                 } else if(nCoinType == ONLY_PRIVATESEND_COLLATERAL) {
                     found = IsCollateralAmount(pcoin->vout[i].nValue);
                 } else {
@@ -2593,7 +2594,7 @@ bool CWallet::SelectCoinsGrouppedByAddresses(std::vector<CompactTallyItem>& vecT
             if(fAnonymizable) {
                 // ignore collaterals
                 if(IsCollateralAmount(wtx.vout[i].nValue)) continue;
-                if(fMasterNode && wtx.vout[i].nValue == 10000 * COIN) continue;
+                if(fMasterNode && mnodeman.IsValidCollateral( wtx.vout[i].nValue)) continue;
                 // ignore outputs that are 10 times smaller then the smallest denomination
                 // otherwise they will just lead to higher fee / lower priority
                 if(wtx.vout[i].nValue <= vecPrivateSendDenominations.back()/10) continue;
@@ -2657,7 +2658,7 @@ bool CWallet::SelectCoinsDark(CAmount nValueMin, CAmount nValueMax, std::vector<
         if(out.tx->vout[out.i].nValue < nValueMin/10) continue;
         //do not allow collaterals to be selected
         if(IsCollateralAmount(out.tx->vout[out.i].nValue)) continue;
-        if(fMasterNode && out.tx->vout[out.i].nValue == 10000 * COIN) continue; //masternode input
+        if(fMasterNode && mnodeman.IsValidCollateral(out.tx->vout[out.i].nValue)) continue; //masternode input
 
         if(nValueRet + out.tx->vout[out.i].nValue <= nValueMax){
             CTxIn txin = CTxIn(out.tx->GetHash(),out.i);
@@ -3052,7 +3053,7 @@ bool CWallet::CreateTransaction(const vector<CRecipient>& vecSend, CWalletTx& wt
 
                         // Fill a vout to ourself
                         // TODO: pass in scriptChange instead of reservekey so
-                        // change transaction isn't always pay-to-bitcoinnode-address
+                        // change transaction isn't always pay-to-bitnexus-address
                         CScript scriptChange;
 
                         // coin control: send change to custom address

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'openuridialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -41,8 +41,7 @@ public:
     {
         if (OpenURIDialog->objectName().isEmpty())
             OpenURIDialog->setObjectName(QStringLiteral("OpenURIDialog"));
-        OpenURIDialog->resize(564, 131);
-        OpenURIDialog->setStyleSheet(QStringLiteral(""));
+        OpenURIDialog->resize(564, 109);
         verticalLayout = new QVBoxLayout(OpenURIDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label_2 = new QLabel(OpenURIDialog);

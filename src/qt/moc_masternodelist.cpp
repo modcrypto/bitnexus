@@ -11,41 +11,49 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'masternodelist.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MasternodeList_t {
-    QByteArrayData data[18];
-    char stringdata[332];
+    QByteArrayData data[25];
+    char stringdata0[517];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_MasternodeList_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_MasternodeList_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_MasternodeList_t qt_meta_stringdata_MasternodeList = {
     {
-QT_MOC_LITERAL(0, 0, 14),
-QT_MOC_LITERAL(1, 15, 22),
-QT_MOC_LITERAL(2, 38, 0),
-QT_MOC_LITERAL(3, 39, 8),
-QT_MOC_LITERAL(4, 48, 7),
-QT_MOC_LITERAL(5, 56, 18),
-QT_MOC_LITERAL(6, 75, 6),
-QT_MOC_LITERAL(7, 82, 16),
-QT_MOC_LITERAL(8, 99, 6),
-QT_MOC_LITERAL(9, 106, 14),
-QT_MOC_LITERAL(10, 121, 15),
-QT_MOC_LITERAL(11, 137, 29),
-QT_MOC_LITERAL(12, 167, 11),
-QT_MOC_LITERAL(13, 179, 22),
-QT_MOC_LITERAL(14, 202, 25),
-QT_MOC_LITERAL(15, 228, 29),
-QT_MOC_LITERAL(16, 258, 48),
-QT_MOC_LITERAL(17, 307, 23)
+QT_MOC_LITERAL(0, 0, 14), // "MasternodeList"
+QT_MOC_LITERAL(1, 15, 22), // "updateMyMasternodeInfo"
+QT_MOC_LITERAL(2, 38, 0), // ""
+QT_MOC_LITERAL(3, 39, 8), // "strAlias"
+QT_MOC_LITERAL(4, 48, 7), // "strAddr"
+QT_MOC_LITERAL(5, 56, 18), // "masternode_info_t&"
+QT_MOC_LITERAL(6, 75, 6), // "infoMn"
+QT_MOC_LITERAL(7, 82, 16), // "updateMyNodeList"
+QT_MOC_LITERAL(8, 99, 6), // "fForce"
+QT_MOC_LITERAL(9, 106, 14), // "updateNodeList"
+QT_MOC_LITERAL(10, 121, 15), // "showContextMenu"
+QT_MOC_LITERAL(11, 137, 29), // "on_filterLineEdit_textChanged"
+QT_MOC_LITERAL(12, 167, 11), // "strFilterIn"
+QT_MOC_LITERAL(13, 179, 22), // "on_startButton_clicked"
+QT_MOC_LITERAL(14, 202, 25), // "on_startAllButton_clicked"
+QT_MOC_LITERAL(15, 228, 29), // "on_startMissingButton_clicked"
+QT_MOC_LITERAL(16, 258, 48), // "on_tableWidgetMyMasternodes_i..."
+QT_MOC_LITERAL(17, 307, 23), // "on_UpdateButton_clicked"
+QT_MOC_LITERAL(18, 331, 24), // "on_ButtonSaveAll_clicked"
+QT_MOC_LITERAL(19, 356, 27), // "on_ButtonSaveConfig_clicked"
+QT_MOC_LITERAL(20, 384, 27), // "on_ButtonSaveMaster_clicked"
+QT_MOC_LITERAL(21, 412, 26), // "on_ButtonAddMaster_clicked"
+QT_MOC_LITERAL(22, 439, 25), // "on_ButtonDocument_clicked"
+QT_MOC_LITERAL(23, 465, 25), // "on_DocumentConfig_changed"
+QT_MOC_LITERAL(24, 491, 25) // "on_DocumentMaster_changed"
+
     },
     "MasternodeList\0updateMyMasternodeInfo\0"
     "\0strAlias\0strAddr\0masternode_info_t&\0"
@@ -56,6 +64,13 @@ QT_MOC_LITERAL(17, 307, 23)
     "on_startMissingButton_clicked\0"
     "on_tableWidgetMyMasternodes_itemSelectionChanged\0"
     "on_UpdateButton_clicked\0"
+    "on_ButtonSaveAll_clicked\0"
+    "on_ButtonSaveConfig_clicked\0"
+    "on_ButtonSaveMaster_clicked\0"
+    "on_ButtonAddMaster_clicked\0"
+    "on_ButtonDocument_clicked\0"
+    "on_DocumentConfig_changed\0"
+    "on_DocumentMaster_changed"
 };
 #undef QT_MOC_LITERAL
 
@@ -65,7 +80,7 @@ static const uint qt_meta_data_MasternodeList[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      18,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -73,17 +88,24 @@ static const uint qt_meta_data_MasternodeList[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    3,   69,    2, 0x0a,
-       7,    1,   76,    2, 0x0a,
-       7,    0,   79,    2, 0x2a,
-       9,    0,   80,    2, 0x0a,
-      10,    1,   81,    2, 0x08,
-      11,    1,   84,    2, 0x08,
-      13,    0,   87,    2, 0x08,
-      14,    0,   88,    2, 0x08,
-      15,    0,   89,    2, 0x08,
-      16,    0,   90,    2, 0x08,
-      17,    0,   91,    2, 0x08,
+       1,    3,  104,    2, 0x0a /* Public */,
+       7,    1,  111,    2, 0x0a /* Public */,
+       7,    0,  114,    2, 0x2a /* Public | MethodCloned */,
+       9,    0,  115,    2, 0x0a /* Public */,
+      10,    1,  116,    2, 0x08 /* Private */,
+      11,    1,  119,    2, 0x08 /* Private */,
+      13,    0,  122,    2, 0x08 /* Private */,
+      14,    0,  123,    2, 0x08 /* Private */,
+      15,    0,  124,    2, 0x08 /* Private */,
+      16,    0,  125,    2, 0x08 /* Private */,
+      17,    0,  126,    2, 0x08 /* Private */,
+      18,    0,  127,    2, 0x08 /* Private */,
+      19,    0,  128,    2, 0x08 /* Private */,
+      20,    0,  129,    2, 0x08 /* Private */,
+      21,    0,  130,    2, 0x08 /* Private */,
+      22,    0,  131,    2, 0x08 /* Private */,
+      23,    0,  132,    2, 0x08 /* Private */,
+      24,    0,  133,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString, QMetaType::QString, 0x80000000 | 5,    3,    4,    6,
@@ -97,6 +119,13 @@ static const uint qt_meta_data_MasternodeList[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
 
        0        // eod
 };
@@ -105,6 +134,7 @@ void MasternodeList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         MasternodeList *_t = static_cast<MasternodeList *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->updateMyMasternodeInfo((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< masternode_info_t(*)>(_a[3]))); break;
         case 1: _t->updateMyNodeList((*reinterpret_cast< bool(*)>(_a[1]))); break;
@@ -117,6 +147,13 @@ void MasternodeList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
         case 8: _t->on_startMissingButton_clicked(); break;
         case 9: _t->on_tableWidgetMyMasternodes_itemSelectionChanged(); break;
         case 10: _t->on_UpdateButton_clicked(); break;
+        case 11: _t->on_ButtonSaveAll_clicked(); break;
+        case 12: _t->on_ButtonSaveConfig_clicked(); break;
+        case 13: _t->on_ButtonSaveMaster_clicked(); break;
+        case 14: _t->on_ButtonAddMaster_clicked(); break;
+        case 15: _t->on_ButtonDocument_clicked(); break;
+        case 16: _t->on_DocumentConfig_changed(); break;
+        case 17: _t->on_DocumentMaster_changed(); break;
         default: ;
         }
     }
@@ -124,7 +161,7 @@ void MasternodeList::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 
 const QMetaObject MasternodeList::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_MasternodeList.data,
-      qt_meta_data_MasternodeList,  qt_static_metacall, 0, 0}
+      qt_meta_data_MasternodeList,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -135,8 +172,8 @@ const QMetaObject *MasternodeList::metaObject() const
 
 void *MasternodeList::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_MasternodeList.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_MasternodeList.stringdata0))
         return static_cast<void*>(const_cast< MasternodeList*>(this));
     return QWidget::qt_metacast(_clname);
 }
@@ -147,13 +184,13 @@ int MasternodeList::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 18)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 18;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 18)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 11;
+        _id -= 18;
     }
     return _id;
 }

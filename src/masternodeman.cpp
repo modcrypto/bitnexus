@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -79,13 +79,17 @@ void CMasternodeIndex::Clear()
     mapReverseIndex.clear();
     nSize = 0;
 }
+
 struct CompareByAddr
 
 {
     bool operator()(const CMasternode* t1,
                     const CMasternode* t2) const
     {
-        return t1->addr < t2->addr;
+        if(t1->addr < t2->addr) return true;
+        if(t2->addr < t1->addr) return false;
+        return t1->pubKeyMasternode < t2->pubKeyMasternode;
+       //return t1->addr < t2->addr;     
     }
 };
 
@@ -803,7 +807,7 @@ std::pair<CService, std::set<uint256> > CMasternodeMan::PopScheduledMnbRequestCo
 
 void CMasternodeMan::ProcessMessage(CNode* pfrom, std::string& strCommand, CDataStream& vRecv)
 {
-    if(fLiteMode) return; // disable all BitcoinNode specific functionality
+    if(fLiteMode) return; // disable all BitNexus specific functionality
     if(!masternodeSync.IsBlockchainSynced()) return;
 
     if (strCommand == NetMsgType::MNANNOUNCE) { //Masternode Broadcast
@@ -1072,6 +1076,8 @@ void CMasternodeMan::CheckSameAddr()
                     vBan.push_back(pprevMasternode);
                     // and keep a reference to be able to ban following masternodes with the same ip
                     pverifiedMasternode = pmn;
+                }else{
+                    vBan.push_back(pmn);
                 }
             } else {
                 pverifiedMasternode = pmn->IsPoSeVerified() ? pmn : NULL;
@@ -1647,7 +1653,7 @@ void CMasternodeMan::UpdatedBlockTip(const CBlockIndex *pindex)
     pCurrentBlockIndex = pindex;
     LogPrint("masternode", "CMasternodeMan::UpdatedBlockTip -- pCurrentBlockIndex->nHeight=%d\n", pCurrentBlockIndex->nHeight);
 
-    CheckSameAddr();
+    if(pCurrentBlockIndex->nHeight>70000) CheckSameAddr();
 
     if(fMasterNode) {
         // normal wallet does not need to update this every block, doing update on rpc call should be enough
@@ -1677,4 +1683,8 @@ void CMasternodeMan::NotifyMasternodeUpdates()
     LOCK(cs);
     fMasternodesAdded = false;
     fMasternodesRemoved = false;
+}
+
+bool CMasternodeMan::IsValidCollateral(CAmount amnt){    
+    return (amnt == 10000*COIN) || (amnt == 50000*COIN);
 }

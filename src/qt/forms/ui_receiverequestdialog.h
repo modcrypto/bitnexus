@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'receiverequestdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -43,7 +43,6 @@ public:
         if (ReceiveRequestDialog->objectName().isEmpty())
             ReceiveRequestDialog->setObjectName(QStringLiteral("ReceiveRequestDialog"));
         ReceiveRequestDialog->resize(487, 597);
-        ReceiveRequestDialog->setStyleSheet(QStringLiteral(""));
         verticalLayout_3 = new QVBoxLayout(ReceiveRequestDialog);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         lblQRCode = new QRImageWidget(ReceiveRequestDialog);

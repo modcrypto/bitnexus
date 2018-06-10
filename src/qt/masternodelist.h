@@ -65,6 +65,9 @@ private:
 
     QString strCurrentFilter;
 
+    void loadMasterConfigFile();
+    void saveFile(int id);
+
 private Q_SLOTS:
     void showContextMenu(const QPoint &);
     void on_filterLineEdit_textChanged(const QString &strFilterIn);
@@ -73,5 +76,14 @@ private Q_SLOTS:
     void on_startMissingButton_clicked();
     void on_tableWidgetMyMasternodes_itemSelectionChanged();
     void on_UpdateButton_clicked();
+
+    void on_ButtonSaveAll_clicked();
+    void on_ButtonSaveConfig_clicked();
+    void on_ButtonSaveMaster_clicked();
+    void on_ButtonAddMaster_clicked();
+    void on_ButtonDocument_clicked();
+    void on_DocumentConfig_changed();    
+    void on_DocumentMaster_changed(); 
+
 };
 #endif // MASTERNODELIST_H

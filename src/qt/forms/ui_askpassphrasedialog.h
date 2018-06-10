@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'askpassphrasedialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -51,7 +51,6 @@ public:
         sizePolicy.setHeightForWidth(AskPassphraseDialog->sizePolicy().hasHeightForWidth());
         AskPassphraseDialog->setSizePolicy(sizePolicy);
         AskPassphraseDialog->setMinimumSize(QSize(550, 0));
-        AskPassphraseDialog->setStyleSheet(QStringLiteral(""));
         verticalLayout = new QVBoxLayout(AskPassphraseDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setSizeConstraint(QLayout::SetMinimumSize);

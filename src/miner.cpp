@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -37,7 +37,7 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// BitcoinNodeMiner
+// BitNexusMiner
 //
 
 //
@@ -338,7 +338,7 @@ void IncrementExtraNonce(CBlock* pblock, const CBlockIndex* pindexPrev, unsigned
 // Internal miner
 //
 
-// ***TODO*** ScanHash is not yet used in BitcoinNode
+// ***TODO*** ScanHash is not yet used in BitNexus
 //
 // ScanHash scans nonces looking for a hash with at least some zero bits.
 // The nonce is usually preserved between calls, but periodically or if the
@@ -398,9 +398,9 @@ static bool ProcessBlockFound(const CBlock* pblock, const CChainParams& chainpar
 // ***TODO*** that part changed in bitcoin, we are using a mix with old one here for now
 void static BitcoinMiner(const CChainParams& chainparams)
 {
-    LogPrintf("BitcoinNodeMiner -- started\n");
+    LogPrintf("BitNexusMiner -- started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("bitcoinnode-miner");
+    RenameThread("bitnexus-miner");
 
     unsigned int nExtraNonce = 0;
 
@@ -441,13 +441,13 @@ void static BitcoinMiner(const CChainParams& chainparams)
             auto_ptr<CBlockTemplate> pblocktemplate(CreateNewBlock(chainparams, coinbaseScript->reserveScript));
             if (!pblocktemplate.get())
             {
-                LogPrintf("BitcoinNodeMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
+                LogPrintf("BitNexusMiner -- Keypool ran out, please call keypoolrefill before restarting the mining thread\n");
                 return;
             }
             CBlock *pblock = &pblocktemplate->block;
             IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-            LogPrintf("BitcoinNodeMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
+            LogPrintf("BitNexusMiner -- Running miner with %u transactions in block (%u bytes)\n", pblock->vtx.size(),
                 ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
             //
@@ -467,7 +467,7 @@ void static BitcoinMiner(const CChainParams& chainparams)
                     {
                         // Found a solution
                         SetThreadPriority(THREAD_PRIORITY_NORMAL);
-                        LogPrintf("BitcoinNodeMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
+                        LogPrintf("BitNexusMiner:\n  proof-of-work found\n  hash: %s\n  target: %s\n", hash.GetHex(), hashTarget.GetHex());
                         ProcessBlockFound(pblock, chainparams);
                         SetThreadPriority(THREAD_PRIORITY_LOWEST);
                         coinbaseScript->KeepScript();
@@ -511,12 +511,12 @@ void static BitcoinMiner(const CChainParams& chainparams)
     }
     catch (const boost::thread_interrupted&)
     {
-        LogPrintf("BitcoinNodeMiner -- terminated\n");
+        LogPrintf("BitNexusMiner -- terminated\n");
         throw;
     }
     catch (const std::runtime_error &e)
     {
-        LogPrintf("BitcoinNodeMiner -- runtime error: %s\n", e.what());
+        LogPrintf("BitNexusMiner -- runtime error: %s\n", e.what());
         return;
     }
 }

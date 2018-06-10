@@ -1,19 +1,19 @@
 #!/usr/bin/make -f
 # -*- mode: makefile; coding: utf-8 -*-
 
-#DEB_MAKE_CHECK_TARGET = test_bitcoinnode
-#build/bitcoinnoded::
-#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_bitcoinnode)
+#DEB_MAKE_CHECK_TARGET = test_bitnexus
+#build/bitnexusd::
+#	$(if $(filter nocheck,$(DEB_BUILD_OPTIONS)),,src/test_bitnexus)
 
-DEB_INSTALL_EXAMPLES_bitcoinnoded += debian/examples/*
-DEB_INSTALL_MANPAGES_bitcoinnoded += debian/manpages/*
+DEB_INSTALL_EXAMPLES_bitnexusd += debian/examples/*
+DEB_INSTALL_MANPAGES_bitnexusd += debian/manpages/*
 
 %:
 	dh --with bash-completion $@
 
 override_dh_auto_clean:
 	if [ -f Makefile ]; then $(MAKE) distclean; fi
-	rm -rf Makefile.in aclocal.m4 configure src/Makefile.in src/bitcoinnode-config.h.in src/build-aux src/qt/Makefile.in src/qt/test/Makefile.in src/test/Makefile.in
+	rm -rf Makefile.in aclocal.m4 configure src/Makefile.in src/bitnexus-config.h.in src/build-aux src/qt/Makefile.in src/qt/test/Makefile.in src/test/Makefile.in
 
 # Yea, autogen should be run on the source archive, but I like doing git archive
 override_dh_auto_configure:

@@ -1,6 +1,0 @@
-usr/local/bin/bitcoinnode-qt usr/bin
-share/pixmaps/bitcoinnode32.xpm usr/share/pixmaps
-share/pixmaps/bitcoinnode16.xpm usr/share/pixmaps
-share/pixmaps/bitcoinnode128.png usr/share/pixmaps
-debian/bitcoinnode-qt.desktop usr/share/applications
-debian/bitcoinnode-qt.protocol usr/share/kde4/services/

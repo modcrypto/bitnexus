@@ -1,8 +1,8 @@
-Source: bitcoinnode
+Source: bitnexus
 Section: utils
 Priority: optional
-Maintainer: Holger Schinzel <holger@bitcoinnode.org>
-Uploaders: Holger Schinzel <holger@bitcoinnode.org>
+Maintainer: Holger Schinzel <holger@bitnexus.org>
+Uploaders: Holger Schinzel <holger@bitnexus.org>
 Build-Depends: debhelper,
  devscripts,
  automake,
@@ -24,45 +24,45 @@ Build-Depends: debhelper,
  libprotobuf-dev, protobuf-compiler,
  python
 Standards-Version: 3.9.2
-Homepage: https://www.bitcoinnode.org/
-Vcs-Git: git://github.com/bitcoinnodecoin/bitcoinnode.git
-Vcs-Browser: https://github.com/bitcoinnodecoin/bitcoinnode
+Homepage: https://www.bitnexus.org/
+Vcs-Git: git://github.com/bitnexuscoin/bitnexus.git
+Vcs-Browser: https://github.com/bitnexuscoin/bitnexus
 
-Package: bitcoinnoded
+Package: bitnexusd
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - daemon
- BitcoinNode is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. BitcoinNode uses peer-to-peer
+ BitNexus is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. BitNexus uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. BitcoinNode Core
+ and issuing money are carried out collectively by the network. BitNexus Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides the daemon, bitcoinnoded, and the CLI tool
- bitcoinnode-cli to interact with the daemon.
+ This package provides the daemon, bitnexusd, and the CLI tool
+ bitnexus-cli to interact with the daemon.
 
-Package: bitcoinnode-qt
+Package: bitnexus-qt
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer network based digital currency - Qt GUI
- BitcoinNode is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. BitcoinNode uses peer-to-peer
+ BitNexus is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. BitNexus uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. BitcoinNode Core
+ and issuing money are carried out collectively by the network. BitNexus Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides BitcoinNode-Qt, a GUI for BitcoinNode based on Qt.
+ This package provides BitNexus-Qt, a GUI for BitNexus based on Qt.
 
-Package: bitcoinnode-tx
+Package: bitnexus-tx
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: peer-to-peer digital currency - standalone transaction tool
- BitcoinNode is an experimental new digital currency that enables anonymous, instant
- payments to anyone, anywhere in the world. BitcoinNode uses peer-to-peer
+ BitNexus is an experimental new digital currency that enables anonymous, instant
+ payments to anyone, anywhere in the world. BitNexus uses peer-to-peer
  technology to operate with no central authority: managing transactions
- and issuing money are carried out collectively by the network. BitcoinNode Core
+ and issuing money are carried out collectively by the network. BitNexus Core
  is the name of the open source software which enables the use of this currency.
  .
- This package provides bitcoinnode-tx, a command-line transaction creation
- tool which can be used without a bitcoinnode daemon.  Some means of
+ This package provides bitnexus-tx, a command-line transaction creation
+ tool which can be used without a bitnexus daemon.  Some means of
  exchanging minimal transaction data with peers is still required.

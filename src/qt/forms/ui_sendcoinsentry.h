@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sendcoinsentry.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -75,7 +75,6 @@ public:
         SendCoinsEntry->resize(729, 150);
         SendCoinsEntry->setFocusPolicy(Qt::TabFocus);
         SendCoinsEntry->setAutoFillBackground(false);
-        SendCoinsEntry->setStyleSheet(QStringLiteral(""));
         SendCoins = new QFrame();
         SendCoins->setObjectName(QStringLiteral("SendCoins"));
         SendCoins->setFrameShape(QFrame::NoFrame);
@@ -439,7 +438,7 @@ public:
 #endif // QT_NO_TOOLTIP
         payToLabel->setText(QApplication::translate("SendCoinsEntry", "Pay &To:", 0));
 #ifndef QT_NO_TOOLTIP
-        payTo->setToolTip(QApplication::translate("SendCoinsEntry", "The BitcoinNode address to send the payment to", 0));
+        payTo->setToolTip(QApplication::translate("SendCoinsEntry", "The BitNexus address to send the payment to", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
         addressBookButton->setToolTip(QApplication::translate("SendCoinsEntry", "Choose previously used address", 0));
@@ -461,12 +460,12 @@ public:
 #endif // QT_NO_TOOLTIP
         amountLabel->setText(QApplication::translate("SendCoinsEntry", "A&mount:", 0));
 #ifndef QT_NO_TOOLTIP
-        checkboxSubtractFeeFromAmount->setToolTip(QApplication::translate("SendCoinsEntry", "The fee will be deducted from the amount being sent. The recipient will receive a lower amount of BitcoinNode than you enter in the amount field. If multiple recipients are selected, the fee is split equally.", 0));
+        checkboxSubtractFeeFromAmount->setToolTip(QApplication::translate("SendCoinsEntry", "The fee will be deducted from the amount being sent. The recipient will receive a lower amount of BitNexus than you enter in the amount field. If multiple recipients are selected, the fee is split equally.", 0));
 #endif // QT_NO_TOOLTIP
         checkboxSubtractFeeFromAmount->setText(QApplication::translate("SendCoinsEntry", "S&ubtract fee from amount", 0));
         messageLabel->setText(QApplication::translate("SendCoinsEntry", "Message:", 0));
 #ifndef QT_NO_TOOLTIP
-        messageTextLabel->setToolTip(QApplication::translate("SendCoinsEntry", "A message that was attached to the bitcoinnode: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the BitcoinNode network.", 0));
+        messageTextLabel->setToolTip(QApplication::translate("SendCoinsEntry", "A message that was attached to the bitnexus: URI which will be stored with the transaction for your reference. Note: This message will not be sent over the BitNexus network.", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
         SendCoins_UnauthenticatedPaymentRequest->setToolTip(QApplication::translate("SendCoinsEntry", "This is an unauthenticated payment request.", 0));

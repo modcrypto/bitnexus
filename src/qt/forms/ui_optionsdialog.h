@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'optionsdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -138,8 +138,7 @@ public:
     {
         if (OptionsDialog->objectName().isEmpty())
             OptionsDialog->setObjectName(QStringLiteral("OptionsDialog"));
-        OptionsDialog->resize(576, 481);
-        OptionsDialog->setStyleSheet(QStringLiteral(""));
+        OptionsDialog->resize(576, 402);
         OptionsDialog->setModal(true);
         verticalLayout = new QVBoxLayout(OptionsDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
@@ -645,7 +644,6 @@ public:
         okButton = new QPushButton(OptionsDialog);
         okButton->setObjectName(QStringLiteral("okButton"));
         okButton->setAutoDefault(false);
-        okButton->setDefault(true);
 
         horizontalLayout_Buttons->addWidget(okButton);
 
@@ -673,6 +671,7 @@ public:
         retranslateUi(OptionsDialog);
 
         tabWidget->setCurrentIndex(0);
+        okButton->setDefault(true);
 
 
         QMetaObject::connectSlotsByName(OptionsDialog);
@@ -682,9 +681,9 @@ public:
     {
         OptionsDialog->setWindowTitle(QApplication::translate("OptionsDialog", "Options", 0));
 #ifndef QT_NO_TOOLTIP
-        bitcoinAtStartup->setToolTip(QApplication::translate("OptionsDialog", "Automatically start BitcoinNode Core after logging in to the system.", 0));
+        bitcoinAtStartup->setToolTip(QApplication::translate("OptionsDialog", "Automatically start BitNexus Core after logging in to the system.", 0));
 #endif // QT_NO_TOOLTIP
-        bitcoinAtStartup->setText(QApplication::translate("OptionsDialog", "&Start BitcoinNode Core on system login", 0));
+        bitcoinAtStartup->setText(QApplication::translate("OptionsDialog", "&Start BitNexus Core on system login", 0));
         databaseCacheLabel->setText(QApplication::translate("OptionsDialog", "Size of &database cache", 0));
         databaseCacheUnitLabel->setText(QApplication::translate("OptionsDialog", "MB", 0));
         threadsScriptVerifLabel->setText(QApplication::translate("OptionsDialog", "Number of script &verification threads", 0));
@@ -724,10 +723,10 @@ public:
 #ifndef QT_NO_TOOLTIP
         label_2->setToolTip(QApplication::translate("OptionsDialog", "This amount acts as a threshold to turn off PrivateSend once it's reached.", 0));
 #endif // QT_NO_TOOLTIP
-        label_2->setText(QApplication::translate("OptionsDialog", "Amount of BitcoinNode to keep anonymized", 0));
+        label_2->setText(QApplication::translate("OptionsDialog", "Amount of BitNexus to keep anonymized", 0));
         tabWidget->setTabText(tabWidget->indexOf(tabWallet), QApplication::translate("OptionsDialog", "W&allet", 0));
 #ifndef QT_NO_TOOLTIP
-        mapPortUpnp->setToolTip(QApplication::translate("OptionsDialog", "Automatically open the BitcoinNode Core client port on the router. This only works when your router supports UPnP and it is enabled.", 0));
+        mapPortUpnp->setToolTip(QApplication::translate("OptionsDialog", "Automatically open the BitNexus Core client port on the router. This only works when your router supports UPnP and it is enabled.", 0));
 #endif // QT_NO_TOOLTIP
         mapPortUpnp->setText(QApplication::translate("OptionsDialog", "Map port using &UPnP", 0));
 #ifndef QT_NO_TOOLTIP
@@ -735,7 +734,7 @@ public:
 #endif // QT_NO_TOOLTIP
         allowIncoming->setText(QApplication::translate("OptionsDialog", "Allow incoming connections", 0));
 #ifndef QT_NO_TOOLTIP
-        connectSocks->setToolTip(QApplication::translate("OptionsDialog", "Connect to the BitcoinNode network through a SOCKS5 proxy.", 0));
+        connectSocks->setToolTip(QApplication::translate("OptionsDialog", "Connect to the BitNexus network through a SOCKS5 proxy.", 0));
 #endif // QT_NO_TOOLTIP
         connectSocks->setText(QApplication::translate("OptionsDialog", "&Connect through SOCKS5 proxy (default proxy):", 0));
         proxyIpLabel->setText(QApplication::translate("OptionsDialog", "Proxy &IP:", 0));
@@ -763,7 +762,7 @@ public:
         proxyReachTor->setText(QString());
         proxyReachTorLabel->setText(QApplication::translate("OptionsDialog", "Tor", 0));
 #ifndef QT_NO_TOOLTIP
-        connectSocksTor->setToolTip(QApplication::translate("OptionsDialog", "Connect to the BitcoinNode network through a separate SOCKS5 proxy for Tor hidden services.", 0));
+        connectSocksTor->setToolTip(QApplication::translate("OptionsDialog", "Connect to the BitNexus network through a separate SOCKS5 proxy for Tor hidden services.", 0));
 #endif // QT_NO_TOOLTIP
         connectSocksTor->setText(QApplication::translate("OptionsDialog", "Use separate SOCKS5 proxy to reach peers via Tor hidden services:", 0));
         proxyIpTorLabel->setText(QApplication::translate("OptionsDialog", "Proxy &IP:", 0));
@@ -786,10 +785,10 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tabWindow), QApplication::translate("OptionsDialog", "&Window", 0));
         langLabel->setText(QApplication::translate("OptionsDialog", "User Interface &language:", 0));
 #ifndef QT_NO_TOOLTIP
-        lang->setToolTip(QApplication::translate("OptionsDialog", "The user interface language can be set here. This setting will take effect after restarting BitcoinNode Core.", 0));
+        lang->setToolTip(QApplication::translate("OptionsDialog", "The user interface language can be set here. This setting will take effect after restarting BitNexus Core.", 0));
 #endif // QT_NO_TOOLTIP
         label_3->setText(QApplication::translate("OptionsDialog", "Language missing or translation incomplete? Help contributing translations here:\n"
-"https://www.transifex.com/projects/p/bitcoinnode/", 0));
+"https://www.transifex.com/projects/p/bitnexus/", 0));
         themeLabel->setText(QApplication::translate("OptionsDialog", "User Interface Theme:", 0));
         unitLabel->setText(QApplication::translate("OptionsDialog", "&Unit to show amounts in:", 0));
 #ifndef QT_NO_TOOLTIP

@@ -1,9 +1,9 @@
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 
 #include "cachemap.h"
 
-#include "test/test_bitcoinnode.h"
+#include "test/test_bitnexus.h"
 
 #include <boost/test/unit_test.hpp>
 

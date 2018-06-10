@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'debugwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -166,8 +166,7 @@ public:
     {
         if (RPCConsole->objectName().isEmpty())
             RPCConsole->setObjectName(QStringLiteral("RPCConsole"));
-        RPCConsole->resize(769, 589);
-        RPCConsole->setStyleSheet(QStringLiteral(""));
+        RPCConsole->resize(769, 485);
         verticalLayout_2 = new QVBoxLayout(RPCConsole);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         tabWidget = new QTabWidget(RPCConsole);
@@ -431,7 +430,7 @@ public:
         clearButton->setObjectName(QStringLiteral("clearButton"));
         clearButton->setMaximumSize(QSize(24, 24));
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icons/drkblue/remove"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/icons/light/remove"), QSize(), QIcon::Normal, QIcon::Off);
         clearButton->setIcon(icon);
         clearButton->setShortcut(QStringLiteral("Ctrl+L"));
         clearButton->setAutoDefault(false);
@@ -988,7 +987,7 @@ public:
         mempoolSize->setText(QApplication::translate("RPCConsole", "N/A", 0));
         labelDebugLogfile->setText(QApplication::translate("RPCConsole", "Debug log file", 0));
 #ifndef QT_NO_TOOLTIP
-        openDebugLogfileButton->setToolTip(QApplication::translate("RPCConsole", "Open the BitcoinNode Core debug log file from the current data directory. This can take a few seconds for large log files.", 0));
+        openDebugLogfileButton->setToolTip(QApplication::translate("RPCConsole", "Open the BitNexus Core debug log file from the current data directory. This can take a few seconds for large log files.", 0));
 #endif // QT_NO_TOOLTIP
         openDebugLogfileButton->setText(QApplication::translate("RPCConsole", "&Open", 0));
         tabWidget->setTabText(tabWidget->indexOf(tab_info), QApplication::translate("RPCConsole", "&Information", 0));

@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -132,6 +132,14 @@ public:
      * @note This hash is not stable between little and big endian.
      */
     uint64_t GetHash(const uint256& salt) const;
+    
+    int GetNibble(int index) const 
+    {
+        index = 63 - index;
+        if (index % 2 == 1)
+            return(data[index / 2] >> 4);
+        return(data[index / 2] & 0x0F); 
+    }
 };
 
 /* uint256 from const char *.

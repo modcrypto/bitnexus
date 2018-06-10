@@ -3,7 +3,7 @@
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoinnode-config.h"
+#include "config/bitnexus-config.h"
 #endif
 
 #include "optionsdialog.h"
@@ -90,10 +90,7 @@ OptionsDialog::OptionsDialog(QWidget *parent, bool enableWallet) :
     }
     
     /* Theme selector */
-    ui->theme->addItem(QString("BTN-light"), QVariant("light"));
-    ui->theme->addItem(QString("BTN-blue"), QVariant("drkblue"));
-    ui->theme->addItem(QString("BTN-Crownium"), QVariant("crownium"));
-    ui->theme->addItem(QString("BTN-traditional"), QVariant("trad"));
+    ui->theme->addItem(QString("BTNX-light"), QVariant("light"));
     
     /* Language selector */
     QDir translations(":translations");

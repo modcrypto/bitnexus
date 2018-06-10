@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'sendcoinsdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -152,8 +152,11 @@ public:
     {
         if (SendCoinsDialog->objectName().isEmpty())
             SendCoinsDialog->setObjectName(QStringLiteral("SendCoinsDialog"));
-        SendCoinsDialog->resize(850, 608);
-        SendCoinsDialog->setStyleSheet(QStringLiteral(""));
+        SendCoinsDialog->resize(850, 526);
+        SendCoinsDialog->setAutoFillBackground(false);
+        SendCoinsDialog->setStyleSheet(QLatin1String("QDialog#SendCoinsDialog {\n"
+"   background-color: #eeeecc;\n"
+"    }"));
         verticalLayout = new QVBoxLayout(SendCoinsDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setContentsMargins(-1, -1, -1, 8);
@@ -300,7 +303,7 @@ public:
         labelCoinControlAmount->setObjectName(QStringLiteral("labelCoinControlAmount"));
         labelCoinControlAmount->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlAmount->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlAmount->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlAmount->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlAmount->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl2->setWidget(0, QFormLayout::FieldRole, labelCoinControlAmount);
@@ -338,7 +341,7 @@ public:
         labelCoinControlFee->setObjectName(QStringLiteral("labelCoinControlFee"));
         labelCoinControlFee->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlFee->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlFee->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlFee->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl3->setWidget(0, QFormLayout::FieldRole, labelCoinControlFee);
@@ -376,7 +379,7 @@ public:
         labelCoinControlAfterFee->setObjectName(QStringLiteral("labelCoinControlAfterFee"));
         labelCoinControlAfterFee->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlAfterFee->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlAfterFee->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlAfterFee->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlAfterFee->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl4->setWidget(0, QFormLayout::FieldRole, labelCoinControlAfterFee);
@@ -391,7 +394,7 @@ public:
         labelCoinControlChange->setObjectName(QStringLiteral("labelCoinControlChange"));
         labelCoinControlChange->setCursor(QCursor(Qt::IBeamCursor));
         labelCoinControlChange->setContextMenuPolicy(Qt::ActionsContextMenu);
-        labelCoinControlChange->setText(QStringLiteral("0.00 BTN"));
+        labelCoinControlChange->setText(QStringLiteral("0.00 BTNX"));
         labelCoinControlChange->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         formLayoutCoinControl4->setWidget(1, QFormLayout::FieldRole, labelCoinControlChange);
@@ -458,7 +461,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 824, 72));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 830, 69));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -792,7 +795,6 @@ public:
         sendButton->setObjectName(QStringLiteral("sendButton"));
         sendButton->setMinimumSize(QSize(150, 0));
         sendButton->setAutoDefault(false);
-        sendButton->setDefault(true);
 
         horizontalLayout->addWidget(sendButton);
 
@@ -847,7 +849,7 @@ public:
         sizePolicy6.setHeightForWidth(labelBalance->sizePolicy().hasHeightForWidth());
         labelBalance->setSizePolicy(sizePolicy6);
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
-        labelBalance->setText(QStringLiteral("123.456 BTN"));
+        labelBalance->setText(QStringLiteral("123.456 BTNX"));
         labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
 
         horizontalLayout_2->addWidget(labelBalance);
@@ -861,6 +863,9 @@ public:
         verticalLayout->setStretch(1, 1);
 
         retranslateUi(SendCoinsDialog);
+
+        sendButton->setDefault(true);
+
 
         QMetaObject::connectSlotsByName(SendCoinsDialog);
     } // setupUi
@@ -903,11 +908,11 @@ public:
 #endif // QT_NO_TOOLTIP
         radioCustomAtLeast->setText(QApplication::translate("SendCoinsDialog", "total at least", 0));
 #ifndef QT_NO_TOOLTIP
-        checkBoxMinimumFee->setToolTip(QApplication::translate("SendCoinsDialog", "Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.<br />But be aware that this can end up in a never confirming transaction once there is more demand for bitcoinnode transactions than the network can process.", 0));
+        checkBoxMinimumFee->setToolTip(QApplication::translate("SendCoinsDialog", "Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.<br />But be aware that this can end up in a never confirming transaction once there is more demand for bitnexus transactions than the network can process.", 0));
 #endif // QT_NO_TOOLTIP
         checkBoxMinimumFee->setText(QString());
 #ifndef QT_NO_TOOLTIP
-        labelMinFeeWarning->setToolTip(QApplication::translate("SendCoinsDialog", "Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.<br />But be aware that this can end up in a never confirming transaction once there is more demand for bitcoinnode transactions than the network can process.", 0));
+        labelMinFeeWarning->setToolTip(QApplication::translate("SendCoinsDialog", "Paying only the minimum fee is just fine as long as there is less transaction volume than space in the blocks.<br />But be aware that this can end up in a never confirming transaction once there is more demand for bitnexus transactions than the network can process.", 0));
 #endif // QT_NO_TOOLTIP
         labelMinFeeWarning->setText(QApplication::translate("SendCoinsDialog", "(read the tooltip)", 0));
         radioSmartFee->setText(QApplication::translate("SendCoinsDialog", "Recommended:", 0));

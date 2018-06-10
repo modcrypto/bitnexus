@@ -15,21 +15,31 @@ uint256 CBlockHeader::GetHash() const
 {
         uint256 thash;
         unsigned int profile = 0x0;
-        neoscrypt((unsigned char *) &nVersion, (unsigned char *) &thash, profile);
+  
+        if(nTime >= X16S_START_TIME){ // 1529107200 = 06/16/2018 @ 12:00am
+           return HashX16R(BEGIN(nVersion), END(nNonce), hashPrevBlock);        
+        }        
+        else{
+           neoscrypt((unsigned char *) &nVersion, (unsigned char *) &thash, profile);
+        }
         return thash;
 
 }
 
 std::string CBlock::ToString() const
 {
+    std::string algo="neoscrypt";
+    if(nTime >= X16S_START_TIME){
+       algo="x16s";
+    }
     std::stringstream s;
-    s << strprintf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%u)\n",
+    s << strprintf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%u, algo=%s)\n",
         GetHash().ToString(),
         nVersion,
         hashPrevBlock.ToString(),
         hashMerkleRoot.ToString(),
         nTime, nBits, nNonce,
-        vtx.size());
+        vtx.size(), algo);
     for (unsigned int i = 0; i < vtx.size(); i++)
     {
         s << "  " << vtx[i].ToString() << "\n";

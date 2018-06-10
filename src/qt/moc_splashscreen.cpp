@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'splashscreen.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,28 +19,29 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_SplashScreen_t {
     QByteArrayData data[9];
-    char stringdata[79];
+    char stringdata0[78];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_SplashScreen_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_SplashScreen_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_SplashScreen_t qt_meta_stringdata_SplashScreen = {
     {
-QT_MOC_LITERAL(0, 0, 12),
-QT_MOC_LITERAL(1, 13, 10),
-QT_MOC_LITERAL(2, 24, 0),
-QT_MOC_LITERAL(3, 25, 8),
-QT_MOC_LITERAL(4, 34, 7),
-QT_MOC_LITERAL(5, 42, 11),
-QT_MOC_LITERAL(6, 54, 7),
-QT_MOC_LITERAL(7, 62, 9),
-QT_MOC_LITERAL(8, 72, 5)
+QT_MOC_LITERAL(0, 0, 12), // "SplashScreen"
+QT_MOC_LITERAL(1, 13, 10), // "slotFinish"
+QT_MOC_LITERAL(2, 24, 0), // ""
+QT_MOC_LITERAL(3, 25, 8), // "QWidget*"
+QT_MOC_LITERAL(4, 34, 7), // "mainWin"
+QT_MOC_LITERAL(5, 42, 11), // "showMessage"
+QT_MOC_LITERAL(6, 54, 7), // "message"
+QT_MOC_LITERAL(7, 62, 9), // "alignment"
+QT_MOC_LITERAL(8, 72, 5) // "color"
+
     },
     "SplashScreen\0slotFinish\0\0QWidget*\0"
     "mainWin\0showMessage\0message\0alignment\0"
-    "color\0"
+    "color"
 };
 #undef QT_MOC_LITERAL
 
@@ -58,8 +59,8 @@ static const uint qt_meta_data_SplashScreen[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x0a,
-       5,    3,   27,    2, 0x0a,
+       1,    1,   24,    2, 0x0a /* Public */,
+       5,    3,   27,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 3,    4,
@@ -72,6 +73,7 @@ void SplashScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         SplashScreen *_t = static_cast<SplashScreen *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->slotFinish((*reinterpret_cast< QWidget*(*)>(_a[1]))); break;
         case 1: _t->showMessage((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< const QColor(*)>(_a[3]))); break;
@@ -93,7 +95,7 @@ void SplashScreen::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id
 
 const QMetaObject SplashScreen::staticMetaObject = {
     { &QWidget::staticMetaObject, qt_meta_stringdata_SplashScreen.data,
-      qt_meta_data_SplashScreen,  qt_static_metacall, 0, 0}
+      qt_meta_data_SplashScreen,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -104,8 +106,8 @@ const QMetaObject *SplashScreen::metaObject() const
 
 void *SplashScreen::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_SplashScreen.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_SplashScreen.stringdata0))
         return static_cast<void*>(const_cast< SplashScreen*>(this));
     return QWidget::qt_metacast(_clname);
 }

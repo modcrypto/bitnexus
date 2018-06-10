@@ -55,15 +55,15 @@ TESTS =
 BENCHMARKS =
 
 if BUILD_BITCOIND
-  bin_PROGRAMS += bitcoinnoded
+  bin_PROGRAMS += bitnexusd
 endif
 
 if BUILD_BITCOIN_UTILS
-  bin_PROGRAMS += bitcoinnode-cli bitcoinnode-tx
+  bin_PROGRAMS += bitnexus-cli bitnexus-tx
 endif
 
 .PHONY: FORCE check-symbols check-security
-# bitcoinnode core #
+# bitnexus core #
 BITCOIN_CORE_H = \
   activemasternode.h \
   addressindex.h \
@@ -191,7 +191,7 @@ obj/build.h: FORCE
 	  $(abs_top_srcdir)
 libbitcoin_util_a-clientversion.$(OBJEXT): obj/build.h
 
-# server: shared between bitcoinnoded and bitcoinnode-qt
+# server: shared between bitnexusd and bitnexus-qt
 libbitcoin_server_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(MINIUPNPC_CPPFLAGS) $(EVENT_CFLAGS) $(EVENT_PTHREADS_CFLAGS)
 libbitcoin_server_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_server_a_SOURCES = \
@@ -249,7 +249,7 @@ libbitcoin_zmq_a_SOURCES = \
 endif
 
 
-# wallet: shared between bitcoinnoded and bitcoinnode-qt, but only linked
+# wallet: shared between bitnexusd and bitnexus-qt, but only linked
 # when wallet enabled
 libbitcoin_wallet_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_wallet_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
@@ -318,9 +318,21 @@ crypto_libbitcoin_crypto_a_SOURCES = \
   crypto/sph_skein.h \
   crypto/sph_types.h \
   crypto/sha512.cpp \
-  crypto/sha512.h
+  crypto/sha512.h \
+  crypto/x16s/sph_fugue.h \
+  crypto/x16s/sph_hamsi.h \
+  crypto/x16s/sph_hamsi_helper.c \
+  crypto/x16s/sph_shabal.h\
+  crypto/x16s/sph_whirlpool.h\
+  crypto/x16s/sph_fugue.c \
+  crypto/x16s/sph_hamsi.c \
+  crypto/x16s/sph_shabal.c\
+  crypto/x16s/sph_whirlpool.c\
+  crypto/x16s/sph_sha512.c \
+  crypto/x16s/sph_sha2.c \  
+  crypto/x16s/sph_sha2.h 
 
-# common: shared between bitcoinnoded, and bitcoinnode-qt and non-server tools
+# common: shared between bitnexusd, and bitnexus-qt and non-server tools
 libbitcoin_common_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_common_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_common_a_SOURCES = \
@@ -377,7 +389,7 @@ if GLIBC_BACK_COMPAT
 libbitcoin_util_a_SOURCES += compat/glibc_compat.cpp
 endif
 
-# cli: shared between bitcoinnode-cli and bitcoinnode-qt
+# cli: shared between bitnexus-cli and bitnexus-qt
 libbitcoin_cli_a_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
 libbitcoin_cli_a_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
 libbitcoin_cli_a_SOURCES = \
@@ -388,16 +400,16 @@ nodist_libbitcoin_util_a_SOURCES = $(srcdir)/obj/build.h
 #
 
 # bitcoind binary #
-bitcoinnoded_SOURCES = bitcoinnoded.cpp
-bitcoinnoded_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-bitcoinnoded_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bitcoinnoded_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+bitnexusd_SOURCES = bitnexusd.cpp
+bitnexusd_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+bitnexusd_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+bitnexusd_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoinnoded_SOURCES += bitcoinnoded-res.rc
+bitnexusd_SOURCES += bitnexusd-res.rc
 endif
 
-bitcoinnoded_LDADD = \
+bitnexusd_LDADD = \
   $(LIBBITCOIN_SERVER) \
   $(LIBBITCOIN_COMMON) \
   $(LIBUNIVALUE) \
@@ -408,50 +420,50 @@ bitcoinnoded_LDADD = \
   $(LIBSECP256K1)
 
 if ENABLE_ZMQ
-bitcoinnoded_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+bitnexusd_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
 
 if ENABLE_WALLET
-bitcoinnoded_LDADD += libbitcoin_wallet.a
+bitnexusd_LDADD += libbitcoin_wallet.a
 endif
 
-bitcoinnoded_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
+bitnexusd_LDADD += $(BOOST_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
 
-# bitcoinnode-cli binary #
-bitcoinnode_cli_SOURCES = bitcoinnode-cli.cpp
-bitcoinnode_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
-bitcoinnode_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bitcoinnode_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# bitnexus-cli binary #
+bitnexus_cli_SOURCES = bitnexus-cli.cpp
+bitnexus_cli_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(EVENT_CFLAGS)
+bitnexus_cli_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+bitnexus_cli_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoinnode_cli_SOURCES += bitcoinnode-cli-res.rc
+bitnexus_cli_SOURCES += bitnexus-cli-res.rc
 endif
 
-bitcoinnode_cli_LDADD = \
+bitnexus_cli_LDADD = \
   $(LIBBITCOIN_CLI) \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_UTIL)
-bitcoinnode_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
+bitnexus_cli_LDADD += $(BOOST_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(EVENT_LIBS)
 #
 
-# bitcoinnode-tx binary #
-bitcoinnode_tx_SOURCES = bitcoinnode-tx.cpp
-bitcoinnode_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
-bitcoinnode_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
-bitcoinnode_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+# bitnexus-tx binary #
+bitnexus_tx_SOURCES = bitnexus-tx.cpp
+bitnexus_tx_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES)
+bitnexus_tx_CXXFLAGS = $(AM_CXXFLAGS) $(PIE_FLAGS)
+bitnexus_tx_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
 
 if TARGET_WINDOWS
-bitcoinnode_tx_SOURCES += bitcoinnode-tx-res.rc
+bitnexus_tx_SOURCES += bitnexus-tx-res.rc
 endif
 
-bitcoinnode_tx_LDADD = \
+bitnexus_tx_LDADD = \
   $(LIBUNIVALUE) \
   $(LIBBITCOIN_COMMON) \
   $(LIBBITCOIN_UTIL) \
   $(LIBBITCOIN_CRYPTO) \
   $(LIBSECP256K1)
 
-bitcoinnode_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
+bitnexus_tx_LDADD += $(BOOST_LIBS) $(CRYPTO_LIBS)
 #
 
 # bitcoinconsensus library #

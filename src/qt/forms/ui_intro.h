@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'intro.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -54,7 +54,6 @@ public:
         if (Intro->objectName().isEmpty())
             Intro->setObjectName(QStringLiteral("Intro"));
         Intro->resize(674, 363);
-        Intro->setStyleSheet(QStringLiteral(""));
         verticalLayout = new QVBoxLayout(Intro);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label_2 = new QLabel(Intro);
@@ -183,9 +182,9 @@ public:
     void retranslateUi(QDialog *Intro)
     {
         Intro->setWindowTitle(QApplication::translate("Intro", "Welcome", 0));
-        label_2->setText(QApplication::translate("Intro", "Welcome to BitcoinNode Core.", 0));
-        label_4->setText(QApplication::translate("Intro", "As this is the first time the program is launched, you can choose where BitcoinNode Core will store its data.", 0));
-        sizeWarningLabel->setText(QApplication::translate("Intro", "BitcoinNode Core will download and store a copy of the BitcoinNode block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.", 0));
+        label_2->setText(QApplication::translate("Intro", "Welcome to BitNexus Core.", 0));
+        label_4->setText(QApplication::translate("Intro", "As this is the first time the program is launched, you can choose where BitNexus Core will store its data.", 0));
+        sizeWarningLabel->setText(QApplication::translate("Intro", "BitNexus Core will download and store a copy of the BitNexus block chain. At least %1GB of data will be stored in this directory, and it will grow over time. The wallet will also be stored in this directory.", 0));
         dataDirDefault->setText(QApplication::translate("Intro", "Use the default data directory", 0));
         dataDirCustom->setText(QApplication::translate("Intro", "Use a custom data directory:", 0));
         freeSpace->setText(QString());
