@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -20,9 +20,9 @@ BitcoinUnits::BitcoinUnits(QObject *parent):
 QList<BitcoinUnits::Unit> BitcoinUnits::availableUnits()
 {
     QList<BitcoinUnits::Unit> unitlist;
-    unitlist.append(BTN);
-    unitlist.append(mBTN);
-    unitlist.append(uBTN);
+    unitlist.append(BTNX);
+    unitlist.append(mPEW);
+    unitlist.append(uPEW);
     unitlist.append(duffs);
     return unitlist;
 }
@@ -31,9 +31,9 @@ bool BitcoinUnits::valid(int unit)
 {
     switch(unit)
     {
-    case BTN:
-    case mBTN:
-    case uBTN:
+    case BTNX:
+    case mPEW:
+    case uPEW:
     case duffs:
         return true;
     default:
@@ -47,9 +47,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case BTN: return QString("BTN");
-            case mBTN: return QString("mBTN");
-            case uBTN: return QString::fromUtf8("μBTN");
+            case BTNX: return QString("BTNX");
+            case mPEW: return QString("mPEW");
+            case uPEW: return QString::fromUtf8("μPEW");
             case duffs: return QString("duffs");
             default: return QString("???");
         }
@@ -58,9 +58,9 @@ QString BitcoinUnits::name(int unit)
     {
         switch(unit)
         {
-            case BTN: return QString("tBTN");
-            case mBTN: return QString("mtBTN");
-            case uBTN: return QString::fromUtf8("μtBTN");
+            case BTNX: return QString("tPEW");
+            case mPEW: return QString("mtPEW");
+            case uPEW: return QString::fromUtf8("μtPEW");
             case duffs: return QString("tduffs");
             default: return QString("???");
         }
@@ -73,10 +73,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case BTN: return QString("BitcoinNode");
-            case mBTN: return QString("Milli-BitcoinNode (1 / 1" THIN_SP_UTF8 "000)");
-            case uBTN: return QString("Micro-BitcoinNode (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-BitcoinNode (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case BTNX: return QString("BitNexus");
+            case mPEW: return QString("Milli-BitNexus (1 / 1" THIN_SP_UTF8 "000)");
+            case uPEW: return QString("Micro-BitNexus (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-BitNexus (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -84,10 +84,10 @@ QString BitcoinUnits::description(int unit)
     {
         switch(unit)
         {
-            case BTN: return QString("TestBitcoinNodes");
-            case mBTN: return QString("Milli-TestBitcoinNode (1 / 1" THIN_SP_UTF8 "000)");
-            case uBTN: return QString("Micro-TestBitcoinNode (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
-            case duffs: return QString("Ten Nano-TestBitcoinNode (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case BTNX: return QString("TestBroFists");
+            case mPEW: return QString("Milli-TestBroFist (1 / 1" THIN_SP_UTF8 "000)");
+            case uPEW: return QString("Micro-TestBroFist (1 / 1" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
+            case duffs: return QString("Ten Nano-TestBroFist (1 / 100" THIN_SP_UTF8 "000" THIN_SP_UTF8 "000)");
             default: return QString("???");
         }
     }
@@ -97,9 +97,9 @@ qint64 BitcoinUnits::factor(int unit)
 {
     switch(unit)
     {
-    case BTN:  return 100000000;
-    case mBTN: return 100000;
-    case uBTN: return 100;
+    case BTNX:  return 100000000;
+    case mPEW: return 100000;
+    case uPEW: return 100;
     case duffs: return 1;
     default:   return 100000000;
     }
@@ -109,9 +109,9 @@ int BitcoinUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case BTN: return 8;
-    case mBTN: return 5;
-    case uBTN: return 2;
+    case BTNX: return 8;
+    case mPEW: return 5;
+    case uPEW: return 2;
     case duffs: return 0;
     default: return 0;
     }

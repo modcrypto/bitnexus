@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'walletframe.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,33 +19,34 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WalletFrame_t {
     QByteArrayData data[18];
-    char stringdata[269];
+    char stringdata0[268];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_WalletFrame_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_WalletFrame_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_WalletFrame_t qt_meta_stringdata_WalletFrame = {
     {
-QT_MOC_LITERAL(0, 0, 11),
-QT_MOC_LITERAL(1, 12, 16),
-QT_MOC_LITERAL(2, 29, 0),
-QT_MOC_LITERAL(3, 30, 15),
-QT_MOC_LITERAL(4, 46, 18),
-QT_MOC_LITERAL(5, 65, 20),
-QT_MOC_LITERAL(6, 86, 17),
-QT_MOC_LITERAL(7, 104, 4),
-QT_MOC_LITERAL(8, 109, 18),
-QT_MOC_LITERAL(9, 128, 20),
-QT_MOC_LITERAL(10, 149, 13),
-QT_MOC_LITERAL(11, 163, 6),
-QT_MOC_LITERAL(12, 170, 12),
-QT_MOC_LITERAL(13, 183, 16),
-QT_MOC_LITERAL(14, 200, 12),
-QT_MOC_LITERAL(15, 213, 10),
-QT_MOC_LITERAL(16, 224, 20),
-QT_MOC_LITERAL(17, 245, 22)
+QT_MOC_LITERAL(0, 0, 11), // "WalletFrame"
+QT_MOC_LITERAL(1, 12, 16), // "gotoOverviewPage"
+QT_MOC_LITERAL(2, 29, 0), // ""
+QT_MOC_LITERAL(3, 30, 15), // "gotoHistoryPage"
+QT_MOC_LITERAL(4, 46, 18), // "gotoMasternodePage"
+QT_MOC_LITERAL(5, 65, 20), // "gotoReceiveCoinsPage"
+QT_MOC_LITERAL(6, 86, 17), // "gotoSendCoinsPage"
+QT_MOC_LITERAL(7, 104, 4), // "addr"
+QT_MOC_LITERAL(8, 109, 18), // "gotoSignMessageTab"
+QT_MOC_LITERAL(9, 128, 20), // "gotoVerifyMessageTab"
+QT_MOC_LITERAL(10, 149, 13), // "encryptWallet"
+QT_MOC_LITERAL(11, 163, 6), // "status"
+QT_MOC_LITERAL(12, 170, 12), // "backupWallet"
+QT_MOC_LITERAL(13, 183, 16), // "changePassphrase"
+QT_MOC_LITERAL(14, 200, 12), // "unlockWallet"
+QT_MOC_LITERAL(15, 213, 10), // "lockWallet"
+QT_MOC_LITERAL(16, 224, 20), // "usedSendingAddresses"
+QT_MOC_LITERAL(17, 245, 22) // "usedReceivingAddresses"
+
     },
     "WalletFrame\0gotoOverviewPage\0\0"
     "gotoHistoryPage\0gotoMasternodePage\0"
@@ -53,7 +54,7 @@ QT_MOC_LITERAL(17, 245, 22)
     "addr\0gotoSignMessageTab\0gotoVerifyMessageTab\0"
     "encryptWallet\0status\0backupWallet\0"
     "changePassphrase\0unlockWallet\0lockWallet\0"
-    "usedSendingAddresses\0usedReceivingAddresses\0"
+    "usedSendingAddresses\0usedReceivingAddresses"
 };
 #undef QT_MOC_LITERAL
 
@@ -71,23 +72,23 @@ static const uint qt_meta_data_WalletFrame[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   99,    2, 0x0a,
-       3,    0,  100,    2, 0x0a,
-       4,    0,  101,    2, 0x0a,
-       5,    0,  102,    2, 0x0a,
-       6,    1,  103,    2, 0x0a,
-       6,    0,  106,    2, 0x2a,
-       8,    1,  107,    2, 0x0a,
-       8,    0,  110,    2, 0x2a,
-       9,    1,  111,    2, 0x0a,
-       9,    0,  114,    2, 0x2a,
-      10,    1,  115,    2, 0x0a,
-      12,    0,  118,    2, 0x0a,
-      13,    0,  119,    2, 0x0a,
-      14,    0,  120,    2, 0x0a,
-      15,    0,  121,    2, 0x0a,
-      16,    0,  122,    2, 0x0a,
-      17,    0,  123,    2, 0x0a,
+       1,    0,   99,    2, 0x0a /* Public */,
+       3,    0,  100,    2, 0x0a /* Public */,
+       4,    0,  101,    2, 0x0a /* Public */,
+       5,    0,  102,    2, 0x0a /* Public */,
+       6,    1,  103,    2, 0x0a /* Public */,
+       6,    0,  106,    2, 0x2a /* Public | MethodCloned */,
+       8,    1,  107,    2, 0x0a /* Public */,
+       8,    0,  110,    2, 0x2a /* Public | MethodCloned */,
+       9,    1,  111,    2, 0x0a /* Public */,
+       9,    0,  114,    2, 0x2a /* Public | MethodCloned */,
+      10,    1,  115,    2, 0x0a /* Public */,
+      12,    0,  118,    2, 0x0a /* Public */,
+      13,    0,  119,    2, 0x0a /* Public */,
+      14,    0,  120,    2, 0x0a /* Public */,
+      15,    0,  121,    2, 0x0a /* Public */,
+      16,    0,  122,    2, 0x0a /* Public */,
+      17,    0,  123,    2, 0x0a /* Public */,
 
  // slots: parameters
     QMetaType::Void,
@@ -115,6 +116,7 @@ void WalletFrame::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         WalletFrame *_t = static_cast<WalletFrame *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->gotoOverviewPage(); break;
         case 1: _t->gotoHistoryPage(); break;
@@ -140,7 +142,7 @@ void WalletFrame::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
 
 const QMetaObject WalletFrame::staticMetaObject = {
     { &QFrame::staticMetaObject, qt_meta_stringdata_WalletFrame.data,
-      qt_meta_data_WalletFrame,  qt_static_metacall, 0, 0}
+      qt_meta_data_WalletFrame,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -151,8 +153,8 @@ const QMetaObject *WalletFrame::metaObject() const
 
 void *WalletFrame::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_WalletFrame.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_WalletFrame.stringdata0))
         return static_cast<void*>(const_cast< WalletFrame*>(this));
     return QFrame::qt_metacast(_clname);
 }

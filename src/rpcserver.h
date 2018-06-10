@@ -123,7 +123,7 @@ public:
 };
 
 /**
- * BitcoinNode RPC command dispatcher.
+ * BitNexus RPC command dispatcher.
  */
 class CRPCTable
 {

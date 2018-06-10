@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'addressbookpage.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -43,7 +43,6 @@ public:
         if (AddressBookPage->objectName().isEmpty())
             AddressBookPage->setObjectName(QStringLiteral("AddressBookPage"));
         AddressBookPage->resize(760, 380);
-        AddressBookPage->setStyleSheet(QStringLiteral(""));
         verticalLayout = new QVBoxLayout(AddressBookPage);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         labelExplanation = new QLabel(AddressBookPage);

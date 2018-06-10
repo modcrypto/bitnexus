@@ -10,7 +10,7 @@
 #include "arith_uint256.h"
 #include "version.h"
 #include "random.h"
-#include "test/test_bitcoinnode.h"
+#include "test/test_bitnexus.h"
 
 #include <vector>
 

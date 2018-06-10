@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'helpmessagedialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -33,10 +33,10 @@ public:
     QVBoxLayout *verticalLayoutLogo;
     QLabel *aboutLogo;
     QVBoxLayout *verticalLayout;
+    QTextEdit *helpMessage;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_2;
-    QTextEdit *helpMessage;
     QLabel *aboutMessage;
     QSpacerItem *verticalSpacer;
     QDialogButtonBox *okButton;
@@ -47,10 +47,7 @@ public:
             HelpMessageDialog->setObjectName(QStringLiteral("HelpMessageDialog"));
         HelpMessageDialog->resize(780, 500);
         HelpMessageDialog->setMaximumSize(QSize(16777215, 500));
-        HelpMessageDialog->setMouseTracking(false);
-        HelpMessageDialog->setWindowTitle(QStringLiteral("BitcoinNode Core - Command-line options"));
-        HelpMessageDialog->setAutoFillBackground(false);
-        HelpMessageDialog->setStyleSheet(QStringLiteral(""));
+        HelpMessageDialog->setWindowTitle(QStringLiteral("BitNexus Core - Command-line options"));
         horizontalLayout_2 = new QHBoxLayout(HelpMessageDialog);
         horizontalLayout_2->setSpacing(0);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
@@ -69,7 +66,7 @@ public:
         aboutLogo->setMaximumSize(QSize(96, 564));
         aboutLogo->setBaseSize(QSize(96, 564));
         aboutLogo->setAutoFillBackground(false);
-        aboutLogo->setPixmap(QPixmap(QString::fromUtf8(":/images/drkblue/about")));
+        aboutLogo->setPixmap(QPixmap(QString::fromUtf8(":/images/light/bitnexus_logo_horizontal")));
         aboutLogo->setScaledContents(false);
         aboutLogo->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
 
@@ -80,6 +77,12 @@ public:
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        helpMessage = new QTextEdit(HelpMessageDialog);
+        helpMessage->setObjectName(QStringLiteral("helpMessage"));
+        helpMessage->setReadOnly(true);
+
+        verticalLayout->addWidget(helpMessage);
+
         scrollArea = new QScrollArea(HelpMessageDialog);
         scrollArea->setObjectName(QStringLiteral("scrollArea"));
         scrollArea->setFrameShape(QFrame::NoFrame);
@@ -87,15 +90,9 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QStringLiteral("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 630, 413));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 639, 214));
         verticalLayout_2 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        helpMessage = new QTextEdit(scrollAreaWidgetContents);
-        helpMessage->setObjectName(QStringLiteral("helpMessage"));
-        helpMessage->setReadOnly(true);
-
-        verticalLayout_2->addWidget(helpMessage);
-
         aboutMessage = new QLabel(scrollAreaWidgetContents);
         aboutMessage->setObjectName(QStringLiteral("aboutMessage"));
         aboutMessage->setCursor(QCursor(Qt::IBeamCursor));

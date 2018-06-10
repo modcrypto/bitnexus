@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=BitNexus
+Comment=BitNexus P2P Cryptocurrency
+Exec=bitnexus-qt %u
+Terminal=false
+Type=Application
+Icon=bitnexus128
+MimeType=x-scheme-handler/bitnexus;
+Categories=Office;Finance;
+Name[en_US]=bitnexus-qt.desktop

@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'transactiondescdialog.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,18 +19,19 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TransactionDescDialog_t {
     QByteArrayData data[1];
-    char stringdata[23];
+    char stringdata0[22];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_TransactionDescDialog_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_TransactionDescDialog_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_TransactionDescDialog_t qt_meta_stringdata_TransactionDescDialog = {
     {
-QT_MOC_LITERAL(0, 0, 21)
+QT_MOC_LITERAL(0, 0, 21) // "TransactionDescDialog"
+
     },
-    "TransactionDescDialog\0"
+    "TransactionDescDialog"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,7 +61,7 @@ void TransactionDescDialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c
 
 const QMetaObject TransactionDescDialog::staticMetaObject = {
     { &QDialog::staticMetaObject, qt_meta_stringdata_TransactionDescDialog.data,
-      qt_meta_data_TransactionDescDialog,  qt_static_metacall, 0, 0}
+      qt_meta_data_TransactionDescDialog,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -71,8 +72,8 @@ const QMetaObject *TransactionDescDialog::metaObject() const
 
 void *TransactionDescDialog::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_TransactionDescDialog.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_TransactionDescDialog.stringdata0))
         return static_cast<void*>(const_cast< TransactionDescDialog*>(this));
     return QDialog::qt_metacast(_clname);
 }

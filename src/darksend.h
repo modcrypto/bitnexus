@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -353,7 +353,7 @@ private:
 
     void CompletedTransaction(PoolMessage nMessageID);
 
-    /// Get the denominations for a specific amount of bitcoinnode.
+    /// Get the denominations for a specific amount of bitnexus.
     int GetDenominationsByAmounts(const std::vector<CAmount>& vecAmount);
 
     std::string GetMessageByID(PoolMessage nMessageID);

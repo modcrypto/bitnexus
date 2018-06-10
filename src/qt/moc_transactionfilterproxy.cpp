@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'transactionfilterproxy.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,18 +19,19 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_TransactionFilterProxy_t {
     QByteArrayData data[1];
-    char stringdata[24];
+    char stringdata0[23];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_TransactionFilterProxy_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_TransactionFilterProxy_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_TransactionFilterProxy_t qt_meta_stringdata_TransactionFilterProxy = {
     {
-QT_MOC_LITERAL(0, 0, 22)
+QT_MOC_LITERAL(0, 0, 22) // "TransactionFilterProxy"
+
     },
-    "TransactionFilterProxy\0"
+    "TransactionFilterProxy"
 };
 #undef QT_MOC_LITERAL
 
@@ -60,7 +61,7 @@ void TransactionFilterProxy::qt_static_metacall(QObject *_o, QMetaObject::Call _
 
 const QMetaObject TransactionFilterProxy::staticMetaObject = {
     { &QSortFilterProxyModel::staticMetaObject, qt_meta_stringdata_TransactionFilterProxy.data,
-      qt_meta_data_TransactionFilterProxy,  qt_static_metacall, 0, 0}
+      qt_meta_data_TransactionFilterProxy,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -71,8 +72,8 @@ const QMetaObject *TransactionFilterProxy::metaObject() const
 
 void *TransactionFilterProxy::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_TransactionFilterProxy.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_TransactionFilterProxy.stringdata0))
         return static_cast<void*>(const_cast< TransactionFilterProxy*>(this));
     return QSortFilterProxyModel::qt_metacast(_clname);
 }

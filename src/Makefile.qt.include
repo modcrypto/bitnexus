@@ -1,24 +1,24 @@
-bin_PROGRAMS += qt/bitcoinnode-qt
+bin_PROGRAMS += qt/bitnexus-qt
 EXTRA_LIBRARIES += qt/libbitcoinqt.a
 
-# bitcoinnode qt core #
+# bitnexus qt core #
 QT_TS = \
-  qt/locale/bitcoinnode_bg.ts \
-  qt/locale/bitcoinnode_de.ts \
-  qt/locale/bitcoinnode_en.ts \
-  qt/locale/bitcoinnode_es.ts \
-  qt/locale/bitcoinnode_fi.ts \
-  qt/locale/bitcoinnode_fr.ts \
-  qt/locale/bitcoinnode_it.ts \
-  qt/locale/bitcoinnode_ja.ts \
-  qt/locale/bitcoinnode_pl.ts \
-  qt/locale/bitcoinnode_pt.ts \
-  qt/locale/bitcoinnode_ru.ts \
-  qt/locale/bitcoinnode_sk.ts \
-  qt/locale/bitcoinnode_sv.ts \
-  qt/locale/bitcoinnode_vi.ts \
-  qt/locale/bitcoinnode_zh_CN.ts \
-  qt/locale/bitcoinnode_zh_TW.ts
+  qt/locale/bitnexus_bg.ts \
+  qt/locale/bitnexus_de.ts \
+  qt/locale/bitnexus_en.ts \
+  qt/locale/bitnexus_es.ts \
+  qt/locale/bitnexus_fi.ts \
+  qt/locale/bitnexus_fr.ts \
+  qt/locale/bitnexus_it.ts \
+  qt/locale/bitnexus_ja.ts \
+  qt/locale/bitnexus_pl.ts \
+  qt/locale/bitnexus_pt.ts \
+  qt/locale/bitnexus_ru.ts \
+  qt/locale/bitnexus_sk.ts \
+  qt/locale/bitnexus_sv.ts \
+  qt/locale/bitnexus_vi.ts \
+  qt/locale/bitnexus_zh_CN.ts \
+  qt/locale/bitnexus_zh_TW.ts
 
 QT_FORMS_UI = \
   qt/forms/addressbookpage.ui \
@@ -93,16 +93,16 @@ BITCOIN_MM = \
   qt/macnotificationhandler.mm
 
 QT_MOC = \
-  qt/bitcoinnode.moc \
+  qt/bitnexus.moc \
   qt/bitcoinamountfield.moc \
   qt/intro.moc \
   qt/overviewpage.moc \
   qt/rpcconsole.moc
 
-QT_QRC_CPP = qt/qrc_bitcoinnode.cpp
-QT_QRC = qt/bitcoinnode.qrc
-QT_QRC_LOCALE_CPP = qt/qrc_bitcoinnode_locale.cpp
-QT_QRC_LOCALE = qt/bitcoinnode_locale.qrc
+QT_QRC_CPP = qt/qrc_bitnexus.cpp
+QT_QRC = qt/bitnexus.qrc
+QT_QRC_LOCALE_CPP = qt/qrc_bitnexus_locale.cpp
+QT_QRC_LOCALE = qt/bitnexus_locale.qrc
 
 PROTOBUF_CC = qt/paymentrequest.pb.cc
 PROTOBUF_H = qt/paymentrequest.pb.h
@@ -166,102 +166,6 @@ BITCOIN_QT_H = \
 RES_ICONS = \
   qt/res/icons/bitcoin.ico \
   qt/res/icons/bitcoin.png \
-  qt/res/icons/drkblue/add.png \
-  qt/res/icons/drkblue/address-book.png \
-  qt/res/icons/drkblue/browse.png \
-  qt/res/icons/drkblue/clock1.png \
-  qt/res/icons/drkblue/clock2.png \
-  qt/res/icons/drkblue/clock3.png \
-  qt/res/icons/drkblue/clock4.png \
-  qt/res/icons/drkblue/clock5.png \
-  qt/res/icons/drkblue/configure.png \
-  qt/res/icons/drkblue/connect0_16.png \
-  qt/res/icons/drkblue/connect1_16.png \
-  qt/res/icons/drkblue/connect2_16.png \
-  qt/res/icons/drkblue/connect3_16.png \
-  qt/res/icons/drkblue/connect4_16.png \
-  qt/res/icons/drkblue/debugwindow.png \
-  qt/res/icons/drkblue/drkblue_editpaste.png \
-  qt/res/icons/drkblue/drkblue_address-book.png \
-  qt/res/icons/drkblue/drkblue_editcopy.png \
-  qt/res/icons/drkblue/drkblue_remove.png \
-  qt/res/icons/drkblue/edit.png \
-  qt/res/icons/drkblue/editcopy.png \
-  qt/res/icons/drkblue/editpaste.png \
-  qt/res/icons/drkblue/export.png \
-  qt/res/icons/drkblue/eye.png \
-  qt/res/icons/drkblue/eye_minus.png \
-  qt/res/icons/drkblue/eye_plus.png \
-  qt/res/icons/drkblue/filesave.png \
-  qt/res/icons/drkblue/history.png \
-  qt/res/icons/drkblue/key.png \
-  qt/res/icons/drkblue/lock_closed.png \
-  qt/res/icons/drkblue/lock_open.png \
-  qt/res/icons/drkblue/masternodes.png \
-  qt/res/icons/drkblue/overview.png \
-  qt/res/icons/drkblue/quit.png \
-  qt/res/icons/drkblue/receive.png \
-  qt/res/icons/drkblue/remove.png \
-  qt/res/icons/drkblue/send.png \
-  qt/res/icons/drkblue/synced.png \
-  qt/res/icons/drkblue/transaction0.png \
-  qt/res/icons/drkblue/transaction2.png \
-  qt/res/icons/drkblue/transaction_conflicted.png \
-  qt/res/icons/drkblue/tx_inout.png \
-  qt/res/icons/drkblue/tx_input.png \
-  qt/res/icons/drkblue/tx_output.png \
-  qt/res/icons/drkblue/tx_mined.png \
-  qt/res/icons/drkblue/about.png \
-  qt/res/icons/drkblue/about_qt.png \
-  qt/res/icons/drkblue/verify.png \
-  qt/res/icons/crownium/add.png \
-  qt/res/icons/crownium/address-book.png \
-  qt/res/icons/crownium/browse.png \
-  qt/res/icons/crownium/clock1.png \
-  qt/res/icons/crownium/clock2.png \
-  qt/res/icons/crownium/clock3.png \
-  qt/res/icons/crownium/clock4.png \
-  qt/res/icons/crownium/clock5.png \
-  qt/res/icons/crownium/configure.png \
-  qt/res/icons/crownium/connect0_16.png \
-  qt/res/icons/crownium/connect1_16.png \
-  qt/res/icons/crownium/connect2_16.png \
-  qt/res/icons/crownium/connect3_16.png \
-  qt/res/icons/crownium/connect4_16.png \
-  qt/res/icons/crownium/debugwindow.png \
-  qt/res/icons/crownium/drkblue_editpaste.png \
-  qt/res/icons/crownium/drkblue_address-book.png \
-  qt/res/icons/crownium/drkblue_editcopy.png \
-  qt/res/icons/crownium/drkblue_remove.png \
-  qt/res/icons/crownium/edit.png \
-  qt/res/icons/crownium/editcopy.png \
-  qt/res/icons/crownium/editpaste.png \
-  qt/res/icons/crownium/export.png \
-  qt/res/icons/crownium/eye.png \
-  qt/res/icons/crownium/eye_minus.png \
-  qt/res/icons/crownium/eye_plus.png \
-  qt/res/icons/crownium/filesave.png \
-  qt/res/icons/crownium/history.png \
-  qt/res/icons/crownium/key.png \
-  qt/res/icons/crownium/lock_closed.png \
-  qt/res/icons/crownium/lock_open.png \
-  qt/res/icons/crownium/masternodes.png \
-  qt/res/icons/crownium/overview.png \
-  qt/res/icons/crownium/quit.png \
-  qt/res/icons/crownium/receive.png \
-  qt/res/icons/crownium/remove.png \
-  qt/res/icons/crownium/send.png \
-  qt/res/icons/crownium/synced.png \
-  qt/res/icons/crownium/transaction0.png \
-  qt/res/icons/crownium/transaction2.png \
-  qt/res/icons/crownium/transaction_conflicted.png \
-  qt/res/icons/crownium/tx_inout.png \
-  qt/res/icons/crownium/tx_input.png \
-  qt/res/icons/crownium/tx_output.png \
-  qt/res/icons/crownium/tx_mined.png \
-  qt/res/icons/crownium/about.png \
-  qt/res/icons/crownium/about_qt.png \
-  qt/res/icons/crownium/verify.png \
   qt/res/icons/light/add.png \
   qt/res/icons/light/address-book.png \
   qt/res/icons/light/browse.png \
@@ -309,56 +213,8 @@ RES_ICONS = \
   qt/res/icons/light/tx_mined.png \
   qt/res/icons/light/about.png \
   qt/res/icons/light/about_qt.png \
-  qt/res/icons/light/verify.png \
-  qt/res/icons/trad/add.png \
-  qt/res/icons/trad/address-book.png \
-  qt/res/icons/trad/browse.png \
-  qt/res/icons/trad/clock1.png \
-  qt/res/icons/trad/clock2.png \
-  qt/res/icons/trad/clock3.png \
-  qt/res/icons/trad/clock4.png \
-  qt/res/icons/trad/clock5.png \
-  qt/res/icons/trad/configure.png \
-  qt/res/icons/trad/connect0_16.png \
-  qt/res/icons/trad/connect1_16.png \
-  qt/res/icons/trad/connect2_16.png \
-  qt/res/icons/trad/connect3_16.png \
-  qt/res/icons/trad/connect4_16.png \
-  qt/res/icons/trad/debugwindow.png \
-  qt/res/icons/trad/drkblue_editpaste.png \
-  qt/res/icons/trad/drkblue_address-book.png \
-  qt/res/icons/trad/drkblue_editcopy.png \
-  qt/res/icons/trad/drkblue_remove.png \
-  qt/res/icons/trad/edit.png \
-  qt/res/icons/trad/editcopy.png \
-  qt/res/icons/trad/editpaste.png \
-  qt/res/icons/trad/export.png \
-  qt/res/icons/trad/eye.png \
-  qt/res/icons/trad/eye_minus.png \
-  qt/res/icons/trad/eye_plus.png \
-  qt/res/icons/trad/filesave.png \
-  qt/res/icons/trad/history.png \
-  qt/res/icons/trad/key.png \
-  qt/res/icons/trad/lock_closed.png \
-  qt/res/icons/trad/lock_open.png \
-  qt/res/icons/trad/masternodes.png \
-  qt/res/icons/trad/overview.png \
-  qt/res/icons/trad/quit.png \
-  qt/res/icons/trad/receive.png \
-  qt/res/icons/trad/remove.png \
-  qt/res/icons/trad/send.png \
-  qt/res/icons/trad/synced.png \
-  qt/res/icons/trad/transaction0.png \
-  qt/res/icons/trad/transaction2.png \
-  qt/res/icons/trad/transaction_conflicted.png \
-  qt/res/icons/trad/tx_inout.png \
-  qt/res/icons/trad/tx_input.png \
-  qt/res/icons/trad/tx_output.png \
-  qt/res/icons/trad/tx_mined.png \
-  qt/res/icons/trad/about.png \
-  qt/res/icons/trad/about_qt.png \
-  qt/res/icons/trad/verify.png
-
+  qt/res/icons/light/verify.png 
+  
 BITCOIN_QT_CPP = \
   qt/bantablemodel.cpp \
   qt/bitcoinaddressvalidator.cpp \
@@ -419,36 +275,10 @@ BITCOIN_QT_CPP += \
 endif
 
 RES_IMAGES = \
-  qt/res/images/drkblue/about.png \
-  qt/res/images/drkblue/splash.png \
-  qt/res/images/drkblue/splash_testnet.png \
-  qt/res/images/drkblue/bitcoinnode_logo_horizontal.png \
-  qt/res/images/drkblue/unchecked.png \
-  qt/res/images/drkblue/checked.png \
-  qt/res/images/drkblue/drkblue_downArrow.png \
-  qt/res/images/drkblue/drkblue_downArrow_small.png \
-  qt/res/images/drkblue/drkblue_upArrow_small.png \
-  qt/res/images/drkblue/drkblue_leftArrow_small.png \
-  qt/res/images/drkblue/drkblue_rightArrow_small.png \
-  qt/res/images/drkblue/drkblue_qtreeview_selected.png \
-  qt/res/images/drkblue/drkblue_walletFrame_bg.png \
-  qt/res/images/crownium/about.png \
-  qt/res/images/crownium/splash.png \
-  qt/res/images/crownium/splash_testnet.png \
-  qt/res/images/crownium/bitcoinnode_logo_horizontal.png \
-  qt/res/images/crownium/unchecked.png \
-  qt/res/images/crownium/checked.png \
-  qt/res/images/crownium/drkblue_downArrow.png \
-  qt/res/images/crownium/drkblue_downArrow_small.png \
-  qt/res/images/crownium/drkblue_upArrow_small.png \
-  qt/res/images/crownium/drkblue_leftArrow_small.png \
-  qt/res/images/crownium/drkblue_rightArrow_small.png \
-  qt/res/images/crownium/drkblue_qtreeview_selected.png \
-  qt/res/images/crownium/drkblue_walletFrame_bg.png \
   qt/res/images/light/about.png \
   qt/res/images/light/splash.png \
   qt/res/images/light/splash_testnet.png \
-  qt/res/images/light/bitcoinnode_logo_horizontal.png \
+  qt/res/images/light/bitnexus_logo_horizontal.png \
   qt/res/images/light/unchecked.png \
   qt/res/images/light/checked.png \
   qt/res/images/light/drkblue_downArrow.png \
@@ -457,27 +287,14 @@ RES_IMAGES = \
   qt/res/images/light/drkblue_leftArrow_small.png \
   qt/res/images/light/drkblue_rightArrow_small.png \
   qt/res/images/light/drkblue_qtreeview_selected.png \
-  qt/res/images/light/drkblue_walletFrame_bg.png \
-  qt/res/images/trad/about.png \
-  qt/res/images/trad/splash.png \
-  qt/res/images/trad/splash_testnet.png \
-  qt/res/images/trad/bitcoinnode_logo_horizontal.png \
-  qt/res/images/trad/drkblue_downArrow.png \
-  qt/res/images/trad/drkblue_downArrow_small.png \
-  qt/res/images/trad/drkblue_upArrow_small.png \
-  qt/res/images/trad/drkblue_leftArrow_small.png \
-  qt/res/images/trad/drkblue_rightArrow_small.png \
-  qt/res/images/trad/drkblue_qtreeview_selected.png \
-  qt/res/images/trad/drkblue_walletFrame_bg.png
+  qt/res/images/light/walletFrame.png 
 
 RES_CSS = \
-  qt/res/css/drkblue.css \
-  qt/res/css/crownium.css \
   qt/res/css/light.css
 
 RES_MOVIES = $(wildcard qt/res/movies/spinner-*.png)
 
-BITCOIN_RC = qt/res/bitcoinnode-qt-res.rc
+BITCOIN_RC = qt/res/bitnexus-qt-res.rc
 
 BITCOIN_QT_INCLUDES = -I$(builddir)/qt -I$(srcdir)/qt -I$(srcdir)/qt/forms \
   -I$(builddir)/qt/forms -DQT_NO_KEYWORDS
@@ -498,70 +315,70 @@ QT_FORMS_H=$(join $(dir $(QT_FORMS_UI)),$(addprefix ui_, $(notdir $(QT_FORMS_UI:
 # Most files will depend on the forms and moc files as includes. Generate them
 # before anything else.
 $(QT_MOC): $(QT_FORMS_H)
-$(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoinnode_qt_OBJECTS) : | $(QT_MOC)
+$(qt_libbitcoinqt_a_OBJECTS) $(qt_bitnexus_qt_OBJECTS) : | $(QT_MOC)
 
 #Generating these with a half-written protobuf header leads to wacky results.
 #This makes sure it's done.
 $(QT_MOC): $(PROTOBUF_H)
 $(QT_MOC_CPP): $(PROTOBUF_H)
 
-# bitcoinnode-qt binary #
-qt_bitcoinnode_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
+# bitnexus-qt binary #
+qt_bitnexus_qt_CPPFLAGS = $(AM_CPPFLAGS) $(BITCOIN_INCLUDES) $(BITCOIN_QT_INCLUDES) \
   $(QT_INCLUDES) $(PROTOBUF_CFLAGS) $(QR_CFLAGS)
-qt_bitcoinnode_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
+qt_bitnexus_qt_CXXFLAGS = $(AM_CXXFLAGS) $(QT_PIE_FLAGS)
 
-qt_bitcoinnode_qt_SOURCES = qt/bitcoinnode.cpp
+qt_bitnexus_qt_SOURCES = qt/bitnexus.cpp
 if TARGET_DARWIN
-  qt_bitcoinnode_qt_SOURCES += $(BITCOIN_MM)
+  qt_bitnexus_qt_SOURCES += $(BITCOIN_MM)
 endif
 if TARGET_WINDOWS
-  qt_bitcoinnode_qt_SOURCES += $(BITCOIN_RC)
+  qt_bitnexus_qt_SOURCES += $(BITCOIN_RC)
 endif
-qt_bitcoinnode_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
+qt_bitnexus_qt_LDADD = qt/libbitcoinqt.a $(LIBBITCOIN_SERVER)
 if ENABLE_WALLET
-qt_bitcoinnode_qt_LDADD += $(LIBBITCOIN_WALLET)
+qt_bitnexus_qt_LDADD += $(LIBBITCOIN_WALLET)
 endif
 if ENABLE_ZMQ
-qt_bitcoinnode_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
+qt_bitnexus_qt_LDADD += $(LIBBITCOIN_ZMQ) $(ZMQ_LIBS)
 endif
-qt_bitcoinnode_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
+qt_bitnexus_qt_LDADD += $(LIBBITCOIN_CLI) $(LIBBITCOIN_COMMON) $(LIBBITCOIN_UTIL) $(LIBBITCOIN_CRYPTO) $(LIBUNIVALUE) $(LIBLEVELDB) $(LIBMEMENV) \
   $(BOOST_LIBS) $(QT_LIBS) $(QT_DBUS_LIBS) $(QR_LIBS) $(PROTOBUF_LIBS) $(BDB_LIBS) $(SSL_LIBS) $(CRYPTO_LIBS) $(MINIUPNPC_LIBS) $(LIBSECP256K1) \
   $(EVENT_PTHREADS_LIBS) $(EVENT_LIBS)
-qt_bitcoinnode_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
-qt_bitcoinnode_qt_LIBTOOLFLAGS = --tag CXX
+qt_bitnexus_qt_LDFLAGS = $(RELDFLAGS) $(AM_LDFLAGS) $(QT_LDFLAGS) $(LIBTOOL_APP_LDFLAGS)
+qt_bitnexus_qt_LIBTOOLFLAGS = --tag CXX
 
 #locale/foo.ts -> locale/foo.qm
 QT_QM=$(QT_TS:.ts=.qm)
 
 SECONDARY: $(QT_QM)
 
-qt/bitcoinnodestrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
+qt/bitnexusstrings.cpp: $(libbitcoin_server_a_SOURCES) $(libbitcoin_wallet_a_SOURCES) $(libbitcoin_common_a_SOURCES)
 	@test -n $(XGETTEXT) || echo "xgettext is required for updating translations"
 	$(AM_V_GEN) cd $(srcdir); XGETTEXT=$(XGETTEXT) ../share/qt/extract_strings_qt.py $^
 
-translate: qt/bitcoinnodestrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
+translate: qt/bitnexusstrings.cpp $(QT_FORMS_UI) $(QT_FORMS_UI) $(BITCOIN_QT_CPP) $(BITCOIN_QT_H) $(BITCOIN_MM)
 	@test -n $(LUPDATE) || echo "lupdate is required for updating translations"
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/bitcoinnode_en.ts
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(LUPDATE) $^ -locations relative -no-obsolete -ts qt/locale/bitnexus_en.ts
 
 $(QT_QRC_LOCALE_CPP): $(QT_QRC_LOCALE) $(QT_QM)
 	@test -f $(RCC)
 	@test -f $(@D)/$(<F) || cp -f $< $(@D)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoinnode_locale $(@D)/$(<F) | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitnexus_locale $(@D)/$(<F) | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 $(QT_QRC_CPP): $(QT_QRC) $(QT_FORMS_H) $(RES_ICONS) $(RES_IMAGES) $(RES_CSS) $(RES_MOVIES) $(PROTOBUF_H)
 	@test -f $(RCC)
-	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitcoinnode $< | \
+	$(AM_V_GEN) QT_SELECT=$(QT_SELECT) $(RCC) -name bitnexus $< | \
 	  $(SED) -e '/^\*\*.*Created:/d' -e '/^\*\*.*by:/d' > $@
 
 CLEAN_QT = $(nodist_qt_libbitcoinqt_a_SOURCES) $(QT_QM) $(QT_FORMS_H) qt/*.gcda qt/*.gcno
 
 CLEANFILES += $(CLEAN_QT)
 
-bitcoinnode_qt_clean: FORCE
-	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_bitcoinnode_qt_OBJECTS) qt/bitcoinnode-qt$(EXEEXT) $(LIBBITCOINQT)
+bitnexus_qt_clean: FORCE
+	rm -f $(CLEAN_QT) $(qt_libbitcoinqt_a_OBJECTS) $(qt_bitnexus_qt_OBJECTS) qt/bitnexus-qt$(EXEEXT) $(LIBBITCOINQT)
 
-bitcoinnode_qt : qt/bitcoinnode-qt$(EXEEXT)
+bitnexus_qt : qt/bitnexus-qt$(EXEEXT)
 
 ui_%.h: %.ui
 	@test -f $(UIC)

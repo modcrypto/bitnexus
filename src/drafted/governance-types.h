@@ -16,9 +16,9 @@ enum GovernanceObjectType {
     ValueOverride = 1, 
 
     // -------------------------------
-    // BitcoinNodeNetwork - is the root node
-    BitcoinNodeNetwork = 1000,
-    BitcoinNodeNetworkVariable = 1001,
+    // BitNexusNetwork - is the root node
+    BitNexusNetwork = 1000,
+    BitNexusNetworkVariable = 1001,
     Category = 1002,
 
     // Actors

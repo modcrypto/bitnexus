@@ -1,5 +1,5 @@
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -129,6 +129,8 @@ struct masternode_info_t
     int64_t nTimeLastPaid;
     int64_t nTimeLastWatchdogVote;
     int64_t nTimeLastPing;
+    CAmount nCollateral;
+    
     int nActiveState;
     int nProtocolVersion;
     bool fInfoValid;
@@ -280,6 +282,7 @@ public:
 
     bool IsValidForPayment()
     {
+        if(!isValidCollateral()) return false;
         if(nActiveState == MASTERNODE_ENABLED) {
             return true;
         }
@@ -304,6 +307,8 @@ public:
     std::string GetStatus() const;
 
     int GetCollateralAge();
+    CAmount getCollateralValue();
+    bool isValidCollateral();
 
     int GetLastPaidTime() { return nTimeLastPaid; }
     int GetLastPaidBlock() { return nBlockLastPaid; }

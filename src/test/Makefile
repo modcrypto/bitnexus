@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C .. bitcoinnode_test
+	$(MAKE) -C .. bitnexus_test
 clean:
-	$(MAKE) -C .. bitcoinnode_test_clean
+	$(MAKE) -C .. bitnexus_test_clean
 check:
-	$(MAKE) -C .. bitcoinnode_test_check
+	$(MAKE) -C .. bitnexus_test_check

@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'darksendconfig.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,23 +19,24 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_DarksendConfig_t {
     QByteArrayData data[5];
-    char stringdata[47];
+    char stringdata0[46];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_DarksendConfig_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_DarksendConfig_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_DarksendConfig_t qt_meta_stringdata_DarksendConfig = {
     {
-QT_MOC_LITERAL(0, 0, 14),
-QT_MOC_LITERAL(1, 15, 10),
-QT_MOC_LITERAL(2, 26, 0),
-QT_MOC_LITERAL(3, 27, 9),
-QT_MOC_LITERAL(4, 37, 8)
+QT_MOC_LITERAL(0, 0, 14), // "DarksendConfig"
+QT_MOC_LITERAL(1, 15, 10), // "clickBasic"
+QT_MOC_LITERAL(2, 26, 0), // ""
+QT_MOC_LITERAL(3, 27, 9), // "clickHigh"
+QT_MOC_LITERAL(4, 37, 8) // "clickMax"
+
     },
     "DarksendConfig\0clickBasic\0\0clickHigh\0"
-    "clickMax\0"
+    "clickMax"
 };
 #undef QT_MOC_LITERAL
 
@@ -53,9 +54,9 @@ static const uint qt_meta_data_DarksendConfig[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x08,
-       3,    0,   30,    2, 0x08,
-       4,    0,   31,    2, 0x08,
+       1,    0,   29,    2, 0x08 /* Private */,
+       3,    0,   30,    2, 0x08 /* Private */,
+       4,    0,   31,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -69,6 +70,7 @@ void DarksendConfig::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         DarksendConfig *_t = static_cast<DarksendConfig *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->clickBasic(); break;
         case 1: _t->clickHigh(); break;
@@ -81,7 +83,7 @@ void DarksendConfig::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _
 
 const QMetaObject DarksendConfig::staticMetaObject = {
     { &QDialog::staticMetaObject, qt_meta_stringdata_DarksendConfig.data,
-      qt_meta_data_DarksendConfig,  qt_static_metacall, 0, 0}
+      qt_meta_data_DarksendConfig,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -92,8 +94,8 @@ const QMetaObject *DarksendConfig::metaObject() const
 
 void *DarksendConfig::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_DarksendConfig.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_DarksendConfig.stringdata0))
         return static_cast<void*>(const_cast< DarksendConfig*>(this));
     return QDialog::qt_metacast(_clname);
 }

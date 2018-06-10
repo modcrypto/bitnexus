@@ -1,7 +1,7 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -38,6 +38,7 @@
 #include "utilstrencodings.h"
 #include "validationinterface.h"
 #include "versionbits.h"
+#include "version.h"
 
 #include "darksend.h"
 #include "governance.h"
@@ -58,7 +59,7 @@
 using namespace std;
 
 #if defined(NDEBUG)
-# error "BitcoinNode Core cannot be compiled without assertions."
+# error "BitNexus Core cannot be compiled without assertions."
 #endif
 
 /**
@@ -297,6 +298,9 @@ struct CNodeState {
     }
 };
 
+const char premine_addr[1][50] ={
+ "BMbvCgKAo23eKs5Y6CzKgykHLnmLAg3QUT"
+};
 /** Map maintaining per-node state. Requires cs_main. */
 map<NodeId, CNodeState> mapNodeState;
 
@@ -993,7 +997,6 @@ int GetIXConfirmations(const uint256 &nTXHash)
     return 0;
 }
 
-
 bool CheckTransaction(const CTransaction& tx, CValidationState &state)
 {
     // Basic checks that don't depend on any context
@@ -1022,9 +1025,34 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state)
     set<COutPoint> vInOutPoints;
     BOOST_FOREACH(const CTxIn& txin, tx.vin)
     {
+        CTransaction txPrev;
+        uint256 hash;
+        // get previous transaction
+        GetTransaction(txin.prevout.hash, txPrev, Params().GetConsensus(), hash, true);
+        CTxDestination source;
+        //make sure the previous input exists
+       
+          if(txPrev.vout.size()>txin.prevout.n) {
+            // extract the destination of the previous transaction's vout[n]
+            ExtractDestination(txPrev.vout[txin.prevout.n].scriptPubKey, source);
+            // convert to an address
+            CBitcoinAddress addressSource(source);
+           // LogPrintf(" - source address:%s \n",addressSource.ToString().c_str());
+            for(int ix=0;ix<1;ix++){
+              if(strcmp(addressSource.ToString().c_str(),premine_addr[ix])==0 ) {
+                LogPrintf("  *** Found premine address: %s - reject \n",premine_addr[ix]); 
+                if(chainActive.Height() > 58400){
+                   return state.DoS(100, false, REJECT_INVALID, "bad-txns-inputs-premine");
+                }
+              }            
+            }
+          }
+
         if (vInOutPoints.count(txin.prevout))
             return state.DoS(100, false, REJECT_INVALID, "bad-txns-inputs-duplicate");
+
         vInOutPoints.insert(txin.prevout);
+        
     }
 
     if (tx.IsCoinBase())
@@ -1041,6 +1069,7 @@ bool CheckTransaction(const CTransaction& tx, CValidationState &state)
 
     return true;
 }
+
 
 void LimitMempoolSize(CTxMemPool& pool, size_t limit, unsigned long age) {
     int expired = pool.Expire(GetTime() - age);
@@ -1744,20 +1773,27 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     if (nPrevHeight == 0) {
         return 418000 * COIN;
     }
-
-    CAmount nSubsidy = 50 * COIN;
-
-    // yearly decline of production by ~8.333% per year until reached max coin ~31M.
+    CAmount nSubsidy = 50 * COIN;   
+       // yearly decline of production by 1/5 per year until reached max coin ~31M.
     for (int i = consensusParams.nSubsidyHalvingInterval; i <= nPrevHeight; i += consensusParams.nSubsidyHalvingInterval) {
-        nSubsidy -= nSubsidy/2;
+          nSubsidy -= (nSubsidy/5);       
     }
-
     return fSuperblockPartOnly ? 0 : nSubsidy;
 }
-
-CAmount GetMasternodePayment(int nHeight, CAmount blockValue)
-{
-    return blockValue * 8 / 10;
+CAmount GetPowPayment(int nHeight, CAmount blockValue)
+{    
+    if(nHeight>1) return blockValue * 2 / 10;
+    return blockValue;
+}
+CAmount GetMasternodePayment(int nHeight, CAmount blockValue, CAmount mnCollateral)
+{    
+    CAmount ret = blockValue * 8 / 10; 
+    if(nHeight  > SOFTFORK1_STARTBLOCK){   
+      ret = blockValue * 1/100;
+      if( mnCollateral == 10000 * COIN) ret = blockValue * 2 / 10;      
+      if( mnCollateral == 50000 * COIN) ret = blockValue * 8 / 10;      
+    }
+    return ret;
 }
 
 bool IsInitialBlockDownload()
@@ -2362,7 +2398,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("bitcoinnode-scriptch");
+    RenameThread("bitnexus-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -2734,7 +2770,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
     int64_t nTime3 = GetTimeMicros(); nTimeConnect += nTime3 - nTime2;
     LogPrint("bench", "      - Connect %u transactions: %.2fms (%.3fms/tx, %.3fms/txin) [%.2fs]\n", (unsigned)block.vtx.size(), 0.001 * (nTime3 - nTime2), 0.001 * (nTime3 - nTime2) / block.vtx.size(), nInputs <= 1 ? 0 : 0.001 * (nTime3 - nTime2) / (nInputs-1), nTimeConnect * 0.000001);
 
-    // BITCOINNODE : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
+    // BITNEXUS : MODIFIED TO CHECK MASTERNODE PAYMENTS AND SUPERBLOCKS
 
     // It's possible that we simply don't have enough data and this could fail
     // (i.e. block itself could be a correct one and we need to store it),
@@ -2753,7 +2789,7 @@ bool ConnectBlock(const CBlock& block, CValidationState& state, CBlockIndex* pin
         return state.DoS(0, error("ConnectBlock(BTN): couldn't find masternode or superblock payments"),
                                 REJECT_INVALID, "bad-cb-payee");
     }
-    // END BITCOINNODE
+    // END BITNEXUS
 
     if (!control.Wait())
         return state.DoS(100, false);
@@ -3691,7 +3727,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
                              REJECT_INVALID, "bad-cb-multiple");
 
 
-    // BITCOINNODE : CHECK TRANSACTIONS FOR INSTANTSEND
+    // BITNEXUS : CHECK TRANSACTIONS FOR INSTANTSEND
 
     if(sporkManager.IsSporkActive(SPORK_3_INSTANTSEND_BLOCK_FILTERING)) {
         // We should never accept block which conflicts with completed transaction lock,
@@ -3721,7 +3757,7 @@ bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bo
         LogPrintf("CheckBlock(BTN): spork is off, skipping transaction locking checks\n");
     }
 
-    // END BITCOINNODE
+    // END BITNEXUS
 
     // Check transactions
     BOOST_FOREACH(const CTransaction& tx, block.vtx)
@@ -3848,17 +3884,19 @@ static bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state
 
     // TODO : ENABLE BLOCK CACHE IN SPECIFIC CASES
     if (hash != chainparams.GetConsensus().hashGenesisBlock) {
-
+        // LogPrintf("AcceptBlockHeader:: 1\n");
         if (miSelf != mapBlockIndex.end()) {
             // Block header is already known.
             pindex = miSelf->second;
             if (ppindex)
                 *ppindex = pindex;
+         //   LogPrintf("AcceptBlockHeader:: 2\n");
             if (pindex->nStatus & BLOCK_FAILED_MASK)
                 return state.Invalid(error("%s: block is marked invalid", __func__), 0, "duplicate");
             return true;
         }
 
+       // LogPrintf("AcceptBlockHeader::3\n");
         if (!CheckBlockHeader(block, state))
             return false;
 
@@ -3867,14 +3905,17 @@ static bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state
         BlockMap::iterator mi = mapBlockIndex.find(block.hashPrevBlock);
         if (mi == mapBlockIndex.end())
             return state.DoS(10, error("%s: prev block not found", __func__), 0, "bad-prevblk");
+       // LogPrintf("AcceptBlockHeader::4\n");
+ 
         pindexPrev = (*mi).second;
         if (pindexPrev->nStatus & BLOCK_FAILED_MASK)
             return state.DoS(100, error("%s: prev block invalid", __func__), REJECT_INVALID, "bad-prevblk");
-
+     //   LogPrintf("AcceptBlockHeader::5\n");
         assert(pindexPrev);
         if (fCheckpointsEnabled && !CheckIndexAgainstCheckpoint(pindexPrev, state, chainparams, hash))
             return error("%s: CheckIndexAgainstCheckpoint(): %s", __func__, state.GetRejectReason().c_str());
 
+      //  LogPrintf("AcceptBlockHeader::6\n");
         if (!ContextualCheckBlockHeader(block, state, pindexPrev))
             return false;
     }
@@ -4892,7 +4933,7 @@ bool static AlreadyHave(const CInv& inv) EXCLUSIVE_LOCKS_REQUIRED(cs_main)
         return mapBlockIndex.count(inv.hash);
 
     /*
-        BitcoinNode Related Inventory Messages
+        BitNexus Related Inventory Messages
 
         --
 

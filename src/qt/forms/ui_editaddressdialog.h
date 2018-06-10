@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'editaddressdialog.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -40,7 +40,6 @@ public:
         if (EditAddressDialog->objectName().isEmpty())
             EditAddressDialog->setObjectName(QStringLiteral("EditAddressDialog"));
         EditAddressDialog->resize(457, 126);
-        EditAddressDialog->setStyleSheet(QStringLiteral(""));
         verticalLayout = new QVBoxLayout(EditAddressDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         formLayout = new QFormLayout();

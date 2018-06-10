@@ -4,22 +4,22 @@
 
 	* means the category has an associated class
 	
-	CBitcoinNodeNetwork: BITCOINNODE NETWORK (ROOT)
+	CBitNexusNetwork: BITNEXUS NETWORK (ROOT)
 	has:
 		vector<CNetworkVariable> vecNetworkVariables;
-		vector<CBitcoinNodeProject> vecProjects;
+		vector<CBitNexusProject> vecProjects;
 		vector<CGovernanceObject> vecProposals;
 		vector<CBudgetContract> vecContracts;
 		vector<CBudgetUsers> vecUsers;
 
-	CBitcoinNodeProject:
+	CBitNexusProject:
 	has:
 		name
 		employees
 
 */
 
-	// BITCOINNODE NETWORK (ROOT)
+	// BITNEXUS NETWORK (ROOT)
 	// 	-> NETWORK VARIABLE
 	// 		-> switch, setting
 	// 	-> CATEGORIES

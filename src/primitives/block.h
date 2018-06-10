@@ -10,6 +10,8 @@
 #include "serialize.h"
 #include "uint256.h"
 
+static const int X16S_START_TIME  = 1529107200; // 06/16/2018 @ 12:00am;
+
 /** Nodes collect new transactions into a block, hash them into a hash tree,
  * and scan through nonce values to make the block's hash satisfy proof-of-work
  * requirements.  When they solve the proof-of-work, they broadcast the block

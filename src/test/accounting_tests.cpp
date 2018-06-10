@@ -5,7 +5,7 @@
 #include "wallet/wallet.h"
 #include "wallet/walletdb.h"
 
-#include "test/test_bitcoinnode.h"
+#include "test/test_bitnexus.h"
 
 #include <stdint.h>
 

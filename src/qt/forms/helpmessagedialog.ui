@@ -16,17 +16,8 @@
     <height>500</height>
    </size>
   </property>
-  <property name="mouseTracking">
-   <bool>false</bool>
-  </property>
   <property name="windowTitle">
-   <string notr="true">BitcoinNode Core - Command-line options</string>
-  </property>
-  <property name="autoFillBackground">
-   <bool>false</bool>
-  </property>
-  <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">BitNexus Core - Command-line options</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <property name="spacing">
@@ -85,7 +76,7 @@
         <bool>false</bool>
        </property>
        <property name="pixmap">
-        <pixmap>:/images/drkblue/about</pixmap>
+        <pixmap resource="../bitnexus.qrc">:/images/light/bitnexus_logo_horizontal</pixmap>
        </property>
        <property name="scaledContents">
         <bool>false</bool>
@@ -99,6 +90,13 @@
    </item>
    <item>
     <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QTextEdit" name="helpMessage">
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QScrollArea" name="scrollArea">
        <property name="frameShape">
@@ -115,18 +113,11 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>630</width>
-          <height>413</height>
+          <width>639</width>
+          <height>214</height>
          </rect>
         </property>
         <layout class="QVBoxLayout" name="verticalLayout_2">
-         <item>
-          <widget class="QTextEdit" name="helpMessage">
-           <property name="readOnly">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
          <item>
           <widget class="QLabel" name="aboutMessage">
            <property name="cursor">
@@ -181,7 +172,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../bitcoinnode.qrc"/>
+  <include location="../bitnexus.qrc"/>
  </resources>
  <connections>
   <connection>

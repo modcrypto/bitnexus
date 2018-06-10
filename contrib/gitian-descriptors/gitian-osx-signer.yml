@@ -1,5 +1,5 @@
 ---
-name: "bitcoinnode-dmg-signer"
+name: "bitnexus-dmg-signer"
 suites:
 - "trusty"
 architectures:
@@ -8,10 +8,10 @@ packages:
 - "faketime"
 reference_datetime: "2017-01-01 00:00:00"
 remotes:
-- "url": "https://github.com/bitcoinnodecoin/bitcoinnode-detached-sigs.git"
+- "url": "https://github.com/bitnexuscoin/bitnexus-detached-sigs.git"
   "dir": "signature"
 files:
-- "bitcoinnode-osx-unsigned.tar.gz"
+- "bitnexus-osx-unsigned.tar.gz"
 script: |
   WRAP_DIR=$HOME/wrapped
   mkdir -p ${WRAP_DIR}
@@ -28,10 +28,10 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
 
-  UNSIGNED=bitcoinnode-osx-unsigned.tar.gz
-  SIGNED=bitcoinnode-osx-signed.dmg
+  UNSIGNED=bitnexus-osx-unsigned.tar.gz
+  SIGNED=bitnexus-osx-signed.dmg
 
   tar -xf ${UNSIGNED}
   ./detached-sig-apply.sh ${UNSIGNED} signature/osx
-  ${WRAP_DIR}/genisoimage -no-cache-inodes -D -l -probe -V "BitcoinNode-Core" -no-pad -r -dir-mode 0755 -apple -o uncompressed.dmg signed-app
+  ${WRAP_DIR}/genisoimage -no-cache-inodes -D -l -probe -V "BitNexus-Core" -no-pad -r -dir-mode 0755 -apple -o uncompressed.dmg signed-app
   ${WRAP_DIR}/dmg dmg uncompressed.dmg ${OUTDIR}/${SIGNED}

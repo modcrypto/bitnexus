@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'overviewpage.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -59,6 +59,7 @@ public:
     QLabel *labelWatchAvailable;
     QLabel *labelPendingText;
     QLabel *labelSpendable;
+    QLabel *MessageLabel;
     QFrame *framePrivateSend;
     QVBoxLayout *VerticalLayout_PS1;
     QHBoxLayout *horizontalLayout_5;
@@ -100,7 +101,6 @@ public:
             OverviewPage->setObjectName(QStringLiteral("OverviewPage"));
         OverviewPage->resize(960, 585);
         OverviewPage->setMinimumSize(QSize(960, 0));
-        OverviewPage->setStyleSheet(QStringLiteral(""));
         topLayout = new QVBoxLayout(OverviewPage);
         topLayout->setObjectName(QStringLiteral("topLayout"));
         labelAlerts = new QLabel(OverviewPage);
@@ -135,7 +135,7 @@ public:
 
         labelWalletStatus = new QLabel(frame);
         labelWalletStatus->setObjectName(QStringLiteral("labelWalletStatus"));
-        labelWalletStatus->setStyleSheet(QStringLiteral("QLabel { color: orange;}"));
+        labelWalletStatus->setStyleSheet(QStringLiteral("QLabel { color: red; }"));
         labelWalletStatus->setText(QStringLiteral("(out of sync)"));
         labelWalletStatus->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -253,7 +253,6 @@ public:
 
         labelBalanceText = new QLabel(frame);
         labelBalanceText->setObjectName(QStringLiteral("labelBalanceText"));
-        labelBalanceText->setStyleSheet(QStringLiteral(""));
 
         gridLayout->addWidget(labelBalanceText, 1, 0, 1, 1);
 
@@ -261,7 +260,6 @@ public:
         labelBalance->setObjectName(QStringLiteral("labelBalance"));
         labelBalance->setFont(font);
         labelBalance->setCursor(QCursor(Qt::IBeamCursor));
-        labelBalance->setStyleSheet(QStringLiteral(""));
         labelBalance->setText(QString::fromUtf8("0.000\342\200\211000\342\200\21100 BTC"));
         labelBalance->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         labelBalance->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
@@ -272,7 +270,6 @@ public:
         labelWatchAvailable->setObjectName(QStringLiteral("labelWatchAvailable"));
         labelWatchAvailable->setFont(font);
         labelWatchAvailable->setCursor(QCursor(Qt::IBeamCursor));
-        labelWatchAvailable->setStyleSheet(QStringLiteral(""));
         labelWatchAvailable->setText(QString::fromUtf8("0.000\342\200\211000\342\200\21100 BTC"));
         labelWatchAvailable->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         labelWatchAvailable->setTextInteractionFlags(Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse);
@@ -293,6 +290,12 @@ public:
 
         verticalLayout_4->addLayout(gridLayout);
 
+        MessageLabel = new QLabel(frame);
+        MessageLabel->setObjectName(QStringLiteral("MessageLabel"));
+        MessageLabel->setWordWrap(true);
+
+        verticalLayout_4->addWidget(MessageLabel);
+
 
         verticalLayout_2->addWidget(frame);
 
@@ -308,13 +311,12 @@ public:
         labelPrivateSendHeader = new QLabel(framePrivateSend);
         labelPrivateSendHeader->setObjectName(QStringLiteral("labelPrivateSendHeader"));
         labelPrivateSendHeader->setFont(font);
-        labelPrivateSendHeader->setStyleSheet(QStringLiteral(""));
 
         horizontalLayout_5->addWidget(labelPrivateSendHeader);
 
         labelPrivateSendSyncStatus = new QLabel(framePrivateSend);
         labelPrivateSendSyncStatus->setObjectName(QStringLiteral("labelPrivateSendSyncStatus"));
-        labelPrivateSendSyncStatus->setStyleSheet(QStringLiteral("QLabel { color: orange; }"));
+        labelPrivateSendSyncStatus->setStyleSheet(QStringLiteral("QLabel { color: red; }"));
         labelPrivateSendSyncStatus->setText(QStringLiteral("(out of sync)"));
         labelPrivateSendSyncStatus->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -362,7 +364,7 @@ public:
         labelAnonymized = new QLabel(framePrivateSend);
         labelAnonymized->setObjectName(QStringLiteral("labelAnonymized"));
         labelAnonymized->setFont(font);
-        labelAnonymized->setText(QStringLiteral("0 BTN"));
+        labelAnonymized->setText(QStringLiteral("0 BTNX"));
 
         privateSendFormLayout->setWidget(2, QFormLayout::FieldRole, labelAnonymized);
 
@@ -390,9 +392,6 @@ public:
         VerticalLayout_PS1->addLayout(privateSendFormLayout);
 
         VerticalLayout_PS = new QVBoxLayout();
-#ifndef Q_OS_MAC
-        VerticalLayout_PS->setSpacing(-1);
-#endif
         VerticalLayout_PS->setObjectName(QStringLiteral("VerticalLayout_PS"));
         labelPrivateSendLastMessage = new QLabel(framePrivateSend);
         labelPrivateSendLastMessage->setObjectName(QStringLiteral("labelPrivateSendLastMessage"));
@@ -469,7 +468,7 @@ public:
 
         labelTransactionsStatus = new QLabel(frame_2);
         labelTransactionsStatus->setObjectName(QStringLiteral("labelTransactionsStatus"));
-        labelTransactionsStatus->setStyleSheet(QStringLiteral("QLabel { color: orange; }"));
+        labelTransactionsStatus->setStyleSheet(QStringLiteral("QLabel { color: red; }"));
         labelTransactionsStatus->setText(QStringLiteral("(out of sync)"));
         labelTransactionsStatus->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -518,7 +517,7 @@ public:
         OverviewPage->setWindowTitle(QApplication::translate("OverviewPage", "Form", 0));
         label_5->setText(QApplication::translate("OverviewPage", "Balances", 0));
 #ifndef QT_NO_TOOLTIP
-        labelWalletStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the BitcoinNode network after a connection is established, but this process has not completed yet.", 0));
+        labelWalletStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the BitNexus network after a connection is established, but this process has not completed yet.", 0));
 #endif // QT_NO_TOOLTIP
 #ifndef QT_NO_TOOLTIP
         labelWatchPending->setToolTip(QApplication::translate("OverviewPage", "Unconfirmed transactions to watch-only addresses", 0));
@@ -550,16 +549,17 @@ public:
 #endif // QT_NO_TOOLTIP
         labelPendingText->setText(QApplication::translate("OverviewPage", "Pending:", 0));
         labelSpendable->setText(QApplication::translate("OverviewPage", "Spendable:", 0));
+        MessageLabel->setText(QApplication::translate("OverviewPage", "<html><head/><body><p>-</p><p>-</p></body></html>", 0));
         labelPrivateSendHeader->setText(QApplication::translate("OverviewPage", "PrivateSend", 0));
 #ifndef QT_NO_TOOLTIP
-        labelPrivateSendSyncStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the BitcoinNode network after a connection is established, but this process has not completed yet.", 0));
+        labelPrivateSendSyncStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the BitNexus network after a connection is established, but this process has not completed yet.", 0));
 #endif // QT_NO_TOOLTIP
         labelPrivateSendEnabledText->setText(QApplication::translate("OverviewPage", "Status:", 0));
         labelPrivateSendEnabled->setText(QApplication::translate("OverviewPage", "Enabled/Disabled", 0));
         labelCompletitionText->setText(QApplication::translate("OverviewPage", "Completion:", 0));
         labelAnonymizedText->setText(QApplication::translate("OverviewPage", "PrivateSend Balance:", 0));
         labelAmountAndRoundsText->setText(QApplication::translate("OverviewPage", "Amount and Rounds:", 0));
-        labelAmountRounds->setText(QApplication::translate("OverviewPage", "0 BTN / 0 Rounds", 0));
+        labelAmountRounds->setText(QApplication::translate("OverviewPage", "0 BTNX / 0 Rounds", 0));
         labelSubmittedDenomText->setText(QApplication::translate("OverviewPage", "Submitted Denom:", 0));
 #ifndef QT_NO_TOOLTIP
         labelSubmittedDenom->setToolTip(QApplication::translate("OverviewPage", "The denominations you submitted to the Masternode.<br>To mix, other users must submit the exact same denominations.", 0));
@@ -581,7 +581,7 @@ public:
         privateSendInfo->setText(QApplication::translate("OverviewPage", "Info", 0));
         label_4->setText(QApplication::translate("OverviewPage", "Recent transactions", 0));
 #ifndef QT_NO_TOOLTIP
-        labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the BitcoinNode network after a connection is established, but this process has not completed yet.", 0));
+        labelTransactionsStatus->setToolTip(QApplication::translate("OverviewPage", "The displayed information may be out of date. Your wallet automatically synchronizes with the BitNexus network after a connection is established, but this process has not completed yet.", 0));
 #endif // QT_NO_TOOLTIP
     } // retranslateUi
 

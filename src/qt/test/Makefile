@@ -1,6 +1,6 @@
 all:
-	$(MAKE) -C ../../ test_bitcoinnode_qt
+	$(MAKE) -C ../../ test_bitnexus_qt
 clean:
-	$(MAKE) -C ../../ test_bitcoinnode_qt_clean
+	$(MAKE) -C ../../ test_bitnexus_qt_clean
 check:
-	$(MAKE) -C ../../ test_bitcoinnode_qt_check
+	$(MAKE) -C ../../ test_bitnexus_qt_check

@@ -1,6 +1,6 @@
 // Copyright (c) 2011-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -117,7 +117,7 @@ void setupAddressWidget(QValidatedLineEdit *widget, QWidget *parent)
 #if QT_VERSION >= 0x040700
     // We don't want translators to use own addresses in translations
     // and this is the only place, where this address is supplied.
-    widget->setPlaceholderText(QObject::tr("Enter a BitcoinNode address (e.g. %1)").arg("XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg"));
+    widget->setPlaceholderText(QObject::tr("Enter a BitNexus address (e.g. %1)").arg("XwnLY9Tf7Zsef8gMGL2fhWA9ZmMjt4KPwg"));
 #endif
     widget->setValidator(new BitcoinAddressEntryValidator(parent));
     widget->setCheckValidator(new BitcoinAddressCheckValidator(parent));
@@ -134,8 +134,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 {
-    // return if URI is not valid or is no bitcoinnode: URI
-    if(!uri.isValid() || uri.scheme() != QString("bitcoinnode"))
+    // return if URI is not valid or is no bitnexus: URI
+    if(!uri.isValid() || uri.scheme() != QString("bitnexus"))
         return false;
 
     SendCoinsRecipient rv;
@@ -184,7 +184,7 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
         {
             if(!i->second.isEmpty())
             {
-                if(!BitcoinUnits::parse(BitcoinUnits::BTN, i->second, &rv.amount))
+                if(!BitcoinUnits::parse(BitcoinUnits::BTNX, i->second, &rv.amount))
                 {
                     return false;
                 }
@@ -204,13 +204,13 @@ bool parseBitcoinURI(const QUrl &uri, SendCoinsRecipient *out)
 
 bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 {
-    // Convert bitcoinnode:// to bitcoinnode:
+    // Convert bitnexus:// to bitnexus:
     //
-    //    Cannot handle this later, because bitcoinnode:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because bitnexus:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
-    if(uri.startsWith("bitcoinnode://", Qt::CaseInsensitive))
+    if(uri.startsWith("bitnexus://", Qt::CaseInsensitive))
     {
-        uri.replace(0, 7, "bitcoinnode:");
+        uri.replace(0, 7, "bitnexus:");
     }
     QUrl uriInstance(uri);
     return parseBitcoinURI(uriInstance, out);
@@ -218,12 +218,12 @@ bool parseBitcoinURI(QString uri, SendCoinsRecipient *out)
 
 QString formatBitcoinURI(const SendCoinsRecipient &info)
 {
-    QString ret = QString("bitcoinnode:%1").arg(info.address);
+    QString ret = QString("bitnexus:%1").arg(info.address);
     int paramCount = 0;
 
     if (info.amount)
     {
-        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTN, info.amount, false, BitcoinUnits::separatorNever));
+        ret += QString("?amount=%1").arg(BitcoinUnits::format(BitcoinUnits::BTNX, info.amount, false, BitcoinUnits::separatorNever));
         paramCount++;
     }
 
@@ -639,15 +639,15 @@ boost::filesystem::path static StartupShortcutPath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "BitcoinNode.lnk";
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "BitNexus.lnk";
     if (chain == CBaseChainParams::TESTNET) // Remove this special case when CBaseChainParams::TESTNET = "testnet4"
-        return GetSpecialFolderPath(CSIDL_STARTUP) / "BitcoinNode (testnet).lnk";
-    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("BitcoinNode (%s).lnk", chain);
+        return GetSpecialFolderPath(CSIDL_STARTUP) / "BitNexus (testnet).lnk";
+    return GetSpecialFolderPath(CSIDL_STARTUP) / strprintf("BitNexus (%s).lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
 {
-    // check for BitcoinNode*.lnk
+    // check for BitNexus*.lnk
     return boost::filesystem::exists(StartupShortcutPath());
 }
 
@@ -739,8 +739,8 @@ boost::filesystem::path static GetAutostartFilePath()
 {
     std::string chain = ChainNameFromCommandLine();
     if (chain == CBaseChainParams::MAIN)
-        return GetAutostartDir() / "bitcoinnode.desktop";
-    return GetAutostartDir() / strprintf("bitcoinnode-%s.lnk", chain);
+        return GetAutostartDir() / "bitnexus.desktop";
+    return GetAutostartDir() / strprintf("bitnexus-%s.lnk", chain);
 }
 
 bool GetStartOnSystemStartup()
@@ -779,11 +779,11 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         if (!optionFile.good())
             return false;
         std::string chain = ChainNameFromCommandLine();
-        // Write a bitcoinnode.desktop file to the autostart directory:
+        // Write a bitnexus.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         if (chain == CBaseChainParams::MAIN)
-            optionFile << "Name=BitcoinNode\n";
+            optionFile << "Name=BitNexus\n";
         else
             optionFile << strprintf("Name=Bitcoin (%s)\n", chain);
         optionFile << "Exec=" << pszExePath << strprintf(" -min -testnet=%d -regtest=%d\n", GetBoolArg("-testnet", false), GetBoolArg("-regtest", false));
@@ -804,7 +804,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl);
 LSSharedFileListItemRef findStartupItemInList(LSSharedFileListRef list, CFURLRef findUrl)
 {
-    // loop through the list of startup items and try to find the BitcoinNode Core app
+    // loop through the list of startup items and try to find the BitNexus Core app
     CFArrayRef listSnapshot = LSSharedFileListCopySnapshot(list, NULL);
     for(int i = 0; i < CFArrayGetCount(listSnapshot); i++) {
         LSSharedFileListItemRef item = (LSSharedFileListItemRef)CFArrayGetValueAtIndex(listSnapshot, i);
@@ -849,7 +849,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
     LSSharedFileListItemRef foundItem = findStartupItemInList(loginItems, bitcoinAppUrl);
 
     if(fAutoStart && !foundItem) {
-        // add BitcoinNode Core app to startup item list
+        // add BitNexus Core app to startup item list
         LSSharedFileListInsertItemURL(loginItems, kLSSharedFileListItemBeforeFirst, NULL, NULL, bitcoinAppUrl, NULL, NULL);
     }
     else if(!fAutoStart && foundItem) {

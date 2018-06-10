@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'darksendconfig.ui'
 **
-** Created by: Qt User Interface Compiler version 5.2.1
+** Created by: Qt User Interface Compiler version 5.5.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -43,7 +43,6 @@ public:
         if (DarksendConfig->objectName().isEmpty())
             DarksendConfig->setObjectName(QStringLiteral("DarksendConfig"));
         DarksendConfig->resize(630, 307);
-        DarksendConfig->setStyleSheet(QStringLiteral(""));
         buttonBasic = new QPushButton(DarksendConfig);
         buttonBasic->setObjectName(QStringLiteral("buttonBasic"));
         buttonBasic->setGeometry(QRect(20, 70, 151, 27));
@@ -100,13 +99,13 @@ public:
         buttonHigh->setText(QApplication::translate("DarksendConfig", "High Privacy", 0));
         buttonMax->setText(QApplication::translate("DarksendConfig", "Maximum Privacy", 0));
         label->setText(QApplication::translate("DarksendConfig", "Please select a privacy level.", 0));
-        label_2->setText(QApplication::translate("DarksendConfig", "Use 2 separate masternodes to mix funds up to 1000 BTN", 0));
-        label_3->setText(QApplication::translate("DarksendConfig", "Use 8 separate masternodes to mix funds up to 1000 BTN", 0));
+        label_2->setText(QApplication::translate("DarksendConfig", "Use 2 separate masternodes to mix funds up to 1000 BTNX", 0));
+        label_3->setText(QApplication::translate("DarksendConfig", "Use 8 separate masternodes to mix funds up to 1000 BTNX", 0));
         label_4->setText(QApplication::translate("DarksendConfig", "Use 16 separate masternodes", 0));
-        label_6->setText(QApplication::translate("DarksendConfig", "This option is the quickest and will cost about ~0.025 BTN to anonymize 1000 BTN", 0));
-        label_7->setText(QApplication::translate("DarksendConfig", "This option is moderately fast and will cost about 0.05 BTN to anonymize 1000 BTN", 0));
+        label_6->setText(QApplication::translate("DarksendConfig", "This option is the quickest and will cost about ~0.025 BTNX to anonymize 1000 BTNX", 0));
+        label_7->setText(QApplication::translate("DarksendConfig", "This option is moderately fast and will cost about 0.05 BTNX to anonymize 1000 BTNX", 0));
         label_8->setText(QApplication::translate("DarksendConfig", "This is the slowest and most secure option. Using maximum anonymity will cost", 0));
-        label_9->setText(QApplication::translate("DarksendConfig", "0.1 BTN per 1000 BTN you anonymize.", 0));
+        label_9->setText(QApplication::translate("DarksendConfig", "0.1 BTNX per 1000 BTNX you anonymize.", 0));
     } // retranslateUi
 
 };

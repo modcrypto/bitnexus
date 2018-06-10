@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'walletview.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.2.1. It"
+#error "This file was generated using the moc from 5.5.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -19,54 +19,55 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_WalletView_t {
     QByteArrayData data[39];
-    char stringdata[504];
+    char stringdata0[503];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    offsetof(qt_meta_stringdata_WalletView_t, stringdata) + ofs \
-        - idx * sizeof(QByteArrayData) \
+    qptrdiff(offsetof(qt_meta_stringdata_WalletView_t, stringdata0) + ofs \
+        - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_WalletView_t qt_meta_stringdata_WalletView = {
     {
-QT_MOC_LITERAL(0, 0, 10),
-QT_MOC_LITERAL(1, 11, 21),
-QT_MOC_LITERAL(2, 33, 0),
-QT_MOC_LITERAL(3, 34, 7),
-QT_MOC_LITERAL(4, 42, 5),
-QT_MOC_LITERAL(5, 48, 5),
-QT_MOC_LITERAL(6, 54, 23),
-QT_MOC_LITERAL(7, 78, 6),
-QT_MOC_LITERAL(8, 85, 19),
-QT_MOC_LITERAL(9, 105, 4),
-QT_MOC_LITERAL(10, 110, 4),
-QT_MOC_LITERAL(11, 115, 7),
-QT_MOC_LITERAL(12, 123, 6),
-QT_MOC_LITERAL(13, 130, 4),
-QT_MOC_LITERAL(14, 135, 7),
-QT_MOC_LITERAL(15, 143, 5),
-QT_MOC_LITERAL(16, 149, 16),
-QT_MOC_LITERAL(17, 166, 15),
-QT_MOC_LITERAL(18, 182, 18),
-QT_MOC_LITERAL(19, 201, 20),
-QT_MOC_LITERAL(20, 222, 17),
-QT_MOC_LITERAL(21, 240, 4),
-QT_MOC_LITERAL(22, 245, 18),
-QT_MOC_LITERAL(23, 264, 20),
-QT_MOC_LITERAL(24, 285, 21),
-QT_MOC_LITERAL(25, 307, 6),
-QT_MOC_LITERAL(26, 314, 5),
-QT_MOC_LITERAL(27, 320, 13),
-QT_MOC_LITERAL(28, 334, 12),
-QT_MOC_LITERAL(29, 347, 16),
-QT_MOC_LITERAL(30, 364, 12),
-QT_MOC_LITERAL(31, 377, 14),
-QT_MOC_LITERAL(32, 392, 10),
-QT_MOC_LITERAL(33, 403, 20),
-QT_MOC_LITERAL(34, 424, 22),
-QT_MOC_LITERAL(35, 447, 22),
-QT_MOC_LITERAL(36, 470, 12),
-QT_MOC_LITERAL(37, 483, 9),
-QT_MOC_LITERAL(38, 493, 9)
+QT_MOC_LITERAL(0, 0, 10), // "WalletView"
+QT_MOC_LITERAL(1, 11, 21), // "showNormalIfMinimized"
+QT_MOC_LITERAL(2, 33, 0), // ""
+QT_MOC_LITERAL(3, 34, 7), // "message"
+QT_MOC_LITERAL(4, 42, 5), // "title"
+QT_MOC_LITERAL(5, 48, 5), // "style"
+QT_MOC_LITERAL(6, 54, 23), // "encryptionStatusChanged"
+QT_MOC_LITERAL(7, 78, 6), // "status"
+QT_MOC_LITERAL(8, 85, 19), // "incomingTransaction"
+QT_MOC_LITERAL(9, 105, 4), // "date"
+QT_MOC_LITERAL(10, 110, 4), // "unit"
+QT_MOC_LITERAL(11, 115, 7), // "CAmount"
+QT_MOC_LITERAL(12, 123, 6), // "amount"
+QT_MOC_LITERAL(13, 130, 4), // "type"
+QT_MOC_LITERAL(14, 135, 7), // "address"
+QT_MOC_LITERAL(15, 143, 5), // "label"
+QT_MOC_LITERAL(16, 149, 16), // "gotoOverviewPage"
+QT_MOC_LITERAL(17, 166, 15), // "gotoHistoryPage"
+QT_MOC_LITERAL(18, 182, 18), // "gotoMasternodePage"
+QT_MOC_LITERAL(19, 201, 20), // "gotoReceiveCoinsPage"
+QT_MOC_LITERAL(20, 222, 17), // "gotoSendCoinsPage"
+QT_MOC_LITERAL(21, 240, 4), // "addr"
+QT_MOC_LITERAL(22, 245, 18), // "gotoSignMessageTab"
+QT_MOC_LITERAL(23, 264, 20), // "gotoVerifyMessageTab"
+QT_MOC_LITERAL(24, 285, 21), // "processNewTransaction"
+QT_MOC_LITERAL(25, 307, 6), // "parent"
+QT_MOC_LITERAL(26, 314, 5), // "start"
+QT_MOC_LITERAL(27, 320, 13), // "encryptWallet"
+QT_MOC_LITERAL(28, 334, 12), // "backupWallet"
+QT_MOC_LITERAL(29, 347, 16), // "changePassphrase"
+QT_MOC_LITERAL(30, 364, 12), // "unlockWallet"
+QT_MOC_LITERAL(31, 377, 14), // "fAnonymizeOnly"
+QT_MOC_LITERAL(32, 392, 10), // "lockWallet"
+QT_MOC_LITERAL(33, 403, 20), // "usedSendingAddresses"
+QT_MOC_LITERAL(34, 424, 22), // "usedReceivingAddresses"
+QT_MOC_LITERAL(35, 447, 22), // "updateEncryptionStatus"
+QT_MOC_LITERAL(36, 470, 12), // "showProgress"
+QT_MOC_LITERAL(37, 483, 9), // "nProgress"
+QT_MOC_LITERAL(38, 493, 9) // "trxAmount"
+
     },
     "WalletView\0showNormalIfMinimized\0\0"
     "message\0title\0style\0encryptionStatusChanged\0"
@@ -81,7 +82,7 @@ QT_MOC_LITERAL(38, 493, 9)
     "fAnonymizeOnly\0lockWallet\0"
     "usedSendingAddresses\0usedReceivingAddresses\0"
     "updateEncryptionStatus\0showProgress\0"
-    "nProgress\0trxAmount\0"
+    "nProgress\0trxAmount"
 };
 #undef QT_MOC_LITERAL
 
@@ -99,34 +100,34 @@ static const uint qt_meta_data_WalletView[] = {
        4,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,  144,    2, 0x06,
-       3,    3,  145,    2, 0x06,
-       6,    1,  152,    2, 0x06,
-       8,    6,  155,    2, 0x06,
+       1,    0,  144,    2, 0x06 /* Public */,
+       3,    3,  145,    2, 0x06 /* Public */,
+       6,    1,  152,    2, 0x06 /* Public */,
+       8,    6,  155,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-      16,    0,  168,    2, 0x0a,
-      17,    0,  169,    2, 0x0a,
-      18,    0,  170,    2, 0x0a,
-      19,    0,  171,    2, 0x0a,
-      20,    1,  172,    2, 0x0a,
-      20,    0,  175,    2, 0x2a,
-      22,    1,  176,    2, 0x0a,
-      22,    0,  179,    2, 0x2a,
-      23,    1,  180,    2, 0x0a,
-      23,    0,  183,    2, 0x2a,
-      24,    3,  184,    2, 0x0a,
-      27,    1,  191,    2, 0x0a,
-      28,    0,  194,    2, 0x0a,
-      29,    0,  195,    2, 0x0a,
-      30,    1,  196,    2, 0x0a,
-      30,    0,  199,    2, 0x2a,
-      32,    0,  200,    2, 0x0a,
-      33,    0,  201,    2, 0x0a,
-      34,    0,  202,    2, 0x0a,
-      35,    0,  203,    2, 0x0a,
-      36,    2,  204,    2, 0x0a,
-      38,    1,  209,    2, 0x0a,
+      16,    0,  168,    2, 0x0a /* Public */,
+      17,    0,  169,    2, 0x0a /* Public */,
+      18,    0,  170,    2, 0x0a /* Public */,
+      19,    0,  171,    2, 0x0a /* Public */,
+      20,    1,  172,    2, 0x0a /* Public */,
+      20,    0,  175,    2, 0x2a /* Public | MethodCloned */,
+      22,    1,  176,    2, 0x0a /* Public */,
+      22,    0,  179,    2, 0x2a /* Public | MethodCloned */,
+      23,    1,  180,    2, 0x0a /* Public */,
+      23,    0,  183,    2, 0x2a /* Public | MethodCloned */,
+      24,    3,  184,    2, 0x0a /* Public */,
+      27,    1,  191,    2, 0x0a /* Public */,
+      28,    0,  194,    2, 0x0a /* Public */,
+      29,    0,  195,    2, 0x0a /* Public */,
+      30,    1,  196,    2, 0x0a /* Public */,
+      30,    0,  199,    2, 0x2a /* Public | MethodCloned */,
+      32,    0,  200,    2, 0x0a /* Public */,
+      33,    0,  201,    2, 0x0a /* Public */,
+      34,    0,  202,    2, 0x0a /* Public */,
+      35,    0,  203,    2, 0x0a /* Public */,
+      36,    2,  204,    2, 0x0a /* Public */,
+      38,    1,  209,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
@@ -165,6 +166,7 @@ void WalletView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         WalletView *_t = static_cast<WalletView *>(_o);
+        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->showNormalIfMinimized(); break;
         case 1: _t->message((*reinterpret_cast< const QString(*)>(_a[1])),(*reinterpret_cast< const QString(*)>(_a[2])),(*reinterpret_cast< uint(*)>(_a[3]))); break;
@@ -226,7 +228,7 @@ void WalletView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 
 const QMetaObject WalletView::staticMetaObject = {
     { &QStackedWidget::staticMetaObject, qt_meta_stringdata_WalletView.data,
-      qt_meta_data_WalletView,  qt_static_metacall, 0, 0}
+      qt_meta_data_WalletView,  qt_static_metacall, Q_NULLPTR, Q_NULLPTR}
 };
 
 
@@ -237,8 +239,8 @@ const QMetaObject *WalletView::metaObject() const
 
 void *WalletView::qt_metacast(const char *_clname)
 {
-    if (!_clname) return 0;
-    if (!strcmp(_clname, qt_meta_stringdata_WalletView.stringdata))
+    if (!_clname) return Q_NULLPTR;
+    if (!strcmp(_clname, qt_meta_stringdata_WalletView.stringdata0))
         return static_cast<void*>(const_cast< WalletView*>(this));
     return QStackedWidget::qt_metacast(_clname);
 }
@@ -263,27 +265,27 @@ int WalletView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 // SIGNAL 0
 void WalletView::showNormalIfMinimized()
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, 0);
+    QMetaObject::activate(this, &staticMetaObject, 0, Q_NULLPTR);
 }
 
 // SIGNAL 1
 void WalletView::message(const QString & _t1, const QString & _t2, unsigned int _t3)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 
 // SIGNAL 2
 void WalletView::encryptionStatusChanged(int _t1)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 2, _a);
 }
 
 // SIGNAL 3
 void WalletView::incomingTransaction(const QString & _t1, int _t2, const CAmount & _t3, const QString & _t4, const QString & _t5, const QString & _t6)
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)), const_cast<void*>(reinterpret_cast<const void*>(&_t5)), const_cast<void*>(reinterpret_cast<const void*>(&_t6)) };
+    void *_a[] = { Q_NULLPTR, const_cast<void*>(reinterpret_cast<const void*>(&_t1)), const_cast<void*>(reinterpret_cast<const void*>(&_t2)), const_cast<void*>(reinterpret_cast<const void*>(&_t3)), const_cast<void*>(reinterpret_cast<const void*>(&_t4)), const_cast<void*>(reinterpret_cast<const void*>(&_t5)), const_cast<void*>(reinterpret_cast<const void*>(&_t6)) };
     QMetaObject::activate(this, &staticMetaObject, 3, _a);
 }
 QT_END_MOC_NAMESPACE

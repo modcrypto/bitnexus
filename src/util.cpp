@@ -1,12 +1,12 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin Core developers
 // Copyright (c) 2014-2017 The Dash Core developers
-// Copyright (c) 2017-2018 The BitcoinNode Core developers
+// Copyright (c) 2017-2018 The BitNexus Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #if defined(HAVE_CONFIG_H)
-#include "config/bitcoinnode-config.h"
+#include "config/bitnexus-config.h"
 #endif
 
 #include "util.h"
@@ -103,7 +103,7 @@ namespace boost {
 
 using namespace std;
 
-//BitcoinNode only features
+//BitNexus only features
 bool fMasterNode = false;
 bool fLiteMode = false;
 /**
@@ -116,7 +116,7 @@ bool fLiteMode = false;
 int nWalletBackups = 10;
 
 const char * const BITCOIN_CONF_FILENAME = "bitcoinnode.conf";
-const char * const BITCOIN_PID_FILENAME = "bitcoinnoded.pid";
+const char * const BITCOIN_PID_FILENAME = "bitnexusd.pid";
 
 map<string, string> mapArgs;
 map<string, vector<string> > mapMultiArgs;
@@ -270,8 +270,8 @@ bool LogAcceptCategory(const char* category)
             const vector<string>& categories = mapMultiArgs["-debug"];
             ptrCategory.reset(new set<string>(categories.begin(), categories.end()));
             // thread_specific_ptr automatically deletes the set when the thread ends.
-            // "bitcoinnode" is a composite category enabling all BitcoinNode-related debug output
-            if(ptrCategory->count(string("bitcoinnode"))) {
+            // "bitnexus" is a composite category enabling all BitNexus-related debug output
+            if(ptrCategory->count(string("bitnexus"))) {
                 ptrCategory->insert(string("privatesend"));
                 ptrCategory->insert(string("instantsend"));
                 ptrCategory->insert(string("masternode"));
@@ -495,7 +495,7 @@ static std::string FormatException(const std::exception* pex, const char* pszThr
     char pszModule[MAX_PATH] = "";
     GetModuleFileNameA(NULL, pszModule, sizeof(pszModule));
 #else
-    const char* pszModule = "bitcoinnode";
+    const char* pszModule = "bitnexus";
 #endif
     if (pex)
         return strprintf(
@@ -515,10 +515,10 @@ void PrintExceptionContinue(const std::exception* pex, const char* pszThread)
 boost::filesystem::path GetDefaultDataDir()
 {
     namespace fs = boost::filesystem;
-    // Windows < Vista: C:\Documents and Settings\Username\Application Data\BitcoinNodeCore
-    // Windows >= Vista: C:\Users\Username\AppData\Roaming\BitcoinNodeCore
-    // Mac: ~/Library/Application Support/BitcoinNodeCore
-    // Unix: ~/.bitcoinnodecore
+    // Windows < Vista: C:\Documents and Settings\Username\Application Data\BitNexus
+    // Windows >= Vista: C:\Users\Username\AppData\Roaming\BitNexus
+    // Mac: ~/Library/Application Support/BitNexus
+    // Unix: ~/.bitnexus
 #ifdef WIN32
     // Windows
     return GetSpecialFolderPath(CSIDL_APPDATA) / "BitcoinNodeCore";

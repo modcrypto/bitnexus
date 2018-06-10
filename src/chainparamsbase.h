@@ -9,8 +9,8 @@
 #include <vector>
 
 /**
- * CBaseChainParams defines the base parameters (shared between bitcoinnode-cli and bitcoinnoded)
- * of a given instance of the BitcoinNode system.
+ * CBaseChainParams defines the base parameters (shared between bitnexus-cli and bitnexusd)
+ * of a given instance of the BitNexus system.
  */
 class CBaseChainParams
 {
