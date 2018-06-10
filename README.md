@@ -1,45 +1,46 @@
-BitcoinNode Core
+BitNexus (BitcoinNode Community Take Over Coin)
 ===============================
 
 
 http://btnodes.online
 
 
-What is BitcoinNode?
+What is BitNexus (BitcoinNode)?
 ----------------
 
-Bitcoin Nodes (BTN) is a version of Bitcoin launched in 2018, with an alternative architecture. BTN-network is based on Nodes, also known as Master Nodes.
+BitNexus (BTNX) is a community take over coin, which rebanded from BitcoinNode(BTN) with an alternative architecture. BTNX-network is based on Nodes, also known as Master Nodes.
 
 ### Description:
 
 1. Cryptographically secured
 2. Built on top of Bitcoin and Dash
-3. Master Nodes get 80% reward for their work.
+3. Master Nodes get 50% to %200 reward depends on their level.
 
 ### Highlights:
 
 1. Fast
 2. Secure
 3. Anonymous
+4. Multi-Level Masternodes
+5. X16S Algorithm 
 
 ### Specifications:
 
-1. Master Nodes 80% Block Reward
-2. Block time: 150 sec.
-3. Block reward 50 BTN. Decreases 8,33% YoY  
-4. Supply: 21,000,000
-5. Required 10,000 BTN for Master Node
-6. 1.0% Premine
-7. Dark Gravity Wave
-
+1. Block time: 150 sec.
+2. Block reward 20 BTNX. For miner (POW: X16S) 50% (10 BTNX). 
+3. Supply: 21,000,000
+4. Two level of Master Node.
+   - Level 1 : Required 10,000 BTN get 50%  of reward. (10 BTNX)
+   - Level 2 : Required 50,000 BTN get 200% of reward. (40 BTNX)
+5. 0.0% Premine (Developer Premine had blocked.)
+6. Dark Gravity Wave
 
 Additional information, wallets, specifications & roadmap: http://btnodes.online
-
 
 License
 -------
 
-BitcoinNode Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
+BitNexus Core is released under the terms of the MIT license. See [COPYING](COPYING) for more
 information or see https://opensource.org/licenses/MIT.
 
 Development Process
