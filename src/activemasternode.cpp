@@ -210,8 +210,8 @@ void CActiveMasternode::ManageStateInitial()
         return;
     }
 
-    if(pwalletMain->GetBalance() < 10000 * COIN) {
-        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < 1000 BTN\n", GetStateString());
+    if( !mnodeman.IsValidCollateral(pwalletMain->GetBalance())) {
+        LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < 10000 BTN\n", GetStateString());
         return;
     }
 
