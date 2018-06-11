@@ -5309,6 +5309,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
+
         int min_ver = MIN_PEER_PROTO_VERSION;
 
         if (GetAdjustedTime()> 1529514409 ){
