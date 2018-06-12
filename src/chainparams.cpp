@@ -156,12 +156,17 @@ public:
 
         checkpointData = (CCheckpointData) {
             boost::assign::map_list_of
-            (   0, uint256S("0x00000ee700742078adcb749b9f483105b87481130bbddbcc3aa6780c0fceec72")),
-            1518361200, // * UNIX timestamp of last checkpoint block
-            0,   // * total number of transactions between genesis and last checkpoint
+            (   0, uint256S("0x00000ee700742078adcb749b9f483105b87481130bbddbcc3aa6780c0fceec72"))
+            (   59400, uint256S("0x00000000fd84bb1506024c2b08ca960061e1f9706717aab5d3d1a3b941850fb4"))
+            (   59777, uint256S("0x00000000a2cb7502307e8681aad51293f77cb8c4fba5398d9e55fbf1ce9aaa80")),
+            1528728790, // * UNIX timestamp of last checkpoint block
+            65268,      // * total number of transactions between genesis and last checkpoint
                         //   (the tx=... number in the SetBestChain debug.log lines)
             2800        // * estimated number of transactions per day after checkpoint
         };
+ //2018-06-10 22:35:35 UpdateTip: new best=00000000fd84bb1506024c2b08ca960061e1f9706717aab5d3d1a3b941850fb4  height=59400  log2_work=47.7805  tx=64854  date=2018-06-10 22:34:52 progress=0.999979  cache=0.1MiB(327tx)       
+ //2018-06-11 14:53:50 UpdateTip: new best=00000000a2cb7502307e8681aad51293f77cb8c4fba5398d9e55fbf1ce9aaa80  height=59777  log2_work=47.7857  tx=65268  date=2018-06-11 14:53:10 timestamp=1528728790 progress=0.999980  cache=0.1MiB(465tx)
+       
     }
 };
 static CMainParams mainParams;
