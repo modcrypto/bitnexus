@@ -223,7 +223,11 @@ void CMasternode::Check(bool fForce)
         }
         return;
     }
-
+   
+    if(!isValidCollateral()){
+        nActiveState = MASTERNODE_OUTPOINT_SPENT;
+        return;
+    }
     // keep old masternodes on start, give them a chance to receive updates...
     bool fWaitForPing = !masternodeSync.IsMasternodeListSynced() && !IsPingedWithin(MASTERNODE_MIN_MNP_SECONDS);
 
