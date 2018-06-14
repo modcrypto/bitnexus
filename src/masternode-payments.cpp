@@ -144,11 +144,11 @@ bool IsBlockPayeeValid(const CTransaction& txNew, int nBlockHeight, CAmount bloc
     const Consensus::Params& consensusParams = Params().GetConsensus();
 
     if(nBlockHeight < consensusParams.nSuperblockStartBlock) {
-        if(mnpayments.IsTransactionValid(txNew, nBlockHeight)) {
+        if(mnpayments.IsTransactionValid(txNew, nBlockHeight, blockReward)) {
             LogPrint("mnpayments", "IsBlockPayeeValid -- Valid masternode payment at height %d: %s", nBlockHeight, txNew.ToString());
             return true;
         }
-        if(mnpayments.IsTransactionValid(txNew, nBlockHeight-1)) {
+        if(mnpayments.IsTransactionValid(txNew, nBlockHeight-1, blockReward)) {
             LogPrint("mnpayments", "IsBlockPayeeValid -- Valid masternode payment at height %d: %s", nBlockHeight-1, txNew.ToString());
             return true;
         }
@@ -197,7 +197,7 @@ bool IsBlockPayeeValid(const CTransaction& txNew, int nBlockHeight, CAmount bloc
     }
 
     // IF THIS ISN'T A SUPERBLOCK OR SUPERBLOCK IS INVALID, IT SHOULD PAY A MASTERNODE DIRECTLY
-    if(mnpayments.IsTransactionValid(txNew, nBlockHeight)) {
+    if(mnpayments.IsTransactionValid(txNew, nBlockHeight, blockReward)) {
         LogPrint("mnpayments", "IsBlockPayeeValid -- Valid masternode payment at height %d: %s", nBlockHeight, txNew.ToString());
         return true;
     }
@@ -574,21 +574,16 @@ bool CMasternodeBlockPayees::HasPayeeWithVotes(CScript payeeIn, int nVotesReq)
     return false;
 }
 
-bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
+bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew, CAmount blockReward)
 {
-    CAmount subsidy = txNew.GetValueOut();
-    if(nBlockHeight>58800){
-       if(subsidy > 60*COIN){  // limit to 60 BTNX
-         subsidy = 60*COIN;
-       }
-    }
-    CAmount powPayment = GetPowPayment(nBlockHeight, subsidy);    
     BOOST_FOREACH(CTxOut txout, txNew.vout) {
-      if (txout.nValue > subsidy){
+      if (txout.nValue > blockReward){
         LogPrintf("CMasternodeBlockPayees::IsTransactionValid invalid value %u.\n",(float)txout.nValue/COIN);
         return false;
       }
     }
+
+    CAmount powPayment = GetPowPayment(nBlockHeight, blockReward);    
 
     LOCK(cs_vecPayees);
 
@@ -602,8 +597,7 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
         if (payee.GetVoteCount() >= nMaxSignatures) {
             nMaxSignatures = payee.GetVoteCount();
         }
-    }
-   
+    }  
     // if we don't have at least MNPAYMENTS_SIGNATURES_REQUIRED signatures on a payee, approve whichever is the longest chain
     if(nMaxSignatures < MNPAYMENTS_SIGNATURES_REQUIRED) return true;
     
@@ -635,14 +629,14 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
        }
        if( mnode!= NULL){
           found++; 
-          nMasternodePayment = GetMasternodePayment(nBlockHeight, txNew.GetValueOut(), mnode->getCollateralValue());
+          nMasternodePayment = GetMasternodePayment(nBlockHeight, blockReward, mnode->getCollateralValue());
           if (txout.nValue > nMasternodePayment + (0.1*COIN)) {
             LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- WARNING: mn reward %f != expect reward %f BTNX\n", (float)txout.nValue/COIN, (float)nMasternodePayment/COIN); 
             invalid++;
           }  
        }else{
-          found++; 
-          powPayment = GetPowPayment(nBlockHeight, txNew.GetValueOut());  
+          //found++; 
+          //powPayment = GetPowPayment(nBlockHeight, txNew.GetValueOut());  
           if (txout.nValue > powPayment+ (0.1*COIN)) {
             LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- WARNING: pow reward %f != expect reward %f BTNX\n", (float)txout.nValue/COIN, (float)powPayment/COIN); 
             invalid++;
@@ -681,9 +675,9 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
           
     }
 */
+    if(invalid==0) return true;
+    if(found>0) return true;
 
-    if(invalid==0 && found <= 2 ) return true;
-    
     CTxDestination paddress1;
     std::string strPayees = "";
     BOOST_FOREACH(CTxOut txout, txNew.vout) {
@@ -691,9 +685,10 @@ bool CMasternodeBlockPayees::IsTransactionValid(const CTransaction& txNew)
       CBitcoinAddress paddress2(paddress1);
       strPayees += paddress2.ToString() + ",";
     }
-    if(found > 2){
-       LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- found %d \n", found); 
-    }
+   // if(found > 2){
+   //    LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- found %d \n", found); 
+   //    return true;
+  //  }
     LogPrintf("CMasternodeBlockPayees::IsTransactionValid -- ERROR: Missing required payment payees:%s, possible payees: '%s', amount: %f BTNX, vote:%d\n",strPayees, strPayeesPossible, (float)nMasternodePayment/COIN, nMaxSignatures);   
     return false;
 }
@@ -731,12 +726,12 @@ std::string CMasternodePayments::GetRequiredPaymentsString(int nBlockHeight)
     return "Unknown";
 }
 
-bool CMasternodePayments::IsTransactionValid(const CTransaction& txNew, int nBlockHeight)
+bool CMasternodePayments::IsTransactionValid(const CTransaction& txNew, int nBlockHeight, CAmount blockReward)
 {
     LOCK(cs_mapMasternodeBlocks);
 
     if(mapMasternodeBlocks.count(nBlockHeight)){
-        return mapMasternodeBlocks[nBlockHeight].IsTransactionValid(txNew);
+        return mapMasternodeBlocks[nBlockHeight].IsTransactionValid(txNew, blockReward);
     }
 
     return true;

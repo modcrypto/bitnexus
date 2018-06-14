@@ -1780,11 +1780,13 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     }
     return fSuperblockPartOnly ? 0 : nSubsidy;
 }
+
 CAmount GetPowPayment(int nHeight, CAmount blockValue)
 {    
     if(nHeight>1) return blockValue * 2 / 10;
     return blockValue;
 }
+
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue, CAmount mnCollateral)
 {    
     CAmount ret = blockValue * 8 / 10; 
@@ -5309,7 +5311,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         CAddress addrFrom;
         uint64_t nNonce = 1;
         vRecv >> pfrom->nVersion >> pfrom->nServices >> nTime >> addrMe;
-        
+
         int min_ver = MIN_PEER_PROTO_VERSION;
 
         if (GetAdjustedTime()> 1529514409 ){
