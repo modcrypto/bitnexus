@@ -1780,11 +1780,13 @@ CAmount GetBlockSubsidy(int nPrevBits, int nPrevHeight, const Consensus::Params&
     }
     return fSuperblockPartOnly ? 0 : nSubsidy;
 }
+
 CAmount GetPowPayment(int nHeight, CAmount blockValue)
 {    
     if(nHeight>1) return blockValue * 2 / 10;
     return blockValue;
 }
+
 CAmount GetMasternodePayment(int nHeight, CAmount blockValue, CAmount mnCollateral)
 {    
     CAmount ret = blockValue * 8 / 10; 
