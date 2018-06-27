@@ -1,9 +1,10 @@
 BitNexus (BitcoinNode Community Take Over Coin)
 ===============================
 
-
-http://btnodes.online
-
+http://www.bitnexus.online   http://btnodes.online
+http://explorer.bitnexus.online
+https://bitcointalk.org/index.php?topic=4541359.0
+https://twitter.com/btnx_bitnexus
 
 What is BitNexus (BitcoinNode)?
 ----------------
