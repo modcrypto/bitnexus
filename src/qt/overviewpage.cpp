@@ -122,6 +122,9 @@ public:
     const PlatformStyle *platformStyle;
 
 };
+
+extern UniValue GetNetworkHashPS(int lookup, int height);
+
 #include "overviewpage.moc"
 
 OverviewPage::OverviewPage(const PlatformStyle *platformStyle, QWidget *parent) :
@@ -231,14 +234,22 @@ void OverviewPage::updateInformation(){
     }else{
        txt += tr("<li>Algorithm will be changed to X16S in <span style='color:#b00'> %1 days %2h:%3m:%4s </span> </li>").arg(tday).arg(thour).arg(tmin).arg(tsec);        
     }
+    double hashrate =GetNetworkHashPS(10,-1).get_real();
+    hashrate = hashrate/1000000;
+
     txt += tr("<li>Current Blocks: <span style='color:#a00'> %1</span> </li>").arg(nBlocks); 
-    txt += tr("<li>Difficulty: <span style='color:#a00'> %1</span> POW Algorithm: <span style='color:#a00'> %2</span> </li>").arg(GetDifficulty()).arg(algo); 
+    txt += tr("<li>Difficulty: <span style='color:#a00'> %1</span> POW Algorithm: <span style='color:#a00'> %2</span> </li>").arg(GetDifficulty(),0,'g',4).arg(algo); 
+    txt += tr("<li>Network Hash: <span style='color:#a00'> %3</span> MHash/s </li>").arg(hashrate,0,'g',4); 
     txt += tr("<li>Connection : <span style='color:#a00'> %1</span> </li>").arg( clientModel->getNumConnections()); 
     txt += tr("<li>Master Nodes <span style='color:#a00'> %1</span><br> </li>").arg( clientModel->getMasternodeCountString()); 
-    txt += tr("<li>Official Website: <a href='http://www.btnodes.online/'>http://www.btnodes.online/</a> </li>"); 
-    txt += tr("<li>Block Explorer: <a href='http://explorer.btnodes.online/'>http://explorer.btnodes.online/</a> </li>"); 
-    txt += tr("<li>Github: <a href='https://github.com/modcrypto/bitnexus/'>https://github.com/modcrypto/bitnexus</a> </li>"); 
-    txt += tr("</ul>");
+    txt += tr("<li>Links: <a href='http://www.bitnexus.online/'>Website</a>  "); 
+    txt += tr("<a href='http://explorer.bitnexus.online/'>Block Explorer</a>  "); 
+    txt += tr("<a href='https://github.com/modcrypto/bitnexus/releases'>Download Wallet</a> "); 
+    txt += tr("</li>"); 
+    txt += tr("<li>Socials : "); 
+    txt += tr("<a href='https://discord.gg/9qBEvKG'>Discord</a> "); 
+    txt += tr("<a href='https://twitter.com/btnx_bitnexus'>Twitter</a>"); 
+    txt += tr(" </li></ul>");
     ui->MessageLabel->setText(txt);    
 }
 void OverviewPage::setBalance(const CAmount& balance, const CAmount& unconfirmedBalance, const CAmount& immatureBalance, const CAmount& anonymizedBalance, const CAmount& watchOnlyBalance, const CAmount& watchUnconfBalance, const CAmount& watchImmatureBalance)

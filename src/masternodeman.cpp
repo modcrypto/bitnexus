@@ -585,10 +585,12 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
     }
 
     nCount = (int)vecMasternodeLastPaid.size();
-
+    LogPrintf("CMasternode::GetNextMasternodeInQueueForPayment, nCount=%d \n", nCount);
     //when the network is in the process of upgrading, don't penalize nodes that recently restarted
-    if(fFilterSigTime && nCount < nMnCount/3) return GetNextMasternodeInQueueForPayment(nBlockHeight, false, nCount);
-
+    if(fFilterSigTime && nCount < nMnCount/3) {
+       
+        return GetNextMasternodeInQueueForPayment(nBlockHeight, false, nCount);
+    }
     // Sort them low to high
     sort(vecMasternodeLastPaid.begin(), vecMasternodeLastPaid.end(), CompareLastPaidBlock());
 
@@ -602,13 +604,22 @@ CMasternode* CMasternodeMan::GetNextMasternodeInQueueForPayment(int nBlockHeight
     //  -- 1/100 payments should be a double payment on mainnet - (1/(3000/10))*2
     //  -- (chance per block * chances before IsScheduled will fire)
     int nTenthNetwork = nMnCount/10;
+    if(nTenthNetwork>5) nTenthNetwork=5; 
+
     int nCountTenth = 0;
     arith_uint256 nHighest = 0;
     BOOST_FOREACH (PAIRTYPE(int, CMasternode*)& s, vecMasternodeLastPaid){
         arith_uint256 nScore = s.second->CalculateScore(blockHash);
         if(nScore > nHighest){
             nHighest = nScore;
+        
             pBestMasternode = s.second;
+/*            CScript payee = GetScriptForDestination(pBestMasternode->pubKeyCollateralAddress.GetID());
+            CTxDestination address1;
+            ExtractDestination(payee, address1);
+            CBitcoinAddress address2(address1);
+            LogPrintf("CMasternode::GetNextMasternodeInQueueForPayment max=%s score=%s\n",address2.ToString(), nHighest.ToString()); */
+            LogPrintf("CMasternode::GetNextMasternodeInQueueForPayment max=%s score=%s\n",pBestMasternode->vin.prevout.ToStringShort(),nHighest.ToString()); 
         }
         nCountTenth++;
         if(nCountTenth >= nTenthNetwork) break;

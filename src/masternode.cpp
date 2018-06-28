@@ -146,21 +146,26 @@ bool CMasternode::UpdateFromNewBroadcast(CMasternodeBroadcast& mnb)
 // the proof of work for that block. The further away they are the better, the furthest will win the election
 // and get paid this block
 //
+
 arith_uint256 CMasternode::CalculateScore(const uint256& blockHash)
 {
-    uint256 aux = ArithToUint256(UintToArith256(vin.prevout.hash) + vin.prevout.n);
+     //2563215569
+    arith_uint256 prime = 2563215569;
+    uint256 aux = ArithToUint256(Modulo256(UintToArith256(vin.prevout.hash) + vin.prevout.n, prime));
 
     CHashWriter ss(SER_GETHASH, PROTOCOL_VERSION);
     ss << blockHash;
-    arith_uint256 hash2 = UintToArith256(ss.GetHash());
+    arith_uint256 hash2 = Modulo256(UintToArith256(ss.GetHash()),prime);
 
     CHashWriter ss2(SER_GETHASH, PROTOCOL_VERSION);
     ss2 << blockHash;
     ss2 << aux;
-    arith_uint256 hash3 = UintToArith256(ss2.GetHash());
+    arith_uint256 hash3 = Modulo256(UintToArith256(ss2.GetHash()),prime);
 
     return (hash3 > hash2 ? hash3 - hash2 : hash2 - hash3);
+
 }
+
 
 void CMasternode::Check(bool fForce)
 {
@@ -386,10 +391,10 @@ void CMasternode::UpdateLastPaid(const CBlockIndex *pindex, int nMaxBlocksToScan
             if(!ReadBlockFromDisk(block, BlockReading, Params().GetConsensus())) // shouldn't really happen
                 continue;
 
-            CMasternode *mnode = mnodeman.Find(mnpayee);
-            CAmount nMasternodePayment = GetMasternodePayment(BlockReading->nHeight, block.vtx[0].GetValueOut(), mnode->getCollateralValue());           
+//            CMasternode *mnode = mnodeman.Find(mnpayee);
+//           CAmount nMasternodePayment = GetMasternodePayment(BlockReading->nHeight, block.vtx[0].GetValueOut(), mnode->getCollateralValue());           
             BOOST_FOREACH(CTxOut txout, block.vtx[0].vout)
-                if(mnpayee == txout.scriptPubKey && nMasternodePayment == txout.nValue) {
+                if(mnpayee == txout.scriptPubKey ) {   //&& nMasternodePayment == txout.nValue
                     nBlockLastPaid = BlockReading->nHeight;
                     nTimeLastPaid = BlockReading->nTime;
                     LogPrint("masternode", "CMasternode::UpdateLastPaidBlock -- searching for block with payment to %s -- found new %d\n", vin.prevout.ToStringShort(), nBlockLastPaid);

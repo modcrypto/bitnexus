@@ -282,8 +282,11 @@ public:
 
     bool IsValidForPayment()
     {
-        if(!isValidCollateral()) return false;
+        //   if(!isValidCollateral()) return false;
         if(nActiveState == MASTERNODE_ENABLED) {
+            return true;
+        }
+        if(nActiveState == MASTERNODE_WATCHDOG_EXPIRED) {
             return true;
         }
         if(!sporkManager.IsSporkActive(SPORK_14_REQUIRE_SENTINEL_FLAG) &&
