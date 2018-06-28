@@ -287,4 +287,9 @@ public:
 uint256 ArithToUint256(const arith_uint256 &);
 arith_uint256 UintToArith256(const uint256 &);
 
+inline arith_uint256 Modulo256(const arith_uint256& a, const arith_uint256& n)
+{
+   return (a - (n * (a / n)));
+}
+
 #endif // BITCOIN_ARITH_UINT256_H

@@ -115,7 +115,7 @@ bool fLiteMode = false;
 */
 int nWalletBackups = 10;
 
-const char * const BITCOIN_CONF_FILENAME = "bitcoinnode.conf";
+const char * const BITCOIN_CONF_FILENAME = "bitnexus.conf";
 const char * const BITCOIN_PID_FILENAME = "bitnexusd.pid";
 
 map<string, string> mapArgs;
@@ -245,6 +245,9 @@ void OpenDebugLog()
 
 bool LogAcceptCategory(const char* category)
 {
+    // DEBUG-ALL
+  //  return true;
+
     if (category != NULL)
     {
         // Give each thread quick access to -debug settings.
@@ -626,10 +629,19 @@ boost::filesystem::path GetMasternodeConfigFile()
 void ReadConfigFile(map<string, string>& mapSettingsRet,
                     map<string, vector<string> >& mapMultiSettingsRet)
 {
-    boost::filesystem::ifstream streamConfig(GetConfigFile());
+    boost::filesystem::path configfile=GetConfigFile();
+    if(!boost::filesystem::exists(configfile)){
+      boost::filesystem::path oldConfig("bitcoinnode.conf"); 
+      oldConfig = GetDataDir(false) / oldConfig;
+      if(boost::filesystem::exists(oldConfig)){
+        boost::filesystem::copy_file(oldConfig, configfile);    
+      }
+    }
+
+    boost::filesystem::ifstream streamConfig(configfile);
     if (!streamConfig.good()){
         // Create empty bitcoinnode.conf if it does not excist
-        FILE* configFile = fopen(GetConfigFile().string().c_str(), "a");
+        FILE* configFile = fopen(configfile.string().c_str(), "a");
         if (configFile != NULL)
             fclose(configFile);
         return; // Nothing to read, so just return

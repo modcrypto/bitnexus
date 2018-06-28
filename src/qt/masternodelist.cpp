@@ -304,6 +304,9 @@ void MasternodeList::updateNodeList()
         QString amntStr = QString::fromStdString(strprintf("%d BTNX",mn.getCollateralValue()/COIN));
         QTableWidgetItem* amountItem = new QTableWidgetItem(amntStr);
         QTableWidgetItem* banItem = new QTableWidgetItem(QString::number(mn.nPoSeBanScore));
+       // int vote=0,rank=0;
+       // QString dbgStr = QString::fromStdString(strprintf("vote=%d rank=%d",vote,rank);
+       // QTableWidgetItem* debugItem = new QTableWidgetItem(dbgStr);
         if (strCurrentFilter != "") {
             strToFilter = addressItem->text() + " " +
                           protocolItem->text() + " " +

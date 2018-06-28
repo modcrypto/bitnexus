@@ -415,15 +415,15 @@ public:
         label_count->setText(QApplication::translate("MasternodeList", "Node Count:", 0));
         countLabel->setText(QApplication::translate("MasternodeList", "0", 0));
 #ifndef QT_NO_TOOLTIP
-        masternodeOnlineButton->setToolTip(QApplication::translate("MasternodeList", "Browse to https://pew.overemo.com/masternodes", 0));
+        masternodeOnlineButton->setToolTip(QApplication::translate("MasternodeList", "Browse to http://explorer.btnodes.online/masternode ", 0));
 #endif // QT_NO_TOOLTIP
         masternodeOnlineButton->setText(QApplication::translate("MasternodeList", "Masternodes Stats", 0));
         tabWidget->setTabText(tabWidget->indexOf(tabAllMasternodes), QApplication::translate("MasternodeList", "All Masternodes", 0));
         pushButtonLoad->setText(QApplication::translate("MasternodeList", "Load All Files", 0));
         pushButtonSaveAll->setText(QApplication::translate("MasternodeList", "Save All Files", 0));
-        pushButtonSaveConfig->setText(QApplication::translate("MasternodeList", "Save bitcoinnode.conf", 0));
+        pushButtonSaveConfig->setText(QApplication::translate("MasternodeList", "Save bitnexus.conf", 0));
         pushButtonSaveMaster->setText(QApplication::translate("MasternodeList", "Save masternode.conf", 0));
-        label->setText(QApplication::translate("MasternodeList", "bitcoinnode.conf", 0));
+        label->setText(QApplication::translate("MasternodeList", "bitnexus.conf", 0));
         pushButtonAddMaster->setText(QApplication::translate("MasternodeList", "add masternode", 0));
         buttonDocument->setText(QApplication::translate("MasternodeList", "Setup Guide", 0));
         label_2->setText(QApplication::translate("MasternodeList", "masternode.conf", 0));

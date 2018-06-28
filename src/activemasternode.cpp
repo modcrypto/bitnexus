@@ -210,11 +210,10 @@ void CActiveMasternode::ManageStateInitial()
         return;
     }
 
-    if( !mnodeman.IsValidCollateral(pwalletMain->GetBalance())) {
+    if(pwalletMain->GetBalance() < 10000 * COIN) {
         LogPrintf("CActiveMasternode::ManageStateInitial -- %s: Wallet balance is < 10000 BTN\n", GetStateString());
         return;
     }
-
     // Choose coins to use
     CPubKey pubKeyCollateral;
     CKey keyCollateral;

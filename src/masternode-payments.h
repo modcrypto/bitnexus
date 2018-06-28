@@ -18,14 +18,14 @@ class CMasternodePaymentVote;
 class CMasternodeBlockPayees;
 
 static const int MNPAYMENTS_SIGNATURES_REQUIRED         = 6;
-static const int MNPAYMENTS_SIGNATURES_TOTAL            = 10;
+static const int MNPAYMENTS_SIGNATURES_TOTAL            = 15;
 
 //! minimum peer version that can receive and send masternode payment messages,
 //  vote for masternode and be elected as a payment winner
 // V1 - Last protocol version before update
 // V2 - Newest protocol version
-static const int MIN_MASTERNODE_PAYMENT_PROTO_VERSION_1 = 70208;
-static const int MIN_MASTERNODE_PAYMENT_PROTO_VERSION_2 = 70208;
+static const int MIN_MASTERNODE_PAYMENT_PROTO_VERSION_1 = 70209;
+static const int MIN_MASTERNODE_PAYMENT_PROTO_VERSION_2 = 70209;
 
 extern CCriticalSection cs_vecPayees;
 extern CCriticalSection cs_mapMasternodeBlocks;

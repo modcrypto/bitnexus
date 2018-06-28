@@ -3802,7 +3802,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     const Consensus::Params& consensusParams = Params().GetConsensus();
     int nHeight = pindexPrev->nHeight + 1;
     // Check proof of work
-    if(Params().NetworkIDString() == CBaseChainParams::MAIN && nHeight <= 68589){
+    if(Params().NetworkIDString() == CBaseChainParams::MAIN ){
         // architecture issues with DGW v1 and v2)
         unsigned int nBitsNext = GetNextWorkRequired(pindexPrev, &block, consensusParams);
         double n1 = ConvertBitsToDouble(block.nBits);
@@ -5314,10 +5314,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         int min_ver = MIN_PEER_PROTO_VERSION;
 
-        if (GetAdjustedTime()> 1529514409 ){
-             min_ver = PROTOCOL_VERSION;
-        }
-        min_ver = PROTOCOL_VERSION;
+        if (GetAdjustedTime()> 1531612800 ){    // 2018-07-15 : 00:00:00
+             min_ver = PROTOCOL_VERSION;    
+        }        
         if (pfrom->nVersion < min_ver)
         {
             // disconnect from peers older than this proto version
