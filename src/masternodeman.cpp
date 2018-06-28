@@ -1664,7 +1664,7 @@ void CMasternodeMan::UpdatedBlockTip(const CBlockIndex *pindex)
     pCurrentBlockIndex = pindex;
     LogPrint("masternode", "CMasternodeMan::UpdatedBlockTip -- pCurrentBlockIndex->nHeight=%d\n", pCurrentBlockIndex->nHeight);
 
-    if(pCurrentBlockIndex->nHeight>70000) CheckSameAddr();
+    if(pCurrentBlockIndex->nHeight>75000) CheckSameAddr();
 
     if(fMasterNode) {
         // normal wallet does not need to update this every block, doing update on rpc call should be enough
