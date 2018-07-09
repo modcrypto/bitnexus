@@ -464,8 +464,8 @@ UniValue getblocktemplate(const UniValue& params, bool fHelp)
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "BitNexus Core is downloading blocks...");
 
-   // if (!masternodeSync.IsSynced())
-   //     throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "BitNexus Core is syncing with network...");
+    if (!masternodeSync.IsSynced())
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "BitNexus Core is syncing with network...");
 
     static unsigned int nTransactionsUpdatedLast;
 
