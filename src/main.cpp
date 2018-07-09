@@ -5314,7 +5314,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         int min_ver = MIN_PEER_PROTO_VERSION;
 
-        if (GetAdjustedTime()> 1531612800 ){    // 2018-07-15 : 00:00:00
+        if (GetAdjustedTime()> 1531155568 ){    // 1531612800 2018-07-15 : 00:00:00
              min_ver = PROTOCOL_VERSION;    
         }        
         if (pfrom->nVersion < min_ver)
